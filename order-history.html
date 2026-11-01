@@ -10,7 +10,7 @@
     <script>
       // Kiểm tra xem đã đăng nhập chưa
       if (sessionStorage.getItem("daDangNhap") !== "true") {
-        alert("Vui lòng đăng nhập để xem lịch sử đặt hàng!");
+        // alert("Vui lòng đăng nhập để xem lịch sử đặt hàng!");
         window.location.href = "login.html";
       }
     </script>
@@ -18,11 +18,23 @@
     <!-- ================= HEADER ================= -->
     <header class="header">
       <div class="header-top">
-        <a href="index.html" class="logo">Góc <span>Trà Sữa</span></a>
+        <a href="index.html" class="logo" style="line-height: 1.1">
+          Góc <span>Tea</span>
+          <small
+            style="
+              font-size: 14px;
+              font-weight: 500;
+              display: block;
+              color: #ffd9a0;
+              letter-spacing: 0.5px;
+              margin-top: 2px;
+            "
+            >Boba & Coffee</small
+          >
+        </a>
         <nav class="nav">
           <a href="index.html">Trang chủ</a>
           <a href="products.html">Sản phẩm</a>
-          <a href="cart.html">Giỏ hàng <span class="cart-badge">2</span></a>
           <a href="order-history.html" class="active">Đơn hàng</a>
         </nav>
         <form class="search-form" action="search.html" method="get">
@@ -249,16 +261,29 @@
       </div>
     </section>
 
-    <!-- ================= FOOTER ================= -->
+  <!-- ================= FOOTER ================= -->
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-col-1">
-          <a href="index.html" class="logo">Góc <span>Trà Sữa</span></a>
+          <a href="index.html" class="logo"
+            >Góc <span>Tea</span>
+            <small
+              style="
+                font-size: 13px;
+                font-weight: normal;
+                display: block;
+                margin-top: -5px;
+                color: #ffd9a0;
+              "
+              >Boba & Coffee</small
+            ></a
+          >
           <p>
             Trà sữa nhà làm, ngon đúng gu. Mang đến cho bạn những ly trà sữa
             tuyệt vời nhất với nguyên liệu an toàn và chất lượng.
           </p>
         </div>
+
         <div class="footer-col-2">
           <h4>Liên hệ</h4>
           <div class="footer-contact-item">
@@ -283,12 +308,15 @@
               ></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
-            <span>xinchao@goctrasua.vn</span>
+            <span>hello@gocteabobacoffee.vn</span>
           </div>
         </div>
       </div>
-      <div class="footer-bottom">© Góc Trà Sữa. All rights reserved.</div>
+      <div class="footer-bottom">
+        © Góc Tea - Boba & Coffee. All rights reserved.
+      </div>
     </footer>
+
     <script src="js/main.js"></script>
     <script>
       kiemTraDangNhap();

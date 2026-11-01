@@ -10,19 +10,20 @@
     <!-- ================= HEADER ================= -->
     <header class="header">
       <div class="header-top">
-        <a href="index.html" class="logo"
-          >Góc <span>Boba</span>
+        <a href="index.html" class="logo" style="line-height: 1.1">
+          Góc <span>Tea</span>
           <small
             style="
-              font-size: 13px;
-              font-weight: normal;
+              font-size: 14px;
+              font-weight: 500;
               display: block;
-              margin-top: -5px;
               color: #ffd9a0;
+              letter-spacing: 0.5px;
+              margin-top: 2px;
             "
-            >Tea & Coffee</small
-          ></a
-        >
+            >Boba & Coffee</small
+          >
+        </a>
         <nav class="nav">
           <a href="index.html">Trang chủ</a>
           <a href="products.html" class="active">Sản phẩm</a>
@@ -66,9 +67,9 @@
               <label>Phân loại</label>
               <select name="phan-loai" class="search-select">
                 <option value="all">Tất cả</option>
-                <option value="tra-sua">Trà sữa</option>
-                <option value="tra-trai-cay">Trà trái cây</option>
-                <option value="do-uong-khac">Đồ uống khác</option>
+                <option value="tra-sua">Trà Sữa</option>
+                <option value="tra-trai-cay">Trà Trái Cây</option>
+                <option value="coffee-latte">Coffee & Latte</option>
                 <option value="topping">Topping</option>
               </select>
             </div>
@@ -99,16 +100,20 @@
         </div>
 
         <!-- DANH SÁCH SẢN PHẨM -->
-        <!-- <div class="menu-header">
-          <h2
-            class="section-title"
-            style="text-align: left; font-size: 24px; text-transform: uppercase"
+        <div class="menu-header">
+          <!-- <h2
+            style="
+              text-align: left;
+              font-size: 28px;
+              text-transform: uppercase;
+              color: var(--mau-nau);
+              margin-bottom: 0;
+            "
           >
             Sản phẩm
-          </h2>
-        </div> -->
-                <div class="menu-header">
-          <h2 style="text-align: left; font-size: 28px; text-transform: uppercase; color: var(--mau-nau); margin-bottom: 0;">
+          </h2> -->
+          <!-- DANH SÁCH SẢN PHẨM -->
+          <h2 class="section-title">
             Sản phẩm
           </h2>
         </div>
@@ -119,13 +124,12 @@
           <!-- SP 1 -->
           <div class="product-card">
             <span class="product-tag tag-hot">Bán chạy</span>
-            <a href="product-detail.html">
-              <img
+            <a href="product-detail.html"
+              ><img
                 src="images/products/tra-sua-truyen-thong.png"
                 alt="Trà sữa truyền thống"
                 class="product-img"
-              />
-            </a>
+            /></a>
             <div class="product-body">
               <h3 class="product-name">
                 <a href="product-detail.html">Trà sữa truyền thống</a>
@@ -135,28 +139,26 @@
               </p>
               <div class="product-bottom-row">
                 <span class="product-price">22.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path
                       d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
+                    ></path></svg
+                  >Thêm</a
+                >
               </div>
             </div>
           </div>
           <!-- SP 2 -->
           <div class="product-card">
-            <a href="product-detail.html">
-              <img
+            <a href="product-detail.html"
+              ><img
                 src="images/products/tra-sua-thai-xanh.png"
                 alt="Trà sữa thái xanh"
                 class="product-img"
-              />
-            </a>
+            /></a>
             <div class="product-body">
               <h3 class="product-name">
                 <a href="product-detail.html">Trà sữa thái xanh</a>
@@ -166,28 +168,26 @@
               </p>
               <div class="product-bottom-row">
                 <span class="product-price">25.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path
                       d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
+                    ></path></svg
+                  >Thêm</a
+                >
               </div>
             </div>
           </div>
           <!-- SP 3 -->
           <div class="product-card">
-            <a href="product-detail.html">
-              <img
+            <a href="product-detail.html"
+              ><img
                 src="images/products/tra-sua-thai-do.png"
                 alt="Trà sữa thái đỏ"
                 class="product-img"
-              />
-            </a>
+            /></a>
             <div class="product-body">
               <h3 class="product-name">
                 <a href="product-detail.html">Trà sữa thái đỏ</a>
@@ -196,30 +196,28 @@
                 Sắc đỏ quyến rũ từ trà Thái, mang đến vị ngọt thanh.
               </p>
               <div class="product-bottom-row">
-                <span class="product-price">28.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
+                <span class="product-price">25.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path
                       d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
+                    ></path></svg
+                  >Thêm</a
+                >
               </div>
             </div>
           </div>
           <!-- SP 4 -->
           <div class="product-card">
             <span class="product-tag tag-hot">Bán chạy</span>
-            <a href="product-detail.html">
-              <img
+            <a href="product-detail.html"
+              ><img
                 src="images/products/tra-sua-khoai-mon.png"
                 alt="Trà sữa khoai môn"
                 class="product-img"
-              />
-            </a>
+            /></a>
             <div class="product-body">
               <h3 class="product-name">
                 <a href="product-detail.html">Trà sữa khoai môn</a>
@@ -229,28 +227,26 @@
               </p>
               <div class="product-bottom-row">
                 <span class="product-price">28.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path
                       d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
+                    ></path></svg
+                  >Thêm</a
+                >
               </div>
             </div>
           </div>
           <!-- SP 5 -->
           <div class="product-card">
-            <a href="product-detail.html">
-              <img
+            <a href="product-detail.html"
+              ><img
                 src="images/products/hong-tra-sua.png"
                 alt="Hồng trà sữa"
                 class="product-img"
-              />
-            </a>
+            /></a>
             <div class="product-body">
               <h3 class="product-name">
                 <a href="product-detail.html">Hồng trà sữa</a>
@@ -260,16 +256,15 @@
               </p>
               <div class="product-bottom-row">
                 <span class="product-price">24.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path
                       d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
+                    ></path></svg
+                  >Thêm</a
+                >
               </div>
             </div>
           </div>
@@ -280,13 +275,13 @@
         <div class="product-grid">
           <!-- SP 6 -->
           <div class="product-card">
-            <a href="product-detail.html">
-              <img
+            <span class="product-tag tag-hot">Bán chạy</span>
+            <a href="product-detail.html"
+              ><img
                 src="images/products/tra-dao.png"
                 alt="Trà đào"
                 class="product-img"
-              />
-            </a>
+            /></a>
             <div class="product-body">
               <h3 class="product-name">
                 <a href="product-detail.html">Trà đào</a>
@@ -296,59 +291,55 @@
               </p>
               <div class="product-bottom-row">
                 <span class="product-price">25.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path
                       d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
+                    ></path></svg
+                  >Thêm</a
+                >
               </div>
             </div>
           </div>
           <!-- SP 7 -->
           <div class="product-card">
-            <a href="product-detail.html">
-              <img
-                src="images/products/tra-vai.png"
-                alt="Trà vải"
+            <a href="product-detail.html"
+              ><img
+                src="images/products/tra-vai-hoa-hong.png"
+                alt="Trà vải hoa hồng"
                 class="product-img"
-              />
-            </a>
+            /></a>
             <div class="product-body">
               <h3 class="product-name">
-                <a href="product-detail.html">Trà vải</a>
+                <a href="product-detail.html">Trà vải hoa hồng</a>
               </h3>
               <p class="product-desc">
-                Trà vải thơm ngát, ngọt dịu với những quả vải mọng nước.
+                Sự kết hợp tinh tế giữa vải thiều ngọt nước và hương hoa hồng.
               </p>
               <div class="product-bottom-row">
-                <span class="product-price">25.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
+                <span class="product-price">28.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path
                       d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
+                    ></path></svg
+                  >Thêm</a
+                >
               </div>
             </div>
           </div>
           <!-- SP 8 -->
           <div class="product-card">
-            <a href="product-detail.html">
-              <img
+            <a href="product-detail.html"
+              ><img
                 src="images/products/tra-chanh-day.png"
                 alt="Trà chanh dây"
                 class="product-img"
-              />
-            </a>
+            /></a>
             <div class="product-body">
               <h3 class="product-name">
                 <a href="product-detail.html">Trà chanh dây</a>
@@ -358,159 +349,90 @@
               </p>
               <div class="product-bottom-row">
                 <span class="product-price">30.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path
                       d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
+                    ></path></svg
+                  >Thêm</a
+                >
               </div>
             </div>
           </div>
           <!-- SP 9 -->
           <div class="product-card">
-            <a href="product-detail.html">
-              <img
-                src="images/products/tra-tac.png"
-                alt="Trà tắc"
+            <a href="product-detail.html"
+              ><img
+                src="images/products/tra-oi-hong.png"
+                alt="Trà ổi hồng"
                 class="product-img"
-              />
-            </a>
+            /></a>
             <div class="product-body">
               <h3 class="product-name">
-                <a href="product-detail.html">Trà tắc</a>
+                <a href="product-detail.html">Trà ổi hồng</a>
               </h3>
               <p class="product-desc">
-                Trà tắc truyền thống với vị chua thanh, ngọt nhẹ.
+                Hương ổi hồng thơm mát, vị trà thanh khiết, giải nhiệt.
               </p>
               <div class="product-bottom-row">
-                <span class="product-price">18.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
+                <span class="product-price">28.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path
                       d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
+                    ></path></svg
+                  >Thêm</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- SP 10 -->
+          <div class="product-card">
+            <a href="product-detail.html"
+              ><img
+                src="images/products/tra-dau-tay.png"
+                alt="Trà dâu tây"
+                class="product-img"
+            /></a>
+            <div class="product-body">
+              <h3 class="product-name">
+                <a href="product-detail.html">Trà dâu tây</a>
+              </h3>
+              <p class="product-desc">
+                Dâu tây tươi mọng nước kết hợp cùng trà đen, ngọt ngào.
+              </p>
+              <div class="product-bottom-row">
+                <span class="product-price">30.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path></svg
+                  >Thêm</a
+                >
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Phân loại 3: Đồ uống khác -->
-        <h3 class="category-title-mini">Đồ Uống Khác</h3>
+        <!-- Phân loại 3: Coffee & Latte -->
+        <h3 class="category-title-mini">Coffee & Latte</h3>
         <div class="product-grid">
-          <!-- SP 10 -->
-          <div class="product-card">
-            <span class="product-tag tag-hot">Bán chạy</span>
-            <a href="product-detail.html">
-              <img
-                src="images/products/sua-tuoi-tran-chau-duong-den.png"
-                alt="Sữa tươi trân châu đường đen"
-                class="product-img"
-              />
-            </a>
-            <div class="product-body">
-              <h3 class="product-name">
-                <a href="product-detail.html">Sữa tươi trân châu đường đen</a>
-              </h3>
-              <p class="product-desc">
-                Sự kết hợp hoàn hảo giữa sữa tươi đường đen thơm lừng.
-              </p>
-              <div class="product-bottom-row">
-                <span class="product-price">30.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path
-                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
-              </div>
-            </div>
-          </div>
           <!-- SP 11 -->
           <div class="product-card">
             <span class="product-tag tag-hot">Bán chạy</span>
-            <a href="product-detail.html">
-              <img
-                src="images/products/matcha-latte.png"
-                alt="Matcha latte"
-                class="product-img"
-              />
-            </a>
-            <div class="product-body">
-              <h3 class="product-name">
-                <a href="product-detail.html">Matcha latte</a>
-              </h3>
-              <p class="product-desc">
-                Trà xanh Matcha nguyên chất từ Nhật Bản hòa quyện cùng sữa.
-              </p>
-              <div class="product-bottom-row">
-                <span class="product-price">32.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path
-                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- SP 12 -->
-          <div class="product-card">
-            <a href="product-detail.html">
-              <img
-                src="images/products/cacao-latte.png"
-                alt="Cacao latte"
-                class="product-img"
-              />
-            </a>
-            <div class="product-body">
-              <h3 class="product-name">
-                <a href="product-detail.html">Cacao latte</a>
-              </h3>
-              <p class="product-desc">
-                Hương vị cacao đậm đà, ngọt ngào quyện cùng sữa.
-              </p>
-              <div class="product-bottom-row">
-                <span class="product-price">30.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path
-                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- SP 13 -->
-          <div class="product-card">
-            <a href="product-detail.html">
-              <img
+            <a href="product-detail.html"
+              ><img
                 src="images/products/ca-phe-sua.png"
                 alt="Cà phê sữa"
                 class="product-img"
-              />
-            </a>
+            /></a>
             <div class="product-body">
               <h3 class="product-name">
                 <a href="product-detail.html">Cà phê sữa</a>
@@ -520,16 +442,132 @@
               </p>
               <div class="product-bottom-row">
                 <span class="product-price">20.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path
                       d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
+                    ></path></svg
+                  >Thêm</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- SP 12 -->
+          <div class="product-card">
+            <a href="product-detail.html"
+              ><img
+                src="images/products/bac-xiu.png"
+                alt="Bạc xỉu"
+                class="product-img"
+            /></a>
+            <div class="product-body">
+              <h3 class="product-name">
+                <a href="product-detail.html">Bạc xỉu</a>
+              </h3>
+              <p class="product-desc">
+                Vị sữa béo nhẹ kết hợp chút cà phê, dịu dàng dễ uống.
+              </p>
+              <div class="product-bottom-row">
+                <span class="product-price">22.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path></svg
+                  >Thêm</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- SP 13 -->
+          <div class="product-card">
+            <a href="product-detail.html"
+              ><img
+                src="images/products/americano.png"
+                alt="Americano"
+                class="product-img"
+            /></a>
+            <div class="product-body">
+              <h3 class="product-name">
+                <a href="product-detail.html">Americano</a>
+              </h3>
+              <p class="product-desc">
+                Cà phê đen nguyên chất, hương vị mạnh mẽ đánh thức tinh thần.
+              </p>
+              <div class="product-bottom-row">
+                <span class="product-price">25.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path></svg
+                  >Thêm</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- SP 14 -->
+          <div class="product-card">
+            <span class="product-tag tag-hot">Bán chạy</span>
+            <a href="product-detail.html"
+              ><img
+                src="images/products/sua-tuoi-tran-chau-duong-den.png"
+                alt="Sữa tươi trân châu đường đen"
+                class="product-img"
+            /></a>
+            <div class="product-body">
+              <h3 class="product-name">
+                <a href="product-detail.html">Sữa tươi trân châu đường đen</a>
+              </h3>
+              <p class="product-desc">
+                Sự kết hợp hoàn hảo giữa sữa tươi đường đen và trân châu dẻo.
+              </p>
+              <div class="product-bottom-row">
+                <span class="product-price">30.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path></svg
+                  >Thêm</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- SP 15 -->
+          <div class="product-card">
+            <a href="product-detail.html"
+              ><img
+                src="images/products/matcha-latte.png"
+                alt="Matcha latte"
+                class="product-img"
+            /></a>
+            <div class="product-body">
+              <h3 class="product-name">
+                <a href="product-detail.html">Matcha latte</a>
+              </h3>
+              <p class="product-desc">
+                Trà xanh Matcha nguyên chất từ Nhật Bản hòa quyện cùng sữa.
+              </p>
+              <div class="product-bottom-row">
+                <span class="product-price">32.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path></svg
+                  >Thêm</a
+                >
               </div>
             </div>
           </div>
@@ -538,15 +576,14 @@
         <!-- Phân loại 4: Topping -->
         <h3 class="category-title-mini">Topping</h3>
         <div class="product-grid">
-          <!-- SP 14 -->
+          <!-- SP 16 -->
           <div class="product-card">
-            <a href="product-detail.html">
-              <img
+            <a href="product-detail.html"
+              ><img
                 src="images/products/tran-chau-den.png"
                 alt="Trân châu đen"
                 class="product-img"
-              />
-            </a>
+            /></a>
             <div class="product-body">
               <h3 class="product-name">
                 <a href="product-detail.html">Trân châu đen</a>
@@ -556,28 +593,26 @@
               </p>
               <div class="product-bottom-row">
                 <span class="product-price">5.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path
                       d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
+                    ></path></svg
+                  >Thêm</a
+                >
               </div>
             </div>
           </div>
-          <!-- SP 15 -->
+          <!-- SP 17 -->
           <div class="product-card">
-            <a href="product-detail.html">
-              <img
+            <a href="product-detail.html"
+              ><img
                 src="images/products/kem-cheese.png"
                 alt="Kem cheese"
                 class="product-img"
-              />
-            </a>
+            /></a>
             <div class="product-body">
               <h3 class="product-name">
                 <a href="product-detail.html">Kem cheese</a>
@@ -585,29 +620,27 @@
               <p class="product-desc">Lớp kem phô mai mặn mặn, béo ngậy.</p>
               <div class="product-bottom-row">
                 <span class="product-price">10.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path
                       d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
+                    ></path></svg
+                  >Thêm</a
+                >
               </div>
             </div>
           </div>
-          <!-- SP 16 -->
+          <!-- SP 18 -->
           <div class="product-card">
             <span class="product-tag tag-hot">Bán chạy</span>
-            <a href="product-detail.html">
-              <img
+            <a href="product-detail.html"
+              ><img
                 src="images/products/banh-flan.png"
                 alt="Bánh flan"
                 class="product-img"
-              />
-            </a>
+            /></a>
             <div class="product-body">
               <h3 class="product-name">
                 <a href="product-detail.html">Bánh flan</a>
@@ -615,16 +648,15 @@
               <p class="product-desc">Bánh flan mềm mịn, thơm mùi trứng sữa.</p>
               <div class="product-bottom-row">
                 <span class="product-price">8.000 đ</span>
-                <a href="product-detail.html" class="btn-add-to-cart">
-                  <svg viewBox="0 0 24 24">
+                <a href="product-detail.html" class="btn-add-to-cart"
+                  ><svg viewBox="0 0 24 24">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path
                       d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    ></path>
-                  </svg>
-                  Thêm
-                </a>
+                    ></path></svg
+                  >Thêm</a
+                >
               </div>
             </div>
           </div>
@@ -632,10 +664,11 @@
 
         <!-- Phân trang -->
         <div class="pagination" style="margin-top: 40px">
-          <a href="products.html">Trước</a>
+          <a href="products.html">&lt;</a>
           <a href="products.html" class="active">1</a>
           <a href="products.html">2</a>
-          <a href="products.html">Sau</a>
+          <a href="products.html">3</a>
+          <a href="products.html">&gt;</a>
         </div>
       </div>
     </section>
@@ -645,7 +678,7 @@
       <div class="footer-container">
         <div class="footer-col-1">
           <a href="index.html" class="logo"
-            >Góc <span>Boba</span>
+            >Góc <span>Tea</span>
             <small
               style="
                 font-size: 13px;
@@ -654,7 +687,7 @@
                 margin-top: -5px;
                 color: #ffd9a0;
               "
-              >Tea & Coffee</small
+              >Boba & Coffee</small
             ></a
           >
           <p>
@@ -662,6 +695,7 @@
             tuyệt vời nhất với nguyên liệu an toàn và chất lượng.
           </p>
         </div>
+
         <div class="footer-col-2">
           <h4>Liên hệ</h4>
           <div class="footer-contact-item">
@@ -686,11 +720,13 @@
               ></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
-            <span>hello@gocboba.vn</span>
+            <span>hello@gocteabobacoffee.vn</span>
           </div>
         </div>
       </div>
-      <div class="footer-bottom">© Góc Boba. All rights reserved.</div>
+      <div class="footer-bottom">
+        © Góc Tea - Boba & Coffee. All rights reserved.
+      </div>
     </footer>
 
     <script src="js/main.js"></script>
