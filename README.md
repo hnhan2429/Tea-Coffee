@@ -4,30 +4,30 @@ Danh sách sản phẩm và phân loại
 
 **1\. Trà Sữa**
 
-- Trà sữa truyền thống: 22k
+- Trà sữa truyền thống: 20k
+- Hồng trà sữa: 20k
+- Trà sữa khoai môn: 22k
 - Trà sữa thái xanh: 25k
 - Trà sữa thái đỏ: 25k
-- Trà sữa khoai môn: 28k
-- Hồng trà sữa: 24k
 
-**2\. Trà Trái Cây**
+**2\. Trà Trái Cây & Sinh Tố**
 
+- Trà ổi hồng: 20k
 - Trà đào: 25k
+- Trà chanh dây: 25k
 - Trà vải hoa hồng: 28k
-- Trà chanh dây: 30k
-- Trà ổi hồng: 28k
-- Trà dâu tây: 30k
+- Sinh tố bơ: 30k
 
 **3\. Coffee & Latte**
 
 - Cà phê sữa: 20k
 - Bạc xỉu: 22k
-- Americano: 25k
+- Americano: 22k
+- Matcha latte: 28k
 - Sữa tươi trân châu đường đen: 30k
-- Matcha latte: 32k
 
 **4.** **Topping**
 
 - Trân châu đen: 5k
-- Kem cheese: 10k
 - Bánh flan: 8k
+- Kem cheese: 10k
