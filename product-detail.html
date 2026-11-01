@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi Tiết Sản Phẩm - Góc Trà Sữa</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+      <div class="header-top">
+        <a href="index.html" class="logo">Góc <span>Trà Sữa</span></a>
+        <nav class="nav">
+          <a href="index.html">Trang chủ</a>
+          <a href="products.html">Sản phẩm</a>
+          <a href="cart.html">Giỏ hàng <span class="cart-badge">2</span></a>
+          <a href="order-history.html">Đơn hàng</a>
+        </nav>
+        <form class="search-form" action="search.html" method="get">
+          <input type="text" name="q" placeholder="Tìm món bạn yêu thích..." />
+          <button type="submit" title="Tìm kiếm">
+            <svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </form>
+        <div class="header-actions" id="header-actions">
+          <!-- Nội dung bên trong sẽ được JS tự động điền -->
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="product-detail-wrapper">
+          <!-- Cột Trái: Ảnh -->
+          <div class="detail-image-col">
+            <img
+              src="images/products/tra-sua-truyen-thong.png"
+              alt="Trà sữa truyền thống"
+              class="detail-image"
+            />
+          </div>
+
+          <!-- Cột Phải: Thông tin -->
+          <div class="detail-info-col">
+            <h1 class="detail-title">Trà Sữa Truyền Thống</h1>
+            <span class="detail-category">Trà Sữa</span>
+
+            <div class="detail-price">22.000 đ</div>
+            <div class="detail-desc">
+              <p>
+                Trà sữa truyền thống tại Góc Trà Sữa được pha chế từ lá trà đen
+                thượng hạng, kết hợp cùng sữa đặc và sữa tươi tạo nên vị ngọt
+                béo hài hòa. Đi kèm là những viên trân châu đen, dẻo và thơm,
+                mang đến trải nghiệm ngọt ngào.
+              </p>
+
+              <p style="margin-top: 10px">
+                <em
+                  >* Lưu ý: Vui lòng chọn Topping đi kèm (nếu có) trước khi thêm
+                  vào giỏ hàng.</em
+                >
+              </p>
+            </div>
+
+            <!-- Chọn số lượng -->
+            <div class="quantity-box">
+              <label>Số lượng:</label>
+              <div class="quantity-input">
+                <button type="button" onclick="giamSoLuong()">-</button>
+                <input type="text" value="1" readonly />
+                <button type="button" onclick="tangSoLuong()">+</button>
+              </div>
+            </div>
+            <!-- THÊM PHẦN CHỌN TOPPING -->
+            <div style="margin-bottom: 10px">
+              <label style="font-weight: 600; font-size: 16px"
+                >Chọn kèm Topping (không bắt buộc):</label
+              >
+            </div>
+            <div class="topping-list">
+              <label class="topping-item">
+                <input type="checkbox" onclick="chonTopping('Trân châu đen')" />
+                <span>Trân châu đen (+5.000 đ)</span>
+              </label>
+              <label class="topping-item">
+                <input type="checkbox" onclick="chonTopping('Kem cheese')" />
+                <span>Kem cheese (+10.000 đ)</span>
+              </label>
+              <label class="topping-item">
+                <input type="checkbox" onclick="chonTopping('Bánh flan')" />
+                <span>Bánh flan (+8.000 đ)</span>
+              </label>
+            </div>
+            <!-- Nút hành động -->
+            <div class="detail-actions">
+              <button class="btn-them-gio-lon" onclick="themVaoGio()">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path
+                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                  ></path>
+                </svg>
+                Thêm vào giỏ
+              </button>
+              <a href="cart.html" class="btn-mua-ngay">Giỏ hàng</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col-1">
+          <a href="index.html" class="logo">Góc <span>Trà Sữa</span></a>
+          <p>
+            Trà sữa nhà làm, ngon đúng gu. Mang đến cho bạn những ly trà sữa
+            tuyệt vời nhất với nguyên liệu an toàn và chất lượng.
+          </p>
+        </div>
+        <div class="footer-col-2">
+          <h4>Liên hệ</h4>
+          <div class="footer-contact-item">
+            <!-- Icon Địa chỉ -->
+            <svg viewBox="0 0 24 24">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>123 An Dương Vương, Phường Chợ Quán, TP.HCM</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            <span>0123 456 789</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>xinchao@goctrasua.vn</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">© Góc Trà Sữa. All rights reserved.</div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script>
+      kiemTraDangNhap();
+    </script>
+  </body>
+</html>

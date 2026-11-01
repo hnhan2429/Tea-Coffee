@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Góc Trà Sữa - Trang chủ</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+      <div class="header-top">
+        <a href="index.html" class="logo"
+          >Góc <span>Boba</span>
+          <small
+            style="
+              font-size: 13px;
+              font-weight: normal;
+              display: block;
+              margin-top: -5px;
+              color: #ffd9a0;
+            "
+            >Tea & Coffee</small
+          ></a
+        >
+
+        <nav class="nav">
+          <a href="index.html" class="active">Trang chủ</a>
+          <a href="products.html">Sản phẩm</a>
+          <a href="order-history.html">Đơn hàng</a>
+        </nav>
+
+        <form class="search-form" action="search.html" method="get">
+          <input type="text" name="q" placeholder="Tìm món bạn yêu thích..." />
+          <button type="submit" title="Tìm kiếm">
+            <svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </form>
+
+        <div class="header-actions" id="header-actions"></div>
+      </div>
+    </header>
+
+    <!-- ================= BANNER ================= -->
+    <section class="banner">
+      <div class="banner-container">
+        <div class="banner-content">
+          <h1 class="banner-title">Một góc nhỏ,<br />ngàn vị ngon.</h1>
+          <p class="banner-desc">
+            Những ly trà sữa được pha chế tỉ mỉ từ nguyên liệu cao cấp, dành cho
+            những trái tim luôn muốn tận hưởng trọn vẹn từng khoảnh khắc ngọt
+            ngào.
+          </p>
+          <a href="products.html" class="btn-banner">
+            Đặt món ngay
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="banner-image-col">
+          <img src="images/banner.png" alt="Trà sữa Góc Trà Sữa" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SẢN PHẨM NỔI BẬT ================= -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Sản phẩm nổi bật</h2>
+        <p class="section-sub">
+          Những sản phẩm được yêu thích nhất tại Góc Boba
+        </p>
+
+        <div class="product-grid">
+          <!-- Sản phẩm 1 -->
+          <div class="product-card">
+            <span class="product-tag tag-hot">Bán chạy</span>
+            <a href="product-detail.html">
+              <img
+                src="images/products/tra-sua-truyen-thong.png"
+                alt="Trà sữa truyền thống"
+                class="product-img"
+              />
+            </a>
+            <div class="product-body">
+              <h3 class="product-name">
+                <a href="product-detail.html">Trà sữa truyền thống</a>
+              </h3>
+              <p class="product-desc">
+                Vị trà đen đậm đà kết hợp cùng sữa đặc béo ngậy và trân châu.
+              </p>
+              <div class="product-bottom-row">
+                <span class="product-price">22.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path>
+                  </svg>
+                  Thêm
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sản phẩm 2 -->
+          <div class="product-card">
+            <a href="product-detail.html">
+              <img
+                src="images/products/tra-sua-thai-xanh.png"
+                alt="Trà sữa thái xanh"
+                class="product-img"
+              />
+            </a>
+            <div class="product-body">
+              <h3 class="product-name">
+                <a href="product-detail.html">Trà sữa thái xanh</a>
+              </h3>
+              <p class="product-desc">
+                Hương vị trà Thái xanh thơm lừng, ngọt ngào.
+              </p>
+              <div class="product-bottom-row">
+                <span class="product-price">25.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path>
+                  </svg>
+                  Thêm
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sản phẩm 3 -->
+          <div class="product-card">
+            <a href="product-detail.html">
+              <img
+                src="images/products/tra-sua-thai-do.png"
+                alt="Trà sữa thái đỏ"
+                class="product-img"
+              />
+            </a>
+            <div class="product-body">
+              <h3 class="product-name">
+                <a href="product-detail.html">Trà sữa thái đỏ</a>
+              </h3>
+              <p class="product-desc">
+                Sắc đỏ quyến rũ từ trà Thái, mang đến vị ngọt thanh.
+              </p>
+              <div class="product-bottom-row">
+                <span class="product-price">28.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path>
+                  </svg>
+                  Thêm
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sản phẩm 4 -->
+          <div class="product-card">
+            <span class="product-tag tag-hot">Bán chạy</span>
+            <a href="product-detail.html">
+              <img
+                src="images/products/tra-dao.png"
+                alt="Trà đào"
+                class="product-img"
+              />
+            </a>
+            <div class="product-body">
+              <h3 class="product-name">
+                <a href="product-detail.html">Trà đào</a>
+              </h3>
+              <p class="product-desc">
+                Những miếng đào giòn ngọt kết hợp trà đen thanh mát.
+              </p>
+              <div class="product-bottom-row">
+                <span class="product-price">25.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path>
+                  </svg>
+                  Thêm
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sản phẩm 5 -->
+          <div class="product-card">
+            <span class="product-tag tag-hot">Bán chạy</span>
+            <a href="product-detail.html">
+              <img
+                src="images/products/sua-tuoi-tran-chau-duong-den.png"
+                alt="Sữa tươi trân châu đường đen"
+                class="product-img"
+              />
+            </a>
+            <div class="product-body">
+              <h3 class="product-name">
+                <a href="product-detail.html">Sữa tươi trân châu đường đen</a>
+              </h3>
+              <p class="product-desc">
+                Sự kết hợp hoàn hảo giữa sữa tươi đường đen thơm lừng và trân
+                châu dẻo.
+              </p>
+              <div class="product-bottom-row">
+                <span class="product-price">30.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path>
+                  </svg>
+                  Thêm
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sản phẩm 6 -->
+          <div class="product-card">
+            <span class="product-tag tag-hot">Bán chạy</span>
+            <a href="product-detail.html">
+              <img
+                src="images/products/matcha-latte.png"
+                alt="Matcha latte"
+                class="product-img"
+              />
+            </a>
+            <div class="product-body">
+              <h3 class="product-name">
+                <a href="product-detail.html">Matcha latte</a>
+              </h3>
+              <p class="product-desc">
+                Trà xanh Matcha nguyên chất từ Nhật Bản hòa quyện cùng sữa tươi.
+              </p>
+              <div class="product-bottom-row">
+                <span class="product-price">32.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path>
+                  </svg>
+                  Thêm
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sản phẩm 7 -->
+          <div class="product-card">
+            <a href="product-detail.html">
+              <img
+                src="images/products/ca-phe-sua.png"
+                alt="Cà phê sữa"
+                class="product-img"
+              />
+            </a>
+            <div class="product-body">
+              <h3 class="product-name">
+                <a href="product-detail.html">Cà phê sữa</a>
+              </h3>
+              <p class="product-desc">
+                Cà phê Robusta đậm vị truyền thống hòa quyện cùng sữa đặc.
+              </p>
+              <div class="product-bottom-row">
+                <span class="product-price">20.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path>
+                  </svg>
+                  Thêm
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sản phẩm 8 -->
+          <div class="product-card">
+            <span class="product-tag tag-hot">Bán chạy</span>
+            <a href="product-detail.html">
+              <img
+                src="images/products/banh-flan.png"
+                alt="Bánh flan"
+                class="product-img"
+              />
+            </a>
+            <div class="product-body">
+              <h3 class="product-name">
+                <a href="product-detail.html">Bánh flan</a>
+              </h3>
+              <p class="product-desc">
+                Bánh flan mềm mịn, thơm mùi trứng sữa cùng lớp caramel đắng nhẹ.
+              </p>
+              <div class="product-bottom-row">
+                <span class="product-price">8.000 đ</span>
+                <a href="product-detail.html" class="btn-add-to-cart">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path>
+                  </svg>
+                  Thêm
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Đã đóng thẻ product-grid ở đây -->
+
+        <div class="xem-them">
+          <a href="products.html" class="btn-xem-them">Xem tất cả sản phẩm</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col-1">
+          <a href="index.html" class="logo"
+            >Góc <span>Boba</span>
+            <small
+              style="
+                font-size: 13px;
+                font-weight: normal;
+                display: block;
+                margin-top: -5px;
+                color: #ffd9a0;
+              "
+              >Tea & Coffee</small
+            ></a
+          >
+          <p>
+            Trà sữa nhà làm, ngon đúng gu. Mang đến cho bạn những ly trà sữa
+            tuyệt vời nhất với nguyên liệu an toàn và chất lượng.
+          </p>
+        </div>
+
+        <div class="footer-col-2">
+          <h4>Liên hệ</h4>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>123 An Dương Vương, Phường Chợ Quán, TP.HCM</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            <span>0123 456 789</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>hello@gocboba.vn</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">© Góc Boba. All rights reserved.</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+      kiemTraDangNhap();
+    </script>
+  </body>
+</html>
