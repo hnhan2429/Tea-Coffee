@@ -1,6 +1,46 @@
 // =========== JS USER ===============
 const SO_MON_TRONG_GIO = 2;
 
+function showToast(message) {
+  let container = document.getElementById("toast-container");
+  if (!container) {
+    container = document.createElement("div");
+    container.id = "toast-container";
+    document.body.appendChild(container);
+  }
+
+  const toast = document.createElement("div");
+  toast.className = "toast";
+
+  toast.innerHTML = `
+    <!-- Icon tích xanh -->
+    <svg class="toast-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    
+    <!-- Nội dung -->
+    <div class="toast-content">
+      <div class="toast-message">${message}</div>
+    </div>
+    
+    <!-- Nút tắt (X) -->
+    <button class="toast-close" onclick="this.parentElement.remove()">✕</button>
+    
+    <!-- Thanh thời gian -->
+    <div class="toast-progress"></div>
+  `;
+
+  container.appendChild(toast);
+
+  // Tự động xóa sau 3 giây
+  setTimeout(() => {
+    if (toast.parentElement) {
+      toast.style.animation = "slideInRight 0.3s ease reverse forwards";
+      setTimeout(() => toast.remove(), 300);
+    }
+  }, 3000);
+}
+
 // 1. Trạng thái đăng nhập: Mặc định là TRUE (đã đăng nhập sẵn)
 function daDangNhap() {
   const status = sessionStorage.getItem("daDangNhap");
@@ -11,7 +51,8 @@ function daDangNhap() {
 
 const ICON_USER =
   '<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
-const ICON_ORDER = '<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>';
+const ICON_ORDER =
+  '<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>';
 const ICON_LOGOUT =
   '<svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>';
 const ICON_CART =
@@ -72,7 +113,7 @@ function kiemTraDangNhap() {
     `;
   }
 }
-// 2. Các hàm đăng nhập, đăng ký, đăng xuất (Không dùng alert)
+// 2. Các hàm đăng nhập, đăng ký, đăng xuất
 function dangNhap() {
   sessionStorage.setItem("daDangNhap", "true");
 }
@@ -89,7 +130,7 @@ function dangXuat() {
 // 3. Chặn trang Lịch sử đơn hàng (Gọi ở đầu trang order-history.html)
 function baoVeTrang() {
   if (!daDangNhap()) {
-    window.location.href = "login.html"; // Chuyển sang login không báo
+    window.location.href = "login.html"; // Chuyển sang login
   }
 }
 
@@ -103,24 +144,24 @@ function xuLyThanhToan() {
   }
 }
 
-// Các hàm minh họa
+//Các hàm minh họa
 function themVaoGio() {
-  alert("Đã thêm sản phẩm vào giỏ hàng!");
+  showToast("Đã thêm sản phẩm vào giỏ hàng!");
 }
 function muaNgay() {
-  alert("Đang chuyển đến giỏ hàng...");
+  showToast("Đang chuyển đến giỏ hàng...");
 }
 function chonTopping(ten) {
-  alert("Đã chọn " + ten + "!");
+  showToast("Đã chọn " + ten + "!");
 }
 function tangSoLuong() {
-  alert("Đã cập nhật số lượng!");
+  showToast("Đã cập nhật số lượng!");
 }
 function giamSoLuong() {
-  alert("Đã cập nhật số lượng!");
+  showToast("Đã cập nhật số lượng!");
 }
 function xoaSanPham() {
-  alert("Đã xóa sản phẩm khỏi giỏ hàng!");
+  showToast("Đã xóa sản phẩm khỏi giỏ hàng!");
 }
 
 // ---------- TỰ ĐỘNG ĐỊNH DẠNG SỐ (THÊM DẤU CHẤM) ----------
