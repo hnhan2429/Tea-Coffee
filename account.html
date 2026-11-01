@@ -52,7 +52,7 @@
 
           <div class="profile-grid">
             <div class="profile-group">
-              <label>Họ và tên</label>
+              <label>Tên tài khoản</label>
               <input
                 type="text"
                 value="Nguyễn Văn A"
@@ -79,7 +79,7 @@
             </div>
 
             <div class="profile-group full-width">
-              <label>Địa chỉ giao hàng</label>
+              <label>Địa chỉ</label>
               <input
                 type="text"
                 value="89 Võ Thị Sáu, Phường Xuân Hòa, TP.HCM"
@@ -97,8 +97,10 @@
               />
             </div>
           </div>
-
-          <button class="btn-profile-save" onclick="alert('Đã lưu thay đổi!')">
+          <button
+            class="btn-profile-save"
+            onclick="showToast('Cập nhật thông tin thành công!')"
+          >
             Lưu thay đổi
           </button>
         </div>

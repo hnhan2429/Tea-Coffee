@@ -1,5 +1,5 @@
 /* ============================================
-   CSS TỔNG THỂ CHO USER - GÓC BOBA
+   CSS USER
    ============================================ */
 
 /* ---------- RESET & BIẾN ---------- */
@@ -1809,4 +1809,111 @@ ul {
     align-items: flex-start;
     gap: 8px;
   }
+}
+
+/* ============================================
+   THÔNG BÁO TOAST (GIAO DIỆN MỚI)
+   ============================================ */
+#toast-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.toast {
+  background: #fff;
+  color: #333;
+  width: 350px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  animation: slideInRight 0.3s ease forwards;
+}
+
+/* Thanh màu xanh bên trái */
+.toast::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: #2ecc71; /* Màu xanh lá */
+}
+
+/* Icon tích xanh */
+.toast-icon {
+  color: #2ecc71;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Nội dung chữ */
+.toast-content {
+  flex: 1;
+}
+
+.toast-title {
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.toast-message {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Nút X tắt thông báo */
+.toast-close {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #999;
+  font-size: 14px;
+  transition: 0.2s;
+  flex-shrink: 0;
+}
+
+.toast-close:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+/* Thanh thời gian chạy dọc phía dưới */
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: #2ecc71;
+  width: 100%;
+  animation: progressBar 3s linear forwards;
+}
+
+/* Các hiệu ứng Animation */
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes progressBar {
+  from { width: 100%; }
+  to { width: 0%; }
 }
