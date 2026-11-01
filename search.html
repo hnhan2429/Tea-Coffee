@@ -10,11 +10,23 @@
     <!-- ================= HEADER ================= -->
     <header class="header">
       <div class="header-top">
-        <a href="index.html" class="logo">Góc <span>Trà Sữa</span></a>
+        <a href="index.html" class="logo" style="line-height: 1.1">
+          Góc <span>Tea</span>
+          <small
+            style="
+              font-size: 14px;
+              font-weight: 500;
+              display: block;
+              color: #ffd9a0;
+              letter-spacing: 0.5px;
+              margin-top: 2px;
+            "
+            >Boba & Coffee</small
+          >
+        </a>
         <nav class="nav">
           <a href="index.html">Trang chủ</a>
           <a href="products.html">Sản phẩm</a>
-          <a href="cart.html">Giỏ hàng <span class="cart-badge">2</span></a>
           <a href="order-history.html">Đơn hàng</a>
         </nav>
         <form class="search-form" action="search.html" method="get">
@@ -136,7 +148,7 @@
                 <a href="product-detail.html">Trà sữa truyền thống</a>
               </h3>
               <p class="product-desc">
-                Vị trà đen đậm đà kết hợp cùng sữa đặc béo ngậy và trân châu
+                Vị trà đen đậm đà kết hợp cùng sữa đặc béo ngậy và trân châu.
               </p>
               <div class="product-bottom-row">
                 <span class="product-price">22.000 đ</span>
@@ -233,8 +245,7 @@
                 <a href="product-detail.html">Trà sữa khoai môn</a>
               </h3>
               <p class="product-desc">
-                Khoai môn tím bùi bùi kết hợp cùng vị trà sữa béo ngọt, tạo nên
-                hương vị khó cưỡng.
+                Khoai môn tím bùi bùi kết hợp cùng vị trà sữa béo ngọt.
               </p>
               <div class="product-bottom-row">
                 <span class="product-price">28.000 đ</span>
@@ -266,8 +277,7 @@
                 <a href="product-detail.html">Hồng trà sữa</a>
               </h3>
               <p class="product-desc">
-                Hương thơm đặc trưng của hồng trà kết hợp sữa tươi, mang lại cảm
-                giác nhẹ nhàng, thanh mát.
+                Hương thơm đặc trưng của hồng trà kết hợp sữa tươi.
               </p>
               <div class="product-bottom-row">
                 <span class="product-price">24.000 đ</span>
@@ -286,15 +296,13 @@
           </div>
         </div>
 
-        <!-- PHÂN TRANG GIẢ -->
-        <div
-          class="pagination"
-          style="margin-top: 40px; justify-content: center"
-        >
-          <a href="search.html">Trước</a>
+        <!-- Phân trang -->
+        <div class="pagination" style="margin-top: 40px">
+          <a href="search.html">&lt;</a>
           <a href="search.html" class="active">1</a>
           <a href="search.html">2</a>
-          <a href="search.html">Sau</a>
+          <a href="search.html">3</a>
+          <a href="search.html">&gt;</a>
         </div>
       </div>
     </section>
@@ -303,12 +311,25 @@
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-col-1">
-          <a href="index.html" class="logo">Góc <span>Trà Sữa</span></a>
+          <a href="index.html" class="logo"
+            >Góc <span>Tea</span>
+            <small
+              style="
+                font-size: 13px;
+                font-weight: normal;
+                display: block;
+                margin-top: -5px;
+                color: #ffd9a0;
+              "
+              >Boba & Coffee</small
+            ></a
+          >
           <p>
             Trà sữa nhà làm, ngon đúng gu. Mang đến cho bạn những ly trà sữa
             tuyệt vời nhất với nguyên liệu an toàn và chất lượng.
           </p>
         </div>
+
         <div class="footer-col-2">
           <h4>Liên hệ</h4>
           <div class="footer-contact-item">
@@ -333,11 +354,13 @@
               ></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
-            <span>xinchao@goctrasua.vn</span>
+            <span>hello@gocteabobacoffee.vn</span>
           </div>
         </div>
       </div>
-      <div class="footer-bottom">© Góc Trà Sữa. All rights reserved.</div>
+      <div class="footer-bottom">
+        © Góc Tea - Boba & Coffee. All rights reserved.
+      </div>
     </footer>
 
     <script src="js/main.js"></script>
