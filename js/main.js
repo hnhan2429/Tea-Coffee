@@ -1,5 +1,5 @@
 // =========== JS USER ===============
-const SO_MON_TRONG_GIO = 2;
+const SO_MON_TRONG_GIO = 4;
 
 function showToast(message) {
   let container = document.getElementById("toast-container");

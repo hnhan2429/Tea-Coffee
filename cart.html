@@ -38,9 +38,7 @@
             </svg>
           </button>
         </form>
-        <!-- Đã cập nhật trạng thái đăng nhập -->
-        <div class="header-actions" id="header-actions">
-        </div>
+        <div class="header-actions" id="header-actions"></div>
       </div>
     </header>
 
@@ -54,17 +52,37 @@
           <!-- CỘT TRÁI -->
           <div class="cart-left">
             <!-- 1. DANH SÁCH SẢN PHẨM -->
-            <h3 class="cart-title">Sản phẩm (2)</h3>
+            <h3 class="cart-title"><span>Sản phẩm (4)</span></h3>
 
-            <div class="cart-item">
+            <!-- Sản phẩm 1 -->
+            <div class="cart-item" style="align-items: flex-start">
               <img
                 src="images/products/tra-sua-truyen-thong.png"
                 alt="Trà sữa truyền thống"
                 class="cart-item-img"
+                style="margin-top: 5px"
               />
               <div class="cart-item-info">
                 <h4 class="cart-item-name">Trà sữa truyền thống</h4>
-                <p class="cart-item-price">22.000 đ</p>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: var(--mau-xam);
+                    margin-bottom: 2px;
+                  "
+                >
+                  Size M
+                </p>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: var(--mau-xam);
+                    margin-bottom: 5px;
+                  "
+                >
+                  Kem cheese
+                </p>
+                <p class="cart-item-price">34.000 đ</p>
               </div>
               <div class="cart-item-actions">
                 <div class="qty-control">
@@ -76,15 +94,66 @@
               </div>
             </div>
 
-            <div class="cart-item">
+            <!-- Sản phẩm 2 -->
+            <div class="cart-item" style="align-items: flex-start">
               <img
                 src="images/products/tra-dao.png"
                 alt="Trà đào"
                 class="cart-item-img"
+                style="margin-top: 5px"
               />
               <div class="cart-item-info">
                 <h4 class="cart-item-name">Trà đào</h4>
-                <p class="cart-item-price">25.000 đ</p>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: var(--mau-xam);
+                    margin-bottom: 5px;
+                  "
+                >
+                  Size S
+                </p>
+                <p class="cart-item-price">50.000 đ</p>
+              </div>
+              <div class="cart-item-actions">
+                <div class="qty-control">
+                  <button type="button" onclick="giamSoLuong()">-</button>
+                  <input type="text" value="2" readonly />
+                  <button type="button" onclick="tangSoLuong()">+</button>
+                </div>
+                <button class="btn-xoa" onclick="xoaSanPham()">Xóa</button>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 3 -->
+            <div class="cart-item" style="align-items: flex-start">
+              <img
+                src="images/products/matcha-latte.png"
+                alt="Matcha latte"
+                class="cart-item-img"
+                style="margin-top: 5px"
+              />
+              <div class="cart-item-info">
+                <h4 class="cart-item-name">Matcha latte</h4>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: var(--mau-xam);
+                    margin-bottom: 2px;
+                  "
+                >
+                  Size L
+                </p>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: var(--mau-xam);
+                    margin-bottom: 5px;
+                  "
+                >
+                  Trân châu đen
+                </p>
+                <p class="cart-item-price">41.000 đ</p>
               </div>
               <div class="cart-item-actions">
                 <div class="qty-control">
@@ -96,12 +165,109 @@
               </div>
             </div>
 
-            <!-- 2. ĐỊA CHỈ GIAO HÀNG  -->
+            <!-- Sản phẩm 4 -->
+            <div class="cart-item" style="align-items: flex-start">
+              <img
+                src="images/products/banh-flan.png"
+                alt="Bánh flan"
+                class="cart-item-img"
+                style="margin-top: 5px"
+              />
+              <div class="cart-item-info">
+                <h4 class="cart-item-name">Bánh flan</h4>
+                <p class="cart-item-price">8.000 đ</p>
+              </div>
+              <div class="cart-item-actions">
+                <div class="qty-control">
+                  <button type="button" onclick="giamSoLuong()">-</button>
+                  <input type="text" value="1" readonly />
+                  <button type="button" onclick="tangSoLuong()">+</button>
+                </div>
+                <button class="btn-xoa" onclick="xoaSanPham()">Xóa</button>
+              </div>
+            </div>
+
+            <!-- 3. THÔNG TIN ĐƠN HÀNG (GIAO NHẬN & GHI CHÚ) -->
             <h3 class="cart-title" style="margin-top: 30px">
-              Thông tin người nhận
+              <span>Thông tin đơn hàng</span>
             </h3>
 
-            <!-- Hiển thị tài khoản đang đăng nhập -->
+            <div style="margin-bottom: 20px">
+              <p style="font-weight: 600; margin-bottom: 10px">
+                Hình thức giao nhận:
+              </p>
+              <div style="display: flex; gap: 15px; margin-bottom: 15px">
+                <label class="delivery-option">
+                  <input type="radio" name="hinhthuc" checked />
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="1" y="3" width="15" height="13"></rect>
+                    <polygon
+                      points="16 8 20 8 23 11 23 16 16 16 16 8"
+                    ></polygon>
+                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                  </svg>
+                  Giao tận nơi
+                </label>
+
+                <label class="delivery-option">
+                  <input type="radio" name="hinhthuc" />
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                    ></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                  </svg>
+                  Tự đến lấy
+                </label>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 30px">
+              <label
+                style="font-weight: 600; display: block; margin-bottom: 8px"
+                >Ghi chú đơn hàng:</label
+              >
+              <textarea
+                placeholder="Ví dụ: Ít đá, ít đường, không lấy ống hút..."
+                style="
+                  width: 100%;
+                  height: 80px;
+                  padding: 12px 15px;
+                  border: 1px solid #ddd;
+                  border-radius: 8px;
+                  font-family: inherit;
+                  font-size: 15px;
+                  outline: none;
+                  resize: none;
+                "
+              ></textarea>
+            </div>
+
+            <!-- 2. THÔNG TIN NGƯỜI NHẬN -->
+            <h3 class="cart-title" style="margin-top: 30px">
+              <span>Thông tin người nhận</span>
+            </h3>
+
             <div style="margin-bottom: 25px">
               <p class="name" style="font-weight: 600; margin-bottom: 5px">
                 Tên tài khoản: Nguyễn Văn A
@@ -113,10 +279,10 @@
 
             <div style="margin-bottom: 20px">
               <p style="font-weight: 600; margin-bottom: 10px">
-                Chọn địa chỉ giao hàng:
+                Chọn địa chỉ nhận hàng:
               </p>
 
-              <!-- Lựa chọn 1: Địa chỉ mặc định -->
+              <!-- Lựa chọn 1 -->
               <label
                 style="
                   display: flex;
@@ -130,11 +296,17 @@
                   type="radio"
                   name="diachi"
                   checked
-                  style="accent-color: var(--mau-cam-dat); margin-top: 4px"
+                  style="
+                    accent-color: var(--mau-cam-dat);
+                    margin-top: 6px;
+                    width: 16px;
+                    height: 16px;
+                    cursor: pointer;
+                  "
                 />
                 <div>
                   <p style="font-weight: 600; color: var(--mau-chu)">
-                    Giao đến địa chỉ tài khoản:
+                    Địa chỉ tài khoản:
                   </p>
                   <p style="font-size: 14px; color: var(--mau-xam)">
                     89 Võ Thị Sáu, Phường Xuân Hòa, TP.HCM
@@ -142,7 +314,7 @@
                 </div>
               </label>
 
-              <!-- Lựa chọn 2: Địa chỉ mới -->
+              <!-- Lựa chọn 2 -->
               <label
                 style="
                   display: flex;
@@ -154,11 +326,17 @@
                 <input
                   type="radio"
                   name="diachi"
-                  style="accent-color: var(--mau-cam-dat); margin-top: 4px"
+                  style="
+                    accent-color: var(--mau-cam-dat);
+                    margin-top: 6px;
+                    width: 16px;
+                    height: 16px;
+                    cursor: pointer;
+                  "
                 />
                 <div>
                   <p style="font-weight: 600; color: var(--mau-chu)">
-                    Giao đến địa chỉ mới:
+                    Địa chỉ mới:
                   </p>
                   <p
                     style="
@@ -168,39 +346,34 @@
                     "
                   >
                     <i
-                      >(Vui lòng: Nhập thông tin người nhận và địa chỉ giao
+                      >(Vui lòng: Nhập thông tin người nhận và địa chỉ nhận
                       hàng)</i
                     >
                   </p>
                 </div>
               </label>
 
-              <!-- Form nhập địa chỉ mới -->
+              <!-- Form địa chỉ mới -->
               <div style="margin-top: 20px">
                 <div class="address-form-group">
                   <div class="form-control">
-                    <label>Người nhận</label>
-                    <input type="text" placeholder="Ví dụ: Nguyễn Văn A" />
+                    <input type="text" placeholder="Tên người nhận" />
                   </div>
                   <div class="form-control">
-                    <label>Số điện thoại</label>
-                    <input type="text" placeholder="Ví dụ: 0246 135 879" />
+                    <input type="text" placeholder="Số điện thoại nhận hàng" />
                   </div>
                 </div>
                 <div class="form-control">
-                  <label
-                    >Địa chỉ (Số nhà, đường, phường/xã, tỉnh/thành phố)</label
-                  >
                   <input
                     type="text"
-                    placeholder="Ví dụ: 04 Nguyễn Trãi, Phường Cầu Ông Lãnh, TP.HCM"
+                    placeholder="Địa chỉ nhận hàng (Số nhà, đường, phường/xã, tỉnh/thành phố)"
                   />
                 </div>
               </div>
             </div>
 
-            <!-- 3. HÌNH THỨC THANH TOÁN -->
-            <h3 class="cart-title">Hình thức thanh toán</h3>
+            <!-- 4. HÌNH THỨC THANH TOÁN -->
+            <h3 class="cart-title"><span>Hình thức thanh toán</span></h3>
             <div
               style="
                 background: #fff9f2;
@@ -241,7 +414,10 @@
                   name="thanhtoan"
                   style="accent-color: var(--mau-cam-dat)"
                 />
-                <span>Thanh toán trực tuyến (Chuyển khoản/ Ví điện tử)</span>
+                <span
+                  >Thanh toán trực tuyến (Chuyển khoản/ Thẻ ngân hàng/ Ví điện
+                  tử)</span
+                >
               </label>
             </div>
           </div>
@@ -251,16 +427,16 @@
             <h3 class="cart-title">Tóm tắt đơn hàng</h3>
 
             <div class="summary-row">
-              <span>Tạm tính (2 món)</span>
-              <span>47.000 đ</span>
+              <span>Tạm tính (4 món)</span>
+              <span><b>133.000 đ</b></span>
             </div>
             <div class="summary-row">
               <span>Phí giao hàng</span>
-              <span>Miễn phí</span>
+              <span><b>Miễn phí</b></span>
             </div>
             <div class="summary-row total">
               <span>Tổng cộng</span>
-              <span>47.000 đ</span>
+              <span>133.000 đ</span>
             </div>
 
             <a
@@ -281,9 +457,8 @@
                 color: var(--mau-nau);
                 text-decoration: underline;
               "
+              >← Tiếp tục chọn món</a
             >
-              ← Tiếp tục chọn món
-            </a>
           </div>
         </div>
       </div>
@@ -311,7 +486,6 @@
             tuyệt vời nhất với nguyên liệu an toàn và chất lượng.
           </p>
         </div>
-
         <div class="footer-col-2">
           <h4>Liên hệ</h4>
           <div class="footer-contact-item">

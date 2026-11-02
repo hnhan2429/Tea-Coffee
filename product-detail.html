@@ -38,8 +38,7 @@
             </svg>
           </button>
         </form>
-        <div class="header-actions" id="header-actions">
-        </div>
+        <div class="header-actions" id="header-actions"></div>
       </div>
     </header>
 
@@ -61,7 +60,7 @@
             <h1 class="detail-title">Trà Sữa Truyền Thống</h1>
             <span class="detail-category">Trà Sữa</span>
 
-            <div class="detail-price">22.000 đ</div>
+            <div class="detail-price">20.000 đ</div>
             <div class="detail-desc">
               <p>
                 Trà sữa truyền thống tại Góc Tea - Boba & Coffee được pha chế từ
@@ -72,10 +71,31 @@
 
               <p style="margin-top: 10px">
                 <em
-                  >* Lưu ý: Vui lòng chọn Topping đi kèm (nếu có) trước khi thêm
-                  vào giỏ hàng.</em
+                  >* Lưu ý: Vui lòng chọn Size và Topping đi kèm (nếu có) trước
+                  khi thêm vào giỏ hàng.</em
                 >
               </p>
+            </div>
+
+            <!-- CHỌN SIZE (MỚI THÊM) -->
+            <div style="margin-bottom: 20px">
+              <label
+                style="
+                  font-weight: 600;
+                  font-size: 16px;
+                  display: block;
+                  margin-bottom: 8px;
+                "
+                >Chọn Size:</label
+              >
+              <select
+                class="size-select"
+                onchange="showToast('Đã chọn Size ' + this.value)"
+              >
+                <option value="S">Size S (Mặc định)</option>
+                <option value="M">Size M (+ 4.000 đ)</option>
+                <option value="L">Size L (+ 8.000 đ)</option>
+              </select>
             </div>
 
             <!-- Chọn số lượng -->
@@ -87,6 +107,7 @@
                 <button type="button" onclick="tangSoLuong()">+</button>
               </div>
             </div>
+
             <!-- THÊM PHẦN CHỌN TOPPING -->
             <div style="margin-bottom: 10px">
               <label style="font-weight: 600; font-size: 16px"
@@ -99,12 +120,12 @@
                 <span>Trân châu đen (+5.000 đ)</span>
               </label>
               <label class="topping-item">
-                <input type="checkbox" onclick="chonTopping('Kem cheese')" />
-                <span>Kem cheese (+10.000 đ)</span>
-              </label>
-              <label class="topping-item">
                 <input type="checkbox" onclick="chonTopping('Bánh flan')" />
                 <span>Bánh flan (+8.000 đ)</span>
+              </label>
+              <label class="topping-item">
+                <input type="checkbox" onclick="chonTopping('Kem cheese')" />
+                <span>Kem cheese (+10.000 đ)</span>
               </label>
             </div>
             <!-- Nút hành động -->

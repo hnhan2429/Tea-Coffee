@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lịch Sử Mua Hàng - Góc Tea</title>
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Nhúng JS lên trên để dùng được ngay -->
+    <script src="js/main.js"></script>
   </head>
   <body>
     <script>
-      // Kiểm tra xem đã đăng nhập chưa
-      if (sessionStorage.getItem("daDangNhap") !== "true") {
-        // alert("Vui lòng đăng nhập để xem lịch sử đặt hàng!");
-        window.location.href = "login.html";
+      // Kiểm tra đăng nhập ngay lập tức
+      if (typeof daDangNhap === "function" && !daDangNhap()) {
+        window.location.replace("login.html");
       }
     </script>
 
@@ -46,10 +47,7 @@
             </svg>
           </button>
         </form>
-        <!-- Đã cập nhật trạng thái đăng nhập -->
-        <div class="header-actions" id="header-actions">
-          <!-- Nội dung sẽ được JS tự động điền -->
-        </div>
+        <div class="header-actions" id="header-actions"></div>
       </div>
     </header>
 
@@ -58,210 +56,328 @@
       <div class="container" style="max-width: 900px">
         <h2 class="section-title">Đơn hàng của bạn</h2>
         <p class="section-sub">
-          Danh sách các đơn hàng bạn đã đặt tại Góc Trà Sữa
+          Danh sách các đơn hàng bạn đã đặt tại Góc Tea - Boba & Coffee
         </p>
 
-        <!-- Đơn hàng 1: Đã xác nhận -->
-        <div class="order-card">
-          <div class="order-header">
-            <div class="order-header-top">
-              <div>
-                <span class="order-id">#GT-2026-004</span>
-                <span class="order-date">14:02, 22/10/2026</span>
-              </div>
-              <span class="status-badge status-confirmed">Đã xác nhận</span>
-            </div>
-            <div class="order-info-row">
-              <span>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-                  ></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                Giao đến: 237 Hoàng Hoa Thám, Phường Gia Định, TP.HCM
-              </span>
-              <span>
-                <svg viewBox="0 0 24 24">
-                  <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
-                  <line x1="2" y1="10" x2="22" y2="10"></line>
-                </svg>
-                Hình thức: Tiền mặt
-              </span>
-            </div>
-          </div>
-          <div class="order-body">
-            <div class="order-product-item">
-              <div class="product-name-qty">
-                <span>Trà sữa thái xanh</span>
-                <span class="product-qty">x1</span>
-              </div>
-              <div class="product-price">25.000 đ</div>
-            </div>
-          </div>
-          <div class="order-footer">
-            <div class="shipping-fee">
-              Phí giao hàng: <strong>Miễn phí</strong>
-            </div>
-            <div class="total-price">Tổng cộng: <strong>25.000 đ</strong></div>
-          </div>
-        </div>
-
-        <!-- Đơn hàng 2: Đã giao thành công -->
-        <div class="order-card">
-          <div class="order-header">
-            <div class="order-header-top">
-              <div>
-                <span class="order-id">#GT-2026-003</span>
-                <span class="order-date">16:37, 20/10/2026</span>
-              </div>
-              <span class="status-badge status-success"
-                >Đã giao thành công</span
+        <!-- ĐƠN HÀNG 1 -->
+        <div
+          class="order-card"
+          style="
+            padding: 20px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            margin-bottom: 20px;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              border-bottom: 1px solid #f5f5f5;
+              padding-bottom: 12px;
+              margin-bottom: 12px;
+            "
+          >
+            <div style="display: flex; align-items: center; gap: 8px">
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="var(--mau-nau)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span class="order-id" style="font-size: 18px; margin: 0"
+                >#GT-2026-004</span
               >
             </div>
-            <div class="order-info-row">
-              <span>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-                  ></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                Giao đến: 89 Võ Thị Sáu, Phường Xuân Hòa, TP.HCM
-              </span>
-              <span>
-                <svg viewBox="0 0 24 24">
-                  <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
-                  <line x1="2" y1="10" x2="22" y2="10"></line>
-                </svg>
-                Hình thức: Thanh toán trực tuyến
-              </span>
-            </div>
+            <span class="status-badge status-confirmed" style="margin: 0"
+              >Đã xác nhận</span
+            >
           </div>
-          <div class="order-body">
-            <div class="order-product-item">
-              <div class="product-name-qty">
-                <span>Trà sữa truyền thống</span>
-                <span class="product-qty">x2</span>
-              </div>
-              <div class="product-price">44.000 đ</div>
-            </div>
-            <div class="order-product-item">
-              <div class="product-name-qty">
-                <span>Trân châu đen</span> <span class="product-qty">x1</span>
-              </div>
-              <div class="product-price">5.000 đ</div>
-            </div>
-          </div>
-          <div class="order-footer">
-            <div class="shipping-fee">
-              Phí giao hàng: <strong>Miễn phí</strong>
-            </div>
-            <div class="total-price">Tổng cộng: <strong>49.000 đ</strong></div>
-          </div>
-        </div>
-
-        <!-- Đơn hàng 3: Đã giao thành công -->
-        <div class="order-card">
-          <div class="order-header">
-            <div class="order-header-top">
-              <div>
-                <span class="order-id">#GT-2026-002</span>
-                <span class="order-date">11:30, 18/10/2026</span>
-              </div>
-              <span class="status-badge status-success"
-                >Đã giao thành công</span
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 15px;
+            "
+          >
+            <span class="order-date" style="font-size: 14px; margin: 0"
+              >14:02, 02/11/2026</span
+            >
+            <div class="total-price" style="font-size: 14px; margin: 0">
+              Tổng cộng:
+              <strong style="font-size: 18px; color: var(--mau-cam-dat)"
+                >133.000 đ</strong
               >
             </div>
-            <div class="order-info-row">
-              <span>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-                  ></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                Giao đến: 89 Võ Thị Sáu, Phường Xuân Hòa, TP.HCM
-              </span>
-              <span>
-                <svg viewBox="0 0 24 24">
-                  <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
-                  <line x1="2" y1="10" x2="22" y2="10"></line>
-                </svg>
-                Hình thức: Tiền mặt
-              </span>
-            </div>
           </div>
-          <div class="order-body">
-            <div class="order-product-item">
-              <div class="product-name-qty">
-                <span>Trà đào</span> <span class="product-qty">x1</span>
-              </div>
-              <div class="product-price">25.000 đ</div>
-            </div>
-            <div class="order-product-item">
-              <div class="product-name-qty">
-                <span>Bánh flan</span> <span class="product-qty">x1</span>
-              </div>
-              <div class="product-price">8.000 đ</div>
-            </div>
-          </div>
-          <div class="order-footer">
-            <div class="shipping-fee">
-              Phí giao hàng: <strong>Miễn phí</strong>
-            </div>
-            <div class="total-price">Tổng cộng: <strong>33.000 đ</strong></div>
+          <div
+            style="
+              text-align: center;
+              border-top: 1px dashed #eee;
+              padding-top: 15px;
+            "
+          >
+            <a href="order-detail.html" class="btn-outline"
+              >Xem chi tiết &rarr;</a
+            >
           </div>
         </div>
 
-        <!-- Đơn hàng 4: Đã hủy -->
-        <div class="order-card">
-          <div class="order-header">
-            <div class="order-header-top">
-              <div>
-                <span class="order-id">#GT-2026-001</span>
-                <span class="order-date">19:18, 15/10/2026</span>
-              </div>
-              <span class="status-badge status-cancelled">Đã hủy</span>
+        <!-- ĐƠN HÀNG 2 -->
+        <div
+          class="order-card"
+          style="
+            padding: 20px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            margin-bottom: 20px;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              border-bottom: 1px solid #f5f5f5;
+              padding-bottom: 12px;
+              margin-bottom: 12px;
+            "
+          >
+            <div style="display: flex; align-items: center; gap: 8px">
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="var(--mau-nau)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span class="order-id" style="font-size: 18px; margin: 0"
+                >#GT-2026-003</span
+              >
             </div>
-            <div class="order-info-row">
-              <span>
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-                  ></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                Giao đến: 456 Hai Bà Trưng, Phường Tân Định, TPHCM
-              </span>
-              <span>
-                <svg viewBox="0 0 24 24">
-                  <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
-                  <line x1="2" y1="10" x2="22" y2="10"></line>
-                </svg>
-                Hình thức: Thanh toán trực tuyến
-              </span>
+            <span class="status-badge status-success" style="margin: 0"
+              >Đã giao thành công</span
+            >
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 15px;
+            "
+          >
+            <span class="order-date" style="font-size: 14px; margin: 0"
+              >16:37, 20/10/2026</span
+            >
+            <div class="total-price" style="font-size: 14px; margin: 0">
+              Tổng cộng:
+              <strong style="font-size: 18px; color: var(--mau-cam-dat)"
+                >30.000 đ</strong
+              >
             </div>
           </div>
-          <div class="order-body">
-            <div class="order-product-item">
-              <div class="product-name-qty">
-                <span>Matcha latte</span> <span class="product-qty">x1</span>
-              </div>
-              <div class="product-price">32.000 đ</div>
+          <div
+            style="
+              text-align: center;
+              border-top: 1px dashed #eee;
+              padding-top: 15px;
+            "
+          >
+            <a href="order-detail.html" class="btn-outline"
+              >Xem chi tiết &rarr;</a
+            >
+          </div>
+        </div>
+
+        <!-- ĐƠN HÀNG 3 -->
+        <div
+          class="order-card"
+          style="
+            padding: 20px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            margin-bottom: 20px;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              border-bottom: 1px solid #f5f5f5;
+              padding-bottom: 12px;
+              margin-bottom: 12px;
+            "
+          >
+            <div style="display: flex; align-items: center; gap: 8px">
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="var(--mau-nau)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span class="order-id" style="font-size: 18px; margin: 0"
+                >#GT-2026-002</span
+              >
+            </div>
+            <span class="status-badge status-success" style="margin: 0"
+              >Đã giao thành công</span
+            >
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 15px;
+            "
+          >
+            <span class="order-date" style="font-size: 14px; margin: 0"
+              >11:30, 18/10/2026</span
+            >
+            <div class="total-price" style="font-size: 14px; margin: 0">
+              Tổng cộng:
+              <strong style="font-size: 18px; color: var(--mau-cam-dat)"
+                >89.000 đ</strong
+              >
             </div>
           </div>
-          <div class="order-footer">
-            <div class="shipping-fee">
-              Phí giao hàng: <strong>Miễn phí</strong>
+          <div
+            style="
+              text-align: center;
+              border-top: 1px dashed #eee;
+              padding-top: 15px;
+            "
+          >
+            <a href="order-detail.html" class="btn-outline"
+              >Xem chi tiết &rarr;</a
+            >
+          </div>
+        </div>
+
+        <!-- ĐƠN HÀNG 4 -->
+        <div
+          class="order-card"
+          style="
+            padding: 20px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            margin-bottom: 20px;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              border-bottom: 1px solid #f5f5f5;
+              padding-bottom: 12px;
+              margin-bottom: 12px;
+            "
+          >
+            <div style="display: flex; align-items: center; gap: 8px">
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="var(--mau-nau)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span class="order-id" style="font-size: 18px; margin: 0"
+                >#GT-2026-001</span
+              >
             </div>
-            <div class="total-price">Tổng cộng: <strong>32.000 đ</strong></div>
+            <span class="status-badge status-cancelled" style="margin: 0"
+              >Đã hủy</span
+            >
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 15px;
+            "
+          >
+            <span class="order-date" style="font-size: 14px; margin: 0"
+              >19:18, 15/10/2026</span
+            >
+            <div class="total-price" style="font-size: 14px; margin: 0">
+              Tổng cộng:
+              <strong style="font-size: 18px; color: var(--mau-cam-dat)"
+                >20.000 đ</strong
+              >
+            </div>
+          </div>
+          <div
+            style="
+              text-align: center;
+              border-top: 1px dashed #eee;
+              padding-top: 15px;
+            "
+          >
+            <a href="order-detail.html" class="btn-outline"
+              >Xem chi tiết &rarr;</a
+            >
           </div>
         </div>
       </div>
     </section>
 
-  <!-- ================= FOOTER ================= -->
+    <!-- ================= FOOTER ================= -->
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-col-1">
@@ -283,7 +399,6 @@
             tuyệt vời nhất với nguyên liệu an toàn và chất lượng.
           </p>
         </div>
-
         <div class="footer-col-2">
           <h4>Liên hệ</h4>
           <div class="footer-contact-item">
@@ -317,7 +432,6 @@
       </div>
     </footer>
 
-    <script src="js/main.js"></script>
     <script>
       kiemTraDangNhap();
     </script>
