@@ -26,7 +26,7 @@
         </a>
         <nav class="nav">
           <a href="index.html">Trang chủ</a>
-          <a href="products.html">Sản phẩm</a>
+          <a href="products.html" class="active">Sản phẩm</a>
           <a href="order-history.html">Đơn hàng</a>
         </nav>
         <form class="search-form" action="search.html" method="get">
@@ -77,7 +77,7 @@
               </p>
             </div>
 
-            <!-- CHỌN SIZE (MỚI THÊM) -->
+            <!-- CHỌN SIZE (DẠNG NÚT BẤM) -->
             <div style="margin-bottom: 20px">
               <label
                 style="
@@ -88,14 +88,20 @@
                 "
                 >Chọn Size:</label
               >
-              <select
-                class="size-select"
-                onchange="showToast('Đã chọn Size ' + this.value)"
-              >
-                <option value="S">Size S (Mặc định)</option>
-                <option value="M">Size M (+ 4.000 đ)</option>
-                <option value="L">Size L (+ 8.000 đ)</option>
-              </select>
+              <div class="size-options">
+                <label class="size-option">
+                  <input type="radio" name="size" value="S" checked />
+                  <span>Size S (Mặc định)</span>
+                </label>
+                <label class="size-option">
+                  <input type="radio" name="size" value="M" />
+                  <span>Size M (+4.000 đ)</span>
+                </label>
+                <label class="size-option">
+                  <input type="radio" name="size" value="L" />
+                  <span>Size L (+8.000 đ)</span>
+                </label>
+              </div>
             </div>
 
             <!-- Chọn số lượng -->
@@ -116,16 +122,16 @@
             </div>
             <div class="topping-list">
               <label class="topping-item">
-                <input type="checkbox" onclick="chonTopping('Trân châu đen')" />
-                <span>Trân châu đen (+5.000 đ)</span>
+                <input type="checkbox" />
+                <span class="topping-name">Trân châu đen (+5.000 đ)</span>
               </label>
               <label class="topping-item">
-                <input type="checkbox" onclick="chonTopping('Bánh flan')" />
-                <span>Bánh flan (+8.000 đ)</span>
+                <input type="checkbox" />
+                <span class="topping-name">Kem cheese (+10.000 đ)</span>
               </label>
               <label class="topping-item">
-                <input type="checkbox" onclick="chonTopping('Kem cheese')" />
-                <span>Kem cheese (+10.000 đ)</span>
+                <input type="checkbox" />
+                <span class="topping-name">Bánh flan (+8.000 đ)</span>
               </label>
             </div>
             <!-- Nút hành động -->

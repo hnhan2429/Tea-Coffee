@@ -65,9 +65,12 @@ function kiemTraDangNhap() {
   const page = window.location.pathname.split("/").pop();
   const laTrangDangNhap = page === "login.html" || page === "register.html";
 
-  // Phần Giỏ hàng (Luôn luôn hiển thị ở mọi trang, kể cả khi chưa đăng nhập)
+  // Kiểm tra xem trang hiện tại có phải là cart.html không
+  const isCartPage = window.location.pathname.includes("cart.html");
+  const activeClass = isCartPage ? "active" : "";
+
   const HTML_GIO_HANG = `
-    <a href="cart.html" class="header-action-item" style="margin-left: 15px;">
+    <a href="cart.html" class="header-action-item ${activeClass}" style="margin-left: 15px;">
       <div class="cart-icon-wrapper">
         ${ICON_CART}
         <span class="cart-badge-header">${SO_MON_TRONG_GIO}</span>
@@ -93,9 +96,12 @@ function kiemTraDangNhap() {
     `;
   } else {
     // Đã đăng nhập: Hiện Tài khoản và Giỏ hàng
+    const isAccountPage = window.location.pathname.includes("account.html");
+    const accountActiveClass = isAccountPage ? "active" : "";
+
     headerActions.innerHTML = `
       <div class="header-action-group">
-        <details class="user-dropdown header-action-item">
+        <details class="user-dropdown header-action-item ${accountActiveClass}">
           <summary>
             ${ICON_USER}
             <div class="action-text">
