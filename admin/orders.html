@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Góc Trà Sữa - Quản Lý Đơn Hàng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        brand: { 50: '#fffbeb', 100: '#fef3c7', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' } 
+                    } 
+                } 
+            } 
+        }
+    </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 antialiased flex h-screen overflow-hidden text-lg">
+    <!-- Sidebar cố định chiều cao, không thay đổi khi cuộn, nút đăng xuất luôn ở cuối -->
+    <aside class="w-72 bg-slate-900 text-slate-300 flex flex-col justify-between hidden md:flex shadow-2xl flex-shrink-0 h-screen sticky top-0">
+        <div>
+            <div class="h-20 flex items-center justify-center gap-4 px-8 bg-slate-950 border-b border-slate-800">
+                             <span class="font-bold text-xl text-white tracking-wide text-center">Góc Trà Sữa</span>
+            </div>
+            <nav class="p-6 space-y-2">
+                <a href="index.html" class="flex items-center gap-4 px-5 py-4 text-slate-400 hover:bg-slate-800 hover:text-white rounded-2xl font-semibold text-lg transition"><i class="fa-solid fa-chart-pie w-6 text-xl"></i><span>Tổng Quan</span></a>
+                <a href="products.html" class="flex items-center gap-4 px-5 py-4 text-slate-400 hover:bg-slate-800 hover:text-white rounded-2xl font-semibold text-lg transition"><i class="fa-solid fa-wine-glass-empty w-6 text-xl"></i><span>Sản Phẩm</span></a>
+                <a href="orders.html" class="flex items-center gap-4 px-5 py-4 bg-brand-600 text-white rounded-2xl font-bold text-lg shadow-md"><i class="fa-solid fa-receipt w-6 text-xl"></i><span>Đơn Hàng</span></a>
+                <a href="customers.html" class="flex items-center gap-4 px-5 py-4 text-slate-400 hover:bg-slate-800 hover:text-white rounded-2xl font-semibold text-lg transition"><i class="fa-solid fa-users w-6 text-xl"></i><span>Khách Hàng</span></a>
+            </nav>
+        </div>
+        <div class="p-6 border-t border-slate-800">
+            <a href="login.html" class="flex items-center gap-4 px-5 py-3.5 text-rose-400 hover:bg-rose-500/10 rounded-2xl font-bold text-lg transition"><i class="fa-solid fa-right-from-bracket w-6 text-xl"></i><span>Đăng Xuất</span></a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-w-0 h-screen overflow-y-auto">
+        <div id="toast-container" class="fixed top-5 right-5 z-50 space-y-2"></div>
+        
+        <header class="h-20 bg-white border-b border-slate-200 px-8 flex items-center justify-between shadow-xs flex-shrink-0">
+            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800 flex items-center gap-3">
+                <i class="fa-solid fa-receipt text-brand-600"></i> Quản Lý Đơn Hàng
+            </h1>
+        </header>
+
+        <main class="p-8 space-y-8">
+            <!-- Thanh Bộ Lọc Đơn Hàng -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Tình trạng đơn hàng</label>
+                    <select id="filter-status" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500">
+                        <option value="">Tất cả tình trạng</option>
+                        <option value="Đang pha chế">Đang pha chế</option>
+                        <option value="Đang giao hàng">Đang giao hàng</option>
+                        <option value="Hoàn thành">Hoàn thành</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Thời gian đặt hàng</label>
+                    <div class="flex items-center gap-2">
+                        <input type="date" id="filter-date-from" class="w-full px-3 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500">
+                        <span class="text-slate-400 font-bold">-</span>
+                        <input type="date" id="filter-date-to" class="w-full px-3 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Địa điểm giao hàng</label>
+                    <select id="filter-location" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500">
+                        <option value="">Tất cả địa điểm</option>
+                        <option value="Quận 1">Quận 1, TP.HCM</option>
+                        <option value="Quận 3">Quận 3, TP.HCM</option>
+                        <option value="Quận Gò Vấp">Quận Gò Vấp, TP.HCM</option>
+                        <option value="Quận Bình Thạnh">Quận Bình Thạnh, TP.HCM</option>
+                    </select>
+                </div>
+                <div>
+                    <button onclick="applyFilter()" class="w-full py-3.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-base font-bold shadow-md transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-filter"></i> Lọc đơn hàng
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bảng Đơn Hàng -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden p-3">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-lg text-slate-700 border-collapse">
+                        <thead class="bg-slate-50 text-sm font-extrabold uppercase text-slate-500 border-b border-slate-200 tracking-wider">
+                            <tr>
+                                <th class="p-6 align-middle rounded-l-2xl">Mã Đơn / Thời Gian</th>
+                                <th class="p-6 align-middle">Khách Hàng & Địa Chỉ</th>
+                                <th class="p-6 align-middle">Chi Tiết Món & Thanh Toán</th>
+                                <th class="p-6 align-middle">Tổng Tiền</th>
+                                <th class="p-6 align-middle">Trạng Thái</th>
+                                <th class="p-6 align-middle text-right rounded-r-2xl">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-table-body" class="divide-y divide-slate-100 font-medium">
+                            <!-- Đơn #TS-1032 -->
+                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đang pha chế" data-date="2026-06-07" data-location="Quận Gò Vấp">
+                                <td class="p-6 align-middle">
+                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-xl flex items-center gap-2">
+                                        <i class="fa-solid fa-file-invoice text-brand-500 text-lg"></i> #TS-1032
+                                    </a>
+                                    <span class="text-sm text-slate-400 font-semibold mt-1 block">Hôm nay, 14:20</span>
+                                </td>
+                                <td class="p-6 align-middle">
+                                    <div class="font-bold text-slate-900 text-xl">Hoàng Gia Bảo</div>
+                                    <div class="text-sm text-slate-500 font-semibold mt-0.5">0912.345.678</div>
+                                    <div class="text-sm text-slate-600 font-medium mt-1 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-rose-500"></i> 12 Nguyễn Oanh, Quận Gò Vấp</div>
+                                </td>
+                                <td class="p-6 align-middle">
+                                    <div class="text-slate-900 font-bold text-lg">Trà Sữa Matcha Kem Cheese (L) x 2</div>
+                                    <span class="inline-block mt-1.5 text-sm font-bold px-3 py-1 bg-purple-50 text-purple-700 rounded-lg">Chuyển khoản MoMo</span>
+                                </td>
+                                <td class="p-6 align-middle font-black text-slate-900 text-2xl">64,000đ</td>
+                                <td class="p-6 align-middle">
+                                    <span class="text-amber-800 text-base font-bold inline-flex items-center gap-2"><i class="fa-solid fa-spinner animate-spin"></i> Đang pha chế</span>
+                                </td>
+                                <td class="p-6 align-middle text-right">
+                                    <button onclick="openStatusModal('#TS-1032', 'Đang pha chế')" class="px-5 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-base font-bold transition inline-flex items-center gap-1.5">
+                                        <i class="fa-solid fa-pen-to-square"></i> Cập nhật
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Đơn #TS-1031 -->
+                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đang giao hàng" data-date="2026-06-07" data-location="Quận Bình Thạnh">
+                                <td class="p-6 align-middle">
+                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-xl flex items-center gap-2">
+                                        <i class="fa-solid fa-file-invoice text-brand-500 text-lg"></i> #TS-1031
+                                    </a>
+                                    <span class="text-sm text-slate-400 font-semibold mt-1 block">Hôm nay, 13:45</span>
+                                </td>
+                                <td class="p-6 align-middle">
+                                    <div class="font-bold text-slate-900 text-xl">Nguyễn Thị Thu Hà</div>
+                                    <div class="text-sm text-slate-500 font-semibold mt-0.5">0988.765.432</div>
+                                    <div class="text-sm text-slate-600 font-medium mt-1 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-rose-500"></i> 45 Điện Biên Phủ, Quận Bình Thạnh</div>
+                                </td>
+                                <td class="p-6 align-middle">
+                                    <div class="text-slate-900 font-bold text-lg">Trà Đào Hồng Tea (M) + Trân châu trắng</div>
+                                    <span class="inline-block mt-1.5 text-sm font-bold px-3 py-1 bg-emerald-50 text-emerald-700 rounded-lg">Tiền mặt</span>
+                                </td>
+                                <td class="p-6 align-middle font-black text-slate-900 text-2xl">33,000đ</td>
+                                <td class="p-6 align-middle">
+                                    <span class="text-blue-800 text-base font-bold inline-flex items-center gap-2"><i class="fa-solid fa-truck-fast"></i> Đang giao hàng</span>
+                                </td>
+                                <td class="p-6 align-middle text-right">
+                                    <button onclick="openStatusModal('#TS-1031', 'Đang giao hàng')" class="px-5 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-base font-bold transition inline-flex items-center gap-1.5">
+                                        <i class="fa-solid fa-pen-to-square"></i> Cập nhật
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Đơn #TS-1030 -->
+                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Hoàn thành" data-date="2026-06-07" data-location="Quận 1">
+                                <td class="p-6 align-middle">
+                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-xl flex items-center gap-2">
+                                        <i class="fa-solid fa-file-invoice text-brand-500 text-lg"></i> #TS-1030
+                                    </a>
+                                    <span class="text-sm text-slate-400 font-semibold mt-1 block">Hôm nay, 12:10</span>
+                                </td>
+                                <td class="p-6 align-middle">
+                                    <div class="font-bold text-slate-900 text-xl">Vũ Minh Triết</div>
+                                    <div class="text-sm text-slate-500 font-semibold mt-0.5">0905.111.222</div>
+                                    <div class="text-sm text-slate-600 font-medium mt-1 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-rose-500"></i> 88 Nguyễn Huệ, Quận 1</div>
+                                </td>
+                                <td class="p-6 align-middle">
+                                    <div class="text-slate-900 font-bold text-lg">Cà Phê Sữa Đá Sài Gòn x 2</div>
+                                    <span class="inline-block mt-1.5 text-sm font-bold px-3 py-1 bg-purple-50 text-purple-700 rounded-lg">Chuyển khoản Banking</span>
+                                </td>
+                                <td class="p-6 align-middle font-black text-slate-900 text-2xl">44,000đ</td>
+                                <td class="p-6 align-middle">
+                                    <span class="text-emerald-800 text-base font-bold inline-flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> Hoàn thành</span>
+                                </td>
+                                <td class="p-6 align-middle text-right">
+                                    <button onclick="openStatusModal('#TS-1030', 'Hoàn thành')" class="px-5 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-base font-bold transition inline-flex items-center gap-1.5">
+                                        <i class="fa-solid fa-pen-to-square"></i> Cập nhật
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Đơn #TS-1029 -->
+                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Hoàn thành" data-date="2026-06-06" data-location="Quận 3">
+                                <td class="p-6 align-middle">
+                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-xl flex items-center gap-2">
+                                        <i class="fa-solid fa-file-invoice text-brand-500 text-lg"></i> #TS-1029
+                                    </a>
+                                    <span class="text-sm text-slate-400 font-semibold mt-1 block">Hôm qua, 18:30</span>
+                                </td>
+                                <td class="p-6 align-middle">
+                                    <div class="font-bold text-slate-900 text-xl">Đinh Ngọc Quỳnh Anh</div>
+                                    <div class="text-sm text-slate-500 font-semibold mt-0.5">0389.999.888</div>
+                                    <div class="text-sm text-slate-600 font-medium mt-1 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-rose-500"></i> 15 Võ Văn Tần, Quận 3</div>
+                                </td>
+                                <td class="p-6 align-middle">
+                                    <div class="text-slate-900 font-bold text-lg">Sữa Tươi Trân Châu Đường Đen (L)</div>
+                                    <span class="inline-block mt-1.5 text-sm font-bold px-3 py-1 bg-emerald-50 text-emerald-700 rounded-lg">Tiền mặt</span>
+                                </td>
+                                <td class="p-6 align-middle font-black text-slate-900 text-2xl">35,000đ</td>
+                                <td class="p-6 align-middle">
+                                    <span class="text-emerald-800 text-base font-bold inline-flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> Hoàn thành</span>
+                                </td>
+                                <td class="p-6 align-middle text-right">
+                                    <button onclick="openStatusModal('#TS-1029', 'Hoàn thành')" class="px-5 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-base font-bold transition inline-flex items-center gap-1.5">
+                                        <i class="fa-solid fa-pen-to-square"></i> Cập nhật
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Thanh Chuyển Trang -->
+            <div id="pagination-container" class="flex items-center justify-center gap-3 pt-2 pb-4">
+                <a href="orders.html" class="px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-2xl font-bold text-base hover:bg-slate-50 transition shadow-xs flex items-center justify-center">
+                    Trước
+                </a>
+                <a href="orders.html" class="w-12 h-12 bg-brand-600 text-white rounded-2xl text-lg font-extrabold shadow-md flex items-center justify-center">
+                    1
+                </a>
+                <a href="orders.html" class="w-12 h-12 bg-white border border-slate-200 text-slate-700 rounded-2xl text-lg font-bold hover:bg-slate-50 transition shadow-xs flex items-center justify-center">
+                    2
+                </a>
+                <a href="orders.html" class="px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-2xl font-bold text-base hover:bg-slate-50 transition shadow-xs flex items-center justify-center">
+                    Sau
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Cập Nhật Tình Trạng Đơn Hàng -->
+    <div id="modal-edit-status" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-slate-100">
+            <div class="flex justify-between items-center mb-6 pb-4 border-b border-slate-100">
+                <h3 class="text-xl font-bold text-slate-800" id="modal-title">Cập Nhật Tình Trạng Đơn Hàng</h3>
+                <button onclick="toggleModal('modal-edit-status')" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            </div>
+            <form onsubmit="event.preventDefault(); submitOrderStatus();" class="space-y-5">
+                <input type="hidden" id="edit-order-id">
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Chọn trạng thái mới</label>
+                    <select id="new-status-select" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500">
+                        <option value="Đang pha chế">Đang pha chế</option>
+                        <option value="Đang giao hàng">Đang giao hàng</option>
+                        <option value="Hoàn thành">Hoàn thành</option>
+                        <option value="Đã hủy">Đã hủy</option>
+                    </select>
+                </div>
+                <div class="flex gap-4 pt-4">
+                    <button type="button" onclick="toggleModal('modal-edit-status')" class="flex-1 py-3 border border-slate-200 text-slate-600 rounded-xl text-base font-bold hover:bg-slate-50">Hủy</button>
+                    <button type="submit" class="flex-1 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-base font-bold shadow-sm">Cập nhật</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentEditingOrderCode = '';
+
+        function toggleModal(id) { 
+            document.getElementById(id).classList.toggle('hidden'); 
+        }
+
+        function openStatusModal(orderCode, currentStatus) {
+            currentEditingOrderCode = orderCode;
+            document.getElementById('modal-title').innerText = `Cập Nhật Đơn Hàng ${orderCode}`;
+            document.getElementById('new-status-select').value = currentStatus;
+            toggleModal('modal-edit-status');
+        }
+
+        function submitOrderStatus() {
+            toggleModal('modal-edit-status');
+            showToast(`Đã cập nhật thành công trạng thái đơn hàng ${currentEditingOrderCode}!`);
+        }
+
+        function applyFilter() {
+            const statusVal = document.getElementById('filter-status').value;
+            const dateFromVal = document.getElementById('filter-date-from').value;
+            const dateToVal = document.getElementById('filter-date-to').value;
+            const locationVal = document.getElementById('filter-location').value;
+
+            const rows = document.querySelectorAll('.order-row');
+            let foundMatch = false;
+
+            rows.forEach(row => {
+                const rowStatus = row.getAttribute('data-status');
+                const rowDate = row.getAttribute('data-date');
+                const rowLocation = row.getAttribute('data-location');
+
+                let matchStatus = !statusVal || rowStatus === statusVal;
+                let matchDateFrom = !dateFromVal || rowDate >= dateFromVal;
+                let matchDateTo = !dateToVal || rowDate <= dateToVal;
+                let matchLocation = !locationVal || rowLocation === locationVal;
+
+                if (!foundMatch && matchStatus && matchDateFrom && matchDateTo && matchLocation) {
+                    row.style.display = '';
+                    foundMatch = true;
+
+                    if (statusVal === '') document.getElementById('filter-status').value = rowStatus;
+                    document.getElementById('filter-date-from').value = rowDate;
+                    document.getElementById('filter-date-to').value = rowDate;
+                    if (locationVal === '') document.getElementById('filter-location').value = rowLocation;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            if (!foundMatch && rows.length > 0) {
+                rows.forEach((r, idx) => {
+                    if (idx === 0) {
+                        r.style.display = '';
+                        document.getElementById('filter-status').value = r.getAttribute('data-status');
+                        document.getElementById('filter-date-from').value = r.getAttribute('data-date');
+                        document.getElementById('filter-date-to').value = r.getAttribute('data-date');
+                        document.getElementById('filter-location').value = r.getAttribute('data-location');
+                    } else {
+                        r.style.display = 'none';
+                    }
+                });
+            }
+
+            const paginationContainer = document.getElementById('pagination-container');
+            paginationContainer.innerHTML = `
+                <button onclick="showToast('Đang ở trang duy nhất của kết quả lọc')" class="px-6 py-3 bg-white border border-slate-200 text-slate-400 rounded-2xl font-bold text-base cursor-not-allowed shadow-xs flex items-center justify-center">Trước</button>
+                <button onclick="showToast('Đang ở trang duy nhất của kết quả lọc')" class="w-12 h-12 bg-brand-600 text-white rounded-2xl text-lg font-extrabold shadow-md flex items-center justify-center">1</button>
+                <button onclick="showToast('Đang ở trang duy nhất của kết quả lọc')" class="px-6 py-3 bg-white border border-slate-200 text-slate-400 rounded-2xl font-bold text-base cursor-not-allowed shadow-xs flex items-center justify-center">Sau</button>
+            `;
+
+            showToast('Đã lọc và hiển thị 1 kết quả phù hợp!');
+        }
+
+        function showToast(msg) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'p-4 rounded-2xl shadow-xl text-base font-bold flex items-center gap-3 text-white bg-emerald-600 transition duration-300';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-xl"></i> <span>${msg}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+    </script>
+</body>
+</html>
