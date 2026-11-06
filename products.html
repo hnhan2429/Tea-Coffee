@@ -30,7 +30,12 @@
           <a href="order-history.html">Đơn hàng</a>
         </nav>
         <form class="search-form" action="search.html" method="get">
-          <input type="text" name="q" placeholder="Tìm món bạn yêu thích..." />
+          <input
+            type="text"
+            name="q"
+            placeholder="Tìm món bạn yêu thích..."
+            autocomplete="off"
+          />
           <button type="submit" title="Tìm kiếm">
             <svg viewBox="0 0 24 24">
               <circle cx="11" cy="11" r="8"></circle>
@@ -65,6 +70,7 @@
                   name="ten"
                   class="search-input"
                   placeholder="Tìm món bạn yêu thích..."
+                  autocomplete="off"
                 />
               </div>
             </div>
@@ -87,6 +93,7 @@
                   class="search-input"
                   placeholder="Tối thiểu"
                   oninput="formatTienTe(this)"
+                  autocomplete="off"
                 />
                 <span>—</span>
                 <input
@@ -95,6 +102,7 @@
                   class="search-input"
                   placeholder="Tối đa"
                   oninput="formatTienTe(this)"
+                  autocomplete="off"
                 />
               </div>
             </div>

@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lịch Sử Mua Hàng - Góc Tea</title>
     <link rel="stylesheet" href="css/style.css" />
-    <!-- Nhúng JS lên trên để dùng được ngay -->
-    <script src="js/main.js"></script>
   </head>
   <body>
     <script>
-      // Kiểm tra đăng nhập ngay lập tức
-      if (typeof daDangNhap === "function" && !daDangNhap()) {
-        window.location.replace("login.html");
-      }
+      window.onload = function () {
+        if (typeof baoVeTrang === "function") {
+          baoVeTrang();
+        }
+      };
     </script>
 
     <!-- ================= HEADER ================= -->
@@ -39,7 +38,12 @@
           <a href="order-history.html" class="active">Đơn hàng</a>
         </nav>
         <form class="search-form" action="search.html" method="get">
-          <input type="text" name="q" placeholder="Tìm món bạn yêu thích..." />
+          <input
+            type="text"
+            name="q"
+            placeholder="Tìm món bạn yêu thích..."
+            autocomplete="off"
+          />
           <button type="submit" title="Tìm kiếm">
             <svg viewBox="0 0 24 24">
               <circle cx="11" cy="11" r="8"></circle>
@@ -63,315 +67,831 @@
         <div
           class="order-card"
           style="
-            padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
             background: #fff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+            margin-bottom: 25px;
+            overflow: hidden;
           "
         >
+          <!-- 1. HEADER -->
           <div
             style="
+              background: var(--mau-nen-phu);
+              padding: 15px 20px;
               display: flex;
               justify-content: space-between;
               align-items: center;
-              border-bottom: 1px solid #f5f5f5;
-              padding-bottom: 12px;
-              margin-bottom: 12px;
+              border-bottom: 1px solid #f0e6d2;
             "
           >
-            <div style="display: flex; align-items: center; gap: 8px">
-              <svg
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-                fill="none"
-                stroke="var(--mau-nau)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                ></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-              </svg>
-              <span class="order-id" style="font-size: 18px; margin: 0"
+            <div style="display: flex; align-items: center; gap: 15px">
+              <span
+                style="
+                  font-size: 17px;
+                  font-weight: 700;
+                  color: var(--mau-nau);
+                  line-height: 1;
+                "
                 >#GT-2026-004</span
               >
+              <span
+                style="font-size: 14px; color: var(--mau-xam); line-height: 1"
+                >14:02, 06/11/2026</span
+              >
             </div>
-            <span class="status-badge status-confirmed" style="margin: 0"
-              >Đã xác nhận</span
+            <span
+              style="
+                background: #e3f2fd;
+                color: #1976d2;
+                border: 1px solid #bbdefb;
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-size: 13px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+              "
             >
+              <svg
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              Đã xác nhận
+            </span>
           </div>
+
+          <!-- 2. BODY: Danh sách 4 sản phẩm -->
+          <div style="padding: 15px 20px">
+            <!-- SP 1 -->
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                padding: 15px 0;
+                border-bottom: 1px dashed #eee;
+              "
+            >
+              <img
+                src="images/products/tra-sua-truyen-thong.png"
+                alt="Trà sữa"
+                style="
+                  width: 70px;
+                  height: 70px;
+                  object-fit: contain;
+                  background: var(--mau-nen-phu);
+                  border-radius: 8px;
+                  border: 1px solid #eee;
+                "
+              />
+              <div style="flex: 1">
+                <h4
+                  style="
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: var(--mau-chu);
+                    margin-bottom: 5px;
+                  "
+                >
+                  Trà sữa truyền thống
+                </h4>
+                <p style="font-size: 14px; color: var(--mau-xam)">Size M</p>
+              </div>
+              <div
+                style="
+                  text-align: right;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--mau-chu);
+                  "
+                >
+                  34.000 đ
+                </div>
+                <div style="font-size: 13px; color: var(--mau-xam)">x1</div>
+              </div>
+            </div>
+
+            <!-- SP 2 -->
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                padding: 15px 0;
+                border-bottom: 1px dashed #eee;
+              "
+            >
+              <img
+                src="images/products/tra-dao.png"
+                alt="Trà đào"
+                style="
+                  width: 70px;
+                  height: 70px;
+                  object-fit: contain;
+                  background: var(--mau-nen-phu);
+                  border-radius: 8px;
+                  border: 1px solid #eee;
+                "
+              />
+              <div style="flex: 1">
+                <h4
+                  style="
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: var(--mau-chu);
+                    margin-bottom: 5px;
+                  "
+                >
+                  Trà đào
+                </h4>
+                <p style="font-size: 14px; color: var(--mau-xam)">Size S</p>
+              </div>
+              <div
+                style="
+                  text-align: right;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--mau-chu);
+                  "
+                >
+                  50.000 đ
+                </div>
+                <div style="font-size: 13px; color: var(--mau-xam)">x2</div>
+              </div>
+            </div>
+
+            <!-- SP 3 -->
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                padding: 15px 0;
+                border-bottom: 1px dashed #eee;
+              "
+            >
+              <img
+                src="images/products/matcha-latte.png"
+                alt="Matcha"
+                style="
+                  width: 70px;
+                  height: 70px;
+                  object-fit: contain;
+                  background: var(--mau-nen-phu);
+                  border-radius: 8px;
+                  border: 1px solid #eee;
+                "
+              />
+              <div style="flex: 1">
+                <h4
+                  style="
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: var(--mau-chu);
+                    margin-bottom: 5px;
+                  "
+                >
+                  Matcha latte
+                </h4>
+                <p style="font-size: 14px; color: var(--mau-xam)">
+                  Size L, Trân châu đen
+                </p>
+              </div>
+              <div
+                style="
+                  text-align: right;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--mau-chu);
+                  "
+                >
+                  41.000 đ
+                </div>
+                <div style="font-size: 13px; color: var(--mau-xam)">x1</div>
+              </div>
+            </div>
+
+            <!-- SP 4 -->
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                padding: 15px 0;
+              "
+            >
+              <img
+                src="images/products/banh-flan.png"
+                alt="Bánh flan"
+                style="
+                  width: 70px;
+                  height: 70px;
+                  object-fit: contain;
+                  background: var(--mau-nen-phu);
+                  border-radius: 8px;
+                  border: 1px solid #eee;
+                "
+              />
+              <div style="flex: 1">
+                <h4
+                  style="
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: var(--mau-chu);
+                    margin-bottom: 5px;
+                  "
+                >
+                  Bánh flan
+                </h4>
+                <p style="font-size: 14px; color: var(--mau-xam)">
+                  Topping thêm
+                </p>
+              </div>
+              <div
+                style="
+                  text-align: right;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--mau-chu);
+                  "
+                >
+                  8.000 đ
+                </div>
+                <div style="font-size: 13px; color: var(--mau-xam)">x1</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. FOOTER -->
           <div
             style="
+              padding: 15px 20px;
+              background: #fff;
+              border-top: 1px solid #f5f5f5;
               display: flex;
               justify-content: space-between;
               align-items: center;
-              margin-bottom: 15px;
             "
           >
-            <span class="order-date" style="font-size: 14px; margin: 0"
-              >14:02, 02/11/2026</span
-            >
-            <div class="total-price" style="font-size: 14px; margin: 0">
+            <div style="font-size: 15px; color: var(--mau-xam)">
               Tổng cộng:
-              <strong style="font-size: 18px; color: var(--mau-cam-dat)"
+              <strong
+                style="
+                  font-size: 18px;
+                  font-weight: 700;
+                  color: var(--mau-xanh-dam);
+                  margin-left: 8px;
+                "
                 >133.000 đ</strong
               >
             </div>
-          </div>
-          <div
-            style="
-              text-align: center;
-              border-top: 1px dashed #eee;
-              padding-top: 15px;
-            "
-          >
-            <a href="order-detail.html" class="btn-outline"
-              >Xem chi tiết &rarr;</a
-            >
+            <a href="order-detail.html" class="btn-view-detail">
+              Xem chi tiết &rarr;
+            </a>
           </div>
         </div>
 
-        <!-- ĐƠN HÀNG 2 -->
+        <!-- ĐƠN HÀNG 2 (Mẫu đơn gọn hơn) -->
         <div
           class="order-card"
           style="
-            padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
             background: #fff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+            margin-bottom: 25px;
+            overflow: hidden;
           "
         >
           <div
             style="
+              background: var(--mau-nen-phu);
+              padding: 15px 20px;
               display: flex;
               justify-content: space-between;
               align-items: center;
-              border-bottom: 1px solid #f5f5f5;
-              padding-bottom: 12px;
-              margin-bottom: 12px;
+              border-bottom: 1px solid #f0e6d2;
             "
           >
-            <div style="display: flex; align-items: center; gap: 8px">
-              <svg
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-                fill="none"
-                stroke="var(--mau-nau)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                ></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-              </svg>
-              <span class="order-id" style="font-size: 18px; margin: 0"
+            <div style="display: flex; align-items: center; gap: 15px">
+              <span
+                style="
+                  font-size: 17px;
+                  font-weight: 700;
+                  color: var(--mau-nau);
+                  line-height: 1;
+                "
                 >#GT-2026-003</span
               >
+              <span
+                style="font-size: 14px; color: var(--mau-xam); line-height: 1"
+                >18:05, 20/10/2026</span
+              >
             </div>
-            <span class="status-badge status-success" style="margin: 0"
-              >Đã giao thành công</span
+            <span
+              style="
+                background: #e8f5e9;
+                color: #2e7d32;
+                border: 1px solid #c8e6c9;
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-size: 13px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+              "
             >
+              <svg
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Đã giao thành công
+            </span>
           </div>
+
+          <div style="padding: 15px 20px">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                padding: 15px 0;
+              "
+            >
+              <img
+                src="images/products/matcha-latte.png"
+                alt="Matcha"
+                style="
+                  width: 70px;
+                  height: 70px;
+                  object-fit: contain;
+                  background: var(--mau-nen-phu);
+                  border-radius: 8px;
+                  border: 1px solid #eee;
+                "
+              />
+              <div style="flex: 1">
+                <h4
+                  style="
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: var(--mau-chu);
+                    margin-bottom: 5px;
+                  "
+                >
+                  Matcha latte
+                </h4>
+                <p style="font-size: 14px; color: var(--mau-xam)">Size L</p>
+              </div>
+              <div
+                style="
+                  text-align: right;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--mau-chu);
+                  "
+                >
+                  41.000 đ
+                </div>
+                <div style="font-size: 13px; color: var(--mau-xam)">x1</div>
+              </div>
+            </div>
+          </div>
+
           <div
             style="
+              padding: 15px 20px;
+              background: #fff;
+              border-top: 1px solid #f5f5f5;
               display: flex;
               justify-content: space-between;
               align-items: center;
-              margin-bottom: 15px;
             "
           >
-            <span class="order-date" style="font-size: 14px; margin: 0"
-              >16:37, 20/10/2026</span
-            >
-            <div class="total-price" style="font-size: 14px; margin: 0">
+            <div style="font-size: 15px; color: var(--mau-xam)">
               Tổng cộng:
-              <strong style="font-size: 18px; color: var(--mau-cam-dat)"
-                >30.000 đ</strong
+              <strong
+                style="
+                  font-size: 18px;
+                  font-weight: 700;
+                  color: var(--mau-xanh-dam);
+                  margin-left: 8px;
+                "
+                >41.000 đ</strong
               >
             </div>
-          </div>
-          <div
-            style="
-              text-align: center;
-              border-top: 1px dashed #eee;
-              padding-top: 15px;
-            "
-          >
-            <a href="order-detail.html" class="btn-outline"
-              >Xem chi tiết &rarr;</a
-            >
+            <a href="order-detail.html" class="btn-view-detail">
+              Xem chi tiết &rarr;
+            </a>
           </div>
         </div>
-
-        <!-- ĐƠN HÀNG 3 -->
+        <!-- ĐƠN HÀNG 3 (Đã hủy) -->
         <div
           class="order-card"
           style="
-            padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
             background: #fff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+            margin-bottom: 25px;
+            overflow: hidden;
           "
         >
           <div
             style="
+              background: var(--mau-nen-phu);
+              padding: 15px 20px;
               display: flex;
               justify-content: space-between;
               align-items: center;
-              border-bottom: 1px solid #f5f5f5;
-              padding-bottom: 12px;
-              margin-bottom: 12px;
+              border-bottom: 1px solid #f0e6d2;
             "
           >
-            <div style="display: flex; align-items: center; gap: 8px">
-              <svg
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-                fill="none"
-                stroke="var(--mau-nau)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                ></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-              </svg>
-              <span class="order-id" style="font-size: 18px; margin: 0"
+            <div style="display: flex; align-items: center; gap: 15px">
+              <span
+                style="
+                  font-size: 17px;
+                  font-weight: 700;
+                  color: var(--mau-nau);
+                  line-height: 1;
+                "
                 >#GT-2026-002</span
               >
+              <span
+                style="font-size: 14px; color: var(--mau-xam); line-height: 1"
+                >16:37, 18/10/2026</span
+              >
             </div>
-            <span class="status-badge status-success" style="margin: 0"
-              >Đã giao thành công</span
+            <!-- Nhãn Đã hủy (Màu đỏ) -->
+            <span
+              style="
+                background: #ffebee;
+                color: #c62828;
+                border: 1px solid #ffcdd2;
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-size: 13px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+              "
             >
+              <svg
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+              Đã hủy
+            </span>
           </div>
+
+          <div style="padding: 15px 20px">
+            <!-- Sản phẩm -->
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                padding: 15px 0;
+              "
+            >
+              <img
+                src="images/products/tra-dao.png"
+                alt="Trà đào"
+                style="
+                  width: 70px;
+                  height: 70px;
+                  object-fit: contain;
+                  background: var(--mau-nen-phu);
+                  border-radius: 8px;
+                  border: 1px solid #eee;
+                "
+              />
+              <div style="flex: 1">
+                <h4
+                  style="
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: var(--mau-chu);
+                    margin-bottom: 5px;
+                  "
+                >
+                  Trà đào
+                </h4>
+                <p style="font-size: 14px; color: var(--mau-xam)">Size S</p>
+              </div>
+              <div
+                style="
+                  text-align: right;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--mau-chu);
+                  "
+                >
+                  25.000 đ
+                </div>
+                <div style="font-size: 13px; color: var(--mau-xam)">x1</div>
+              </div>
+            </div>
+          </div>
+
           <div
             style="
+              padding: 15px 20px;
+              background: #fff;
+              border-top: 1px solid #f5f5f5;
               display: flex;
               justify-content: space-between;
               align-items: center;
-              margin-bottom: 15px;
             "
           >
-            <span class="order-date" style="font-size: 14px; margin: 0"
-              >11:30, 18/10/2026</span
-            >
-            <div class="total-price" style="font-size: 14px; margin: 0">
+            <div style="font-size: 15px; color: var(--mau-xam)">
               Tổng cộng:
-              <strong style="font-size: 18px; color: var(--mau-cam-dat)"
-                >89.000 đ</strong
+              <strong
+                style="
+                  font-size: 18px;
+                  font-weight: 700;
+                  color: var(--mau-xanh-dam);
+                  margin-left: 8px;
+                "
+                >25.000 đ</strong
               >
             </div>
-          </div>
-          <div
-            style="
-              text-align: center;
-              border-top: 1px dashed #eee;
-              padding-top: 15px;
-            "
-          >
-            <a href="order-detail.html" class="btn-outline"
-              >Xem chi tiết &rarr;</a
-            >
+            <a href="order-detail.html" class="btn-view-detail">
+              Xem chi tiết &rarr;
+            </a>
           </div>
         </div>
 
-        <!-- ĐƠN HÀNG 4 -->
+        <!-- ĐƠN HÀNG 4 (Đã giao thành công) -->
         <div
           class="order-card"
           style="
-            padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
             background: #fff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+            margin-bottom: 25px;
+            overflow: hidden;
           "
         >
           <div
             style="
+              background: var(--mau-nen-phu);
+              padding: 15px 20px;
               display: flex;
               justify-content: space-between;
               align-items: center;
-              border-bottom: 1px solid #f5f5f5;
-              padding-bottom: 12px;
-              margin-bottom: 12px;
+              border-bottom: 1px solid #f0e6d2;
             "
           >
-            <div style="display: flex; align-items: center; gap: 8px">
+            <div style="display: flex; align-items: center; gap: 15px">
+              <span
+                style="
+                  font-size: 17px;
+                  font-weight: 700;
+                  color: var(--mau-nau);
+                  line-height: 1;
+                "
+                >#GT-2026-004</span
+              >
+              <span
+                style="font-size: 14px; color: var(--mau-xam); line-height: 1"
+                >11:15 15/10/2026</span
+              >
+            </div>
+            <!-- Nhãn Đã giao (Màu xanh lá) -->
+            <span
+              style="
+                background: #e8f5e9;
+                color: #2e7d32;
+                border: 1px solid #c8e6c9;
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-size: 13px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+              "
+            >
               <svg
                 viewBox="0 0 24 24"
-                width="20"
-                height="20"
+                width="14"
+                height="14"
                 fill="none"
-                stroke="var(--mau-nau)"
+                stroke="currentColor"
                 stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
               >
-                <path
-                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                ></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
+                <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <span class="order-id" style="font-size: 18px; margin: 0"
-                >#GT-2026-001</span
-              >
-            </div>
-            <span class="status-badge status-cancelled" style="margin: 0"
-              >Đã hủy</span
-            >
+              Đã giao thành công
+            </span>
           </div>
+
+          <div style="padding: 15px 20px">
+            <!-- Sản phẩm 1 -->
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                padding: 15px 0;
+                border-bottom: 1px dashed #eee;
+              "
+            >
+              <img
+                src="images/products/tra-sua-khoai-mon.png"
+                alt="Trà sữa khoai môn"
+                style="
+                  width: 70px;
+                  height: 70px;
+                  object-fit: contain;
+                  background: var(--mau-nen-phu);
+                  border-radius: 8px;
+                  border: 1px solid #eee;
+                "
+              />
+              <div style="flex: 1">
+                <h4
+                  style="
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: var(--mau-chu);
+                    margin-bottom: 5px;
+                  "
+                >
+                  Trà sữa khoai môn
+                </h4>
+                <p style="font-size: 14px; color: var(--mau-xam)">Size M</p>
+              </div>
+              <div
+                style="
+                  text-align: right;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--mau-chu);
+                  "
+                >
+                  26.000 đ
+                </div>
+                <div style="font-size: 13px; color: var(--mau-xam)">x1</div>
+              </div>
+            </div>
+            <!-- Sản phẩm 2 -->
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                padding: 15px 0;
+              "
+            >
+              <img
+                src="images/products/ca-phe-sua.png"
+                alt="Cà phê sữa"
+                style="
+                  width: 70px;
+                  height: 70px;
+                  object-fit: contain;
+                  background: var(--mau-nen-phu);
+                  border-radius: 8px;
+                  border: 1px solid #eee;
+                "
+              />
+              <div style="flex: 1">
+                <h4
+                  style="
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: var(--mau-chu);
+                    margin-bottom: 5px;
+                  "
+                >
+                  Cà phê sữa
+                </h4>
+                <p style="font-size: 14px; color: var(--mau-xam)">Size S</p>
+              </div>
+              <div
+                style="
+                  text-align: right;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--mau-chu);
+                  "
+                >
+                  20.000 đ
+                </div>
+                <div style="font-size: 13px; color: var(--mau-xam)">x1</div>
+              </div>
+            </div>
+          </div>
+
           <div
             style="
+              padding: 15px 20px;
+              background: #fff;
+              border-top: 1px solid #f5f5f5;
               display: flex;
               justify-content: space-between;
               align-items: center;
-              margin-bottom: 15px;
             "
           >
-            <span class="order-date" style="font-size: 14px; margin: 0"
-              >19:18, 15/10/2026</span
-            >
-            <div class="total-price" style="font-size: 14px; margin: 0">
+            <div style="font-size: 15px; color: var(--mau-xam)">
               Tổng cộng:
-              <strong style="font-size: 18px; color: var(--mau-cam-dat)"
-                >20.000 đ</strong
+              <strong
+                style="
+                  font-size: 18px;
+                  font-weight: 700;
+                  color: var(--mau-xanh-dam);
+                  margin-left: 8px;
+                "
+                >46.000 đ</strong
               >
             </div>
-          </div>
-          <div
-            style="
-              text-align: center;
-              border-top: 1px dashed #eee;
-              padding-top: 15px;
-            "
-          >
-            <a href="order-detail.html" class="btn-outline"
-              >Xem chi tiết &rarr;</a
-            >
+            <a href="order-detail.html" class="btn-view-detail">
+              Xem chi tiết &rarr;
+            </a>
           </div>
         </div>
       </div>
@@ -432,6 +952,7 @@
       </div>
     </footer>
 
+    <script src="js/main.js"></script>
     <script>
       kiemTraDangNhap();
     </script>
