@@ -30,7 +30,12 @@
           <a href="order-history.html">Đơn hàng</a>
         </nav>
         <form class="search-form" action="search.html" method="get">
-          <input type="text" name="q" placeholder="Tìm món bạn yêu thích..." />
+          <input
+            type="text"
+            name="q"
+            placeholder="Tìm món bạn yêu thích..."
+            autocomplete="off"
+          />
           <button type="submit" title="Tìm kiếm">
             <svg viewBox="0 0 24 24">
               <circle cx="11" cy="11" r="8"></circle>
@@ -62,12 +67,19 @@
           </svg>
         </div>
 
-        <h2 class="success-title">Đặt Hàng Thành Công!</h2>
+        <h2 class="success-title" style="color: var(--mau-xanh-dam)">
+          Đặt Hàng Thành Công!
+        </h2>
         <p class="success-desc">
-          Cảm ơn bạn đã ủng hộ Góc Tea - Boba & Coffee. Đơn hàng của bạn đang được chuẩn bị
-          và sẽ sớm được giao đến bạn.
+          Cảm ơn bạn đã ủng hộ Góc Tea - Boba & Coffee. Đơn hàng của bạn đang
+          được chuẩn bị và sẽ sớm được giao đến bạn.
         </p>
-        <div class="order-code">Mã đơn hàng: <strong>#GT-2026-004</strong></div>
+        <div class="order-code" style="color: var(--mau-nau)">
+          Mã đơn hàng:
+          <strong style="color: var(--mau-nau); font-size: 17px"
+            >#GT-2026-004</strong
+          >
+        </div>
         <a
           href="index.html"
           class="btn-thanh-toan"
@@ -80,8 +92,8 @@
             display: block;
             text-align: center;
             margin-top: 15px;
-            font-size: 14px;
-            color: var(--mau-nau);
+            font-size: 15px;
+            color: var(--mau-xanh-dam);
             text-decoration: underline;
           "
         >
