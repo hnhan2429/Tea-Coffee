@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Góc Trà Sữa - Quản Lý Khách Hàng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        brand: { 50: '#fffbeb', 100: '#fef3c7', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' } 
+                    } 
+                } 
+            } 
+        }
+    </script>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 antialiased flex h-screen overflow-hidden text-lg">
+    <!-- Sidebar cố định -->
+    <aside class="w-72 bg-slate-900 text-slate-300 flex flex-col justify-between hidden md:flex shadow-2xl flex-shrink-0 h-screen sticky top-0">
+        <div>
+            <div class="h-20 flex items-center justify-center gap-4 px-8 bg-slate-950 border-b border-slate-800">
+                
+                <span class="font-bold text-xl text-white tracking-wide text-center">Góc Trà Sữa</span>
+            </div>
+            <nav class="p-6 space-y-2">
+                <a href="index.html" class="flex items-center gap-4 px-5 py-4 text-slate-400 hover:bg-slate-800 hover:text-white rounded-2xl font-semibold text-lg transition"><i class="fa-solid fa-chart-pie w-6 text-xl"></i><span>Tổng Quan</span></a>
+                <a href="products.html" class="flex items-center gap-4 px-5 py-4 text-slate-400 hover:bg-slate-800 hover:text-white rounded-2xl font-semibold text-lg transition"><i class="fa-solid fa-wine-glass-empty w-6 text-xl"></i><span>Sản Phẩm</span></a>
+                <a href="orders.html" class="flex items-center gap-4 px-5 py-4 text-slate-400 hover:bg-slate-800 hover:text-white rounded-2xl font-semibold text-lg transition"><i class="fa-solid fa-receipt w-6 text-xl"></i><span>Đơn Hàng</span></a>
+                <a href="customers.html" class="flex items-center gap-4 px-5 py-4 bg-brand-600 text-white rounded-2xl font-bold text-lg shadow-md"><i class="fa-solid fa-users w-6 text-xl"></i><span>Khách Hàng</span></a>
+            </nav>
+        </div>
+        <div class="p-6 border-t border-slate-800">
+            <a href="login.html" class="flex items-center gap-4 px-5 py-3.5 text-rose-400 hover:bg-rose-500/10 rounded-2xl font-bold text-lg transition"><i class="fa-solid fa-right-from-bracket w-6 text-xl"></i><span>Đăng Xuất</span></a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-w-0 h-screen overflow-y-auto">
+        <div id="toast-container" class="fixed top-5 right-5 z-50 space-y-2"></div>
+        
+        <header class="h-20 bg-white border-b border-slate-200 px-8 flex items-center justify-between shadow-xs flex-shrink-0">
+            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800 flex items-center gap-3">
+                <i class="fa-solid fa-users text-brand-600"></i> Quản Lý Khách Hàng
+            </h1>
+            <a href="add-customer.html" class="px-5 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-base font-bold shadow-md transition flex items-center gap-2">
+                <i class="fa-solid fa-user-plus"></i> Thêm Khách Hàng
+            </a>
+        </header>
+
+        <main class="p-8 space-y-8">
+            <!-- Bảng Khách Hàng -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden p-3">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-lg text-slate-700 border-collapse">
+                        <thead class="bg-slate-50 text-sm font-extrabold uppercase text-slate-500 border-b border-slate-200 tracking-wider">
+                            <tr>
+                                <th class="p-6 align-middle rounded-l-2xl">Khách Hàng</th>
+                                <th class="p-6 align-middle">Số Điện Thoại</th>
+                                <th class="p-6 align-middle">Hạng</th>
+                                <th class="p-6 align-middle">Đã Mua</th>
+                                <th class="p-6 align-middle">Chi Tiêu</th>
+                                <th class="p-6 align-middle">Trạng Thái</th>
+                                <th class="p-6 align-middle text-right rounded-r-2xl">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 font-medium">
+                            <!-- Khách 1 -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-6 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 font-black flex items-center justify-center text-lg">NA</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-xl">Nguyễn Văn An</div>
+                                            <span class="text-sm text-slate-400 font-semibold">Tham gia: 12/01/2026</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-6 align-middle font-mono font-bold text-slate-800 text-xl">0901.234.567</td>
+                                <td class="p-6 align-middle">
+                                    <span class="px-3.5 py-1.5 bg-amber-100 text-amber-800 font-bold text-sm rounded-lg">Vàng</span>
+                                </td>
+                                <td class="p-6 align-middle font-bold text-slate-800 text-xl">18 đơn</td>
+                                <td class="p-6 align-middle font-black text-slate-900 text-2xl">1,250,000đ</td>
+                                <td class="p-6 align-middle">
+                                    <span class="px-4 py-2 bg-emerald-100 text-emerald-800 text-sm font-extrabold rounded-full inline-flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-check"></i> Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-6 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Nguyễn Văn An')" class="px-4 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-xl text-base font-bold transition flex items-center gap-1.5">
+                                            <i class="fa-solid fa-lock"></i> Khóa
+                                        </button>
+                                        <button onclick="openEditModal('Nguyễn Văn An', '0901.234.567', 'Vàng')" class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-base font-bold transition flex items-center gap-1.5">
+                                            <i class="fa-solid fa-pen-to-square"></i> Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Khách 2 -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-6 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-700 font-black flex items-center justify-center text-lg">TM</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-xl">Trần Thị Mai</div>
+                                            <span class="text-sm text-slate-400 font-semibold">Tham gia: 05/02/2026</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-6 align-middle font-mono font-bold text-slate-800 text-xl">0987.654.321</td>
+                                <td class="p-6 align-middle">
+                                    <span class="px-3.5 py-1.5 bg-purple-100 text-purple-800 font-bold text-sm rounded-lg">Kim Cương</span>
+                                </td>
+                                <td class="p-6 align-middle font-bold text-slate-800 text-xl">32 đơn</td>
+                                <td class="p-6 align-middle font-black text-slate-900 text-2xl">2,480,000đ</td>
+                                <td class="p-6 align-middle">
+                                    <span class="px-4 py-2 bg-emerald-100 text-emerald-800 text-sm font-extrabold rounded-full inline-flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-check"></i> Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-6 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Trần Thị Mai')" class="px-4 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-xl text-base font-bold transition flex items-center gap-1.5">
+                                            <i class="fa-solid fa-lock"></i> Khóa
+                                        </button>
+                                        <button onclick="openEditModal('Trần Thị Mai', '0987.654.321', 'Kim Cương')" class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-base font-bold transition flex items-center gap-1.5">
+                                            <i class="fa-solid fa-pen-to-square"></i> Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Khách 3 -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-6 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 font-black flex items-center justify-center text-lg">HN</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-xl">Phạm Hoàng Nam</div>
+                                            <span class="text-sm text-slate-400 font-semibold">Tham gia: 20/03/2026</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-6 align-middle font-mono font-bold text-slate-800 text-xl">0977.888.999</td>
+                                <td class="p-6 align-middle">
+                                    <span class="px-3.5 py-1.5 bg-blue-100 text-blue-800 font-bold text-sm rounded-lg">Bạc</span>
+                                </td>
+                                <td class="p-6 align-middle font-bold text-slate-800 text-xl">10 đơn</td>
+                                <td class="p-6 align-middle font-black text-slate-900 text-2xl">680,000đ</td>
+                                <td class="p-6 align-middle">
+                                    <span class="px-4 py-2 bg-emerald-100 text-emerald-800 text-sm font-extrabold rounded-full inline-flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-check"></i> Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-6 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Phạm Hoàng Nam')" class="px-4 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-xl text-base font-bold transition flex items-center gap-1.5">
+                                            <i class="fa-solid fa-lock"></i> Khóa
+                                        </button>
+                                        <button onclick="openEditModal('Phạm Hoàng Nam', '0977.888.999', 'Bạc')" class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-base font-bold transition flex items-center gap-1.5">
+                                            <i class="fa-solid fa-pen-to-square"></i> Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Khách 4 -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-6 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-700 font-black flex items-center justify-center text-lg">GB</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-xl">Hoàng Gia Bảo</div>
+                                            <span class="text-sm text-slate-400 font-semibold">Tham gia: 15/04/2026</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-6 align-middle font-mono font-bold text-slate-800 text-xl">0912.345.678</td>
+                                <td class="p-6 align-middle">
+                                    <span class="px-3.5 py-1.5 bg-slate-200 text-slate-800 font-bold text-sm rounded-lg">Đồng</span>
+                                </td>
+                                <td class="p-6 align-middle font-bold text-slate-800 text-xl">5 đơn</td>
+                                <td class="p-6 align-middle font-black text-slate-900 text-2xl">320,000đ</td>
+                                <td class="p-6 align-middle">
+                                    <span class="px-4 py-2 bg-rose-100 text-rose-800 text-sm font-extrabold rounded-full inline-flex items-center gap-2">
+                                        <i class="fa-solid fa-user-slash"></i> Đã khóa
+                                    </span>
+                                </td>
+                                <td class="p-6 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã mở khóa tài khoản Hoàng Gia Bảo')" class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-xl text-base font-bold transition flex items-center gap-1.5">
+                                            <i class="fa-solid fa-lock-open"></i> Mở khóa
+                                        </button>
+                                        <button onclick="openEditModal('Hoàng Gia Bảo', '0912.345.678', 'Đồng')" class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-base font-bold transition flex items-center gap-1.5">
+                                            <i class="fa-solid fa-pen-to-square"></i> Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Thanh Chuyển Trang -->
+            <div class="flex items-center justify-center gap-3 pt-2 pb-4">
+                <a href="customers.html" class="px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-2xl font-bold text-base hover:bg-slate-50 transition shadow-xs flex items-center justify-center">
+                    Trước
+                </a>
+                <a href="customers.html" class="w-12 h-12 bg-brand-600 text-white rounded-2xl text-lg font-extrabold shadow-md flex items-center justify-center">
+                    1
+                </a>
+                <a href="customers.html" class="w-12 h-12 bg-white border border-slate-200 text-slate-700 rounded-2xl text-lg font-bold hover:bg-slate-50 transition shadow-xs flex items-center justify-center">
+                    2
+                </a>
+                <a href="customers.html" class="px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-2xl font-bold text-base hover:bg-slate-50 transition shadow-xs flex items-center justify-center">
+                    Sau
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Sửa Thông Tin Khách Hàng -->
+    <div id="modal-edit-user" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-slate-100">
+            <div class="flex justify-between items-center mb-6 pb-4 border-b border-slate-100">
+                <h3 class="text-xl font-bold text-slate-800">Sửa Thông Tin Khách Hàng</h3>
+                <button onclick="toggleModal('modal-edit-user')" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            </div>
+            <form onsubmit="event.preventDefault(); toggleModal('modal-edit-user'); showToast('Đã cập nhật thông tin thành công!');" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Họ và tên</label>
+                    <input type="text" id="edit-user-name" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Số điện thoại</label>
+                    <input type="text" id="edit-user-phone" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Hạng thành viên</label>
+                    <select id="edit-user-rank" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500">
+                        <option value="Đồng">Đồng</option>
+                        <option value="Bạc">Bạc</option>
+                        <option value="Vàng">Vàng</option>
+                        <option value="Kim Cương">Kim Cương</option>
+                    </select>
+                </div>
+                <div class="flex gap-4 pt-4">
+                    <button type="button" onclick="toggleModal('modal-edit-user')" class="flex-1 py-3 border border-slate-200 text-slate-600 rounded-xl text-base font-bold hover:bg-slate-50">Hủy</button>
+                    <button type="submit" class="flex-1 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-base font-bold shadow-sm">Lưu thay đổi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal(id) { 
+            document.getElementById(id).classList.toggle('hidden'); 
+        }
+
+        function openEditModal(name, phone, rank) {
+            document.getElementById('edit-user-name').value = name;
+            document.getElementById('edit-user-phone').value = phone;
+            document.getElementById('edit-user-rank').value = rank;
+            toggleModal('modal-edit-user');
+        }
+
+        function showToast(msg) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'p-4 rounded-2xl shadow-xl text-base font-bold flex items-center gap-3 text-white bg-emerald-600 transition duration-300';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-xl"></i> <span>${msg}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+    </script>
+</body>
+</html>
