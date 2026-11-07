@@ -54,7 +54,7 @@
           <a
             href="order-history.html"
             style="
-              color: var(--mau-nau);
+              color: var(--mau-xanh-dam);
               font-size: 15px;
               text-decoration: underline;
             "
@@ -65,6 +65,7 @@
         <div class="order-detail-wrapper">
           <!-- 1. THANH TIẾN TRÌNH (TIMELINE) -->
           <div class="order-timeline">
+            <!-- Bước 1: Đã đặt hàng (Hoàn thành) -->
             <div class="timeline-step completed">
               <div class="timeline-icon">
                 <svg
@@ -74,8 +75,6 @@
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                 >
                   <path
                     d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
@@ -89,25 +88,7 @@
               <div class="timeline-text">Đã đặt hàng</div>
             </div>
 
-            <div class="timeline-step completed">
-              <div class="timeline-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-              </div>
-              <div class="timeline-text">Đã xác nhận</div>
-            </div>
-
+            <!-- Bước 2: Đã xác nhận (Hoàn thành - Bước hiện tại) -->
             <div class="timeline-step active">
               <div class="timeline-icon">
                 <svg
@@ -117,8 +98,24 @@
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div class="timeline-text">Đã xác nhận</div>
+            </div>
+
+            <!-- Bước 3: Đang giao (Chưa tới) -->
+            <div class="timeline-step">
+              <div class="timeline-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
                 >
                   <rect x="1" y="3" width="15" height="13"></rect>
                   <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
@@ -129,6 +126,7 @@
               <div class="timeline-text">Đang giao</div>
             </div>
 
+            <!-- Bước 4: Đã giao (Chưa tới) -->
             <div class="timeline-step">
               <div class="timeline-icon">
                 <svg
@@ -138,8 +136,6 @@
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                 >
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
@@ -147,7 +143,6 @@
               <div class="timeline-text">Đã giao</div>
             </div>
           </div>
-
           <!-- 2. THÔNG TIN CHUNG -->
           <div class="order-info-card">
             <h3 class="order-info-title">
@@ -167,10 +162,12 @@
               Thông tin đơn hàng
             </h3>
             <div class="order-info-grid">
-              <p>Mã đơn hàng: <span>#GT-2026-004</span></p>
-              <p>Ngày đặt: <span>14:02, 02/11/2026</span></p>
+              <p>
+                Mã đơn hàng: <span><b>#GT-2026-004</b></span>
+              </p>
+              <p>Ngày đặt: <span>14:02, 06/11/2026</span></p>
               <p>Hình thức thanh toán: <span>Tiền mặt</span></p>
-              <p>Hình thức giao nhận: <span>Giao hàng tận nơi</span></p>
+              <p>Hình thức giao nhận: <span>Giao tận nơi</span></p>
             </div>
           </div>
 
@@ -195,7 +192,7 @@
               <p>Số điện thoại: <span>0903123456</span></p>
               <p style="grid-column: 1 / -1">
                 Địa chỉ:
-                <span>237 Hoàng Hoa Thám, Phường Gia Định, TP.HCM</span>
+                <span>89 Võ Thị Sáu, Phường Xuân Hòa, TP.HCM</span>
               </p>
             </div>
           </div>
@@ -213,15 +210,31 @@
             <div class="order-product-detail">
               <img
                 src="images/products/tra-sua-truyen-thong.png"
-                alt="Trà sữa truyền thống"
+                alt="Trà sữa"
               />
               <div class="order-product-info">
                 <h4 class="order-product-name">Trà sữa truyền thống</h4>
                 <p class="order-product-variant">Size M, Kem cheese</p>
-                <div class="order-product-price-qty">
-                  <span class="cart-item-price">34.000 đ</span>
-                  <span style="font-size: 14px; color: var(--mau-xam)">x1</span>
+              </div>
+              <!-- Cột bên phải chứa Giá và Số lượng -->
+              <div
+                style="
+                  text-align: right;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--mau-xanh-dam);
+                  "
+                >
+                  34.000 đ
                 </div>
+                <div style="font-size: 13px; color: var(--mau-xam)">x1</div>
               </div>
             </div>
 
@@ -231,10 +244,26 @@
               <div class="order-product-info">
                 <h4 class="order-product-name">Trà đào</h4>
                 <p class="order-product-variant">Size S</p>
-                <div class="order-product-price-qty">
-                  <span class="cart-item-price">50.000 đ</span>
-                  <span style="font-size: 14px; color: var(--mau-xam)">x2</span>
+              </div>
+              <!-- Cột bên phải chứa Giá và Số lượng -->
+              <div
+                style="
+                  text-align: right;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--mau-xanh-dam);
+                  "
+                >
+                  50.000 đ
                 </div>
+                <div style="font-size: 13px; color: var(--mau-xam)">x2</div>
               </div>
             </div>
 
@@ -244,10 +273,26 @@
               <div class="order-product-info">
                 <h4 class="order-product-name">Matcha latte</h4>
                 <p class="order-product-variant">Size L, Trân châu đen</p>
-                <div class="order-product-price-qty">
-                  <span class="cart-item-price">41.000 đ</span>
-                  <span style="font-size: 14px; color: var(--mau-xam)">x1</span>
+              </div>
+              <!-- Cột bên phải chứa Giá và Số lượng -->
+              <div
+                style="
+                  text-align: right;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--mau-xanh-dam);
+                  "
+                >
+                  41.000 đ
                 </div>
+                <div style="font-size: 13px; color: var(--mau-xam)">x1</div>
               </div>
             </div>
 
@@ -256,10 +301,27 @@
               <img src="images/products/banh-flan.png" alt="Bánh flan" />
               <div class="order-product-info">
                 <h4 class="order-product-name">Bánh flan</h4>
-                <div class="order-product-price-qty">
-                  <span class="cart-item-price">8.000 đ</span>
-                  <span style="font-size: 14px; color: var(--mau-xam)">x1</span>
+                <p class="order-product-variant">Size M, Kem cheese</p>
+              </div>
+              <!-- Cột bên phải chứa Giá và Số lượng -->
+              <div
+                style="
+                  text-align: right;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 5px;
+                "
+              >
+                <div
+                  style="
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--mau-xanh-dam);
+                  "
+                >
+                  8.000 đ
                 </div>
+                <div style="font-size: 13px; color: var(--mau-xam)">x1</div>
               </div>
             </div>
           </div>
@@ -298,7 +360,8 @@
                 border-left: 3px solid var(--mau-xam);
               "
             >
-              Ít đá, đá để riêng, giảm độ ngọt, để ở trước cửa giúp mình nhé
+              Ít đá, đá để riêng, làm ngọt vừa phải, giao hàng nhanh giúp mình
+              nhé
             </p>
           </div>
 
@@ -309,7 +372,7 @@
               <span>133.000 đ</span>
             </div>
             <div class="summary-line">
-              <span>Phí giao hàng</span>
+              <span>Phí vận chuyển</span>
               <span>Miễn phí</span>
             </div>
             <div class="summary-line total">
