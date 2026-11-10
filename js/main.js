@@ -25,10 +25,7 @@ function showToast(message) {
     
     <!-- Nút tắt (X) -->
     <button class="toast-close" onclick="this.parentElement.remove()">✕</button>
-    
-    <!-- Thanh thời gian -->
-    <div class="toast-progress"></div>
-  `;
+     `;
 
   container.appendChild(toast);
 

@@ -913,21 +913,27 @@ ul {
 }
 
 .btn-them-gio-lon {
-  background: var(--mau-nhan);
-  color: var(--mau-nau);
+  background: var(--mau-nau);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  border: 1px solid var(--mau-nau);
 }
 
 .btn-them-gio-lon:hover {
-  background: var(--mau-nau);
-  color: #fff;
+  background: var(--mau-nhan);
+  color: var(--mau-nau);
+  border-color: var(--mau-nhan);
 }
 
 .btn-them-gio-lon svg {
-  stroke: currentColor !important;
+  stroke: #fff !important;
+}
+
+.btn-them-gio-lon:hover svg {
+  stroke: var(--mau-nau) !important;
 }
 
 .btn-mua-ngay {
@@ -2047,40 +2053,58 @@ ul {
 }
 
 /* ============================================
-   16. HIỆU ỨNG ĐỔ BÓNG (SHADOW) & HOVER TOÀN CỤC
+   16. HIỆU ỨNG ĐỔ BÓNG & ĐẢO MÀU KHI HOVER
    ============================================ */
-.btn-header,
+
+/* Các nút có nền Nâu, chữ Trắng -> Hover thành nền Vàng, chữ Nâu */
 .btn-banner,
 .btn-auth,
-.btn-them-gio-lon,
 .btn-mua-ngay,
-.btn-add-to-cart,
 .btn-thanh-toan,
-.btn-profile-save,
-.btn-outline,
 .btn-solid,
-.btn-xem-them,
-.btn-search-submit,
-.btn-solid,
+.btn-them-gio-lon,
 .btn-view-detail {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: all 0.25s ease-in-out;
 }
-
-.btn-header:hover,
 .btn-banner:hover,
 .btn-auth:hover,
 .btn-mua-ngay:hover,
 .btn-thanh-toan:hover,
-.btn-profile-save:hover,
 .btn-solid:hover,
-.btn-search-submit:hover,
+.btn-them-gio-lon:hover,
 .btn-view-detail:hover {
   background-color: var(--mau-nhan) !important;
   color: var(--mau-nau) !important;
   border-color: var(--mau-nhan) !important;
   box-shadow: var(--bong-hover);
   transform: translateY(-2px);
+}
+
+/* Các nút có nền Vàng, chữ Nâu -> Hover thành nền Nâu, chữ Trắng */
+.btn-add-to-cart,
+.btn-xem-them,
+.btn-outline,
+.btn-profile-save {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease-in-out;
+}
+.btn-add-to-cart:hover,
+.btn-xem-them:hover,
+.btn-outline:hover,
+.btn-profile-save:hover {
+  background-color: var(--mau-nau) !important;
+  color: #fff !important;
+  border-color: var(--mau-nau) !important;
+  box-shadow: var(--bong-hover);
+  transform: translateY(-2px);
+}
+
+/* Nút Đăng nhập riêng biệt (viền trắng) */
+.btn-dang-nhap:hover {
+  background-color: #fff !important;
+  color: var(--mau-nau) !important;
+  border-color: #fff !important;
 }
 
 /* ============================================
