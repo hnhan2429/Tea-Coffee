@@ -5,50 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Góc Trà Sữa - Quản Lý Đơn Hàng</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script>
         tailwind.config = { 
             theme: { 
                 extend: { 
                     colors: { 
-                        brand: { 50: '#fffbeb', 100: '#fef3c7', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' } 
+                        sidebarBg: '#3d1e0b',
+                        sidebarHover: '#4e2810',
+                        sidebarActive: '#5c3013',
+                        brand: { 50: '#fffbeb', 100: '#fef3c7', 500: '#d97706', 600: '#71370F', 700: '#5a2c0c' },
+                        logoBg: '#71370F'
                     } 
                 } 
             } 
         }
     </script>
 </head>
-<body class="bg-slate-100 font-sans text-slate-800 antialiased flex h-screen overflow-hidden">
+<body class="bg-amber-50/30 font-sans text-slate-800 antialiased flex h-screen overflow-hidden">
     <!-- Sidebar cố định -->
-    <aside class="w-64 bg-slate-900 text-slate-300 flex flex-col justify-between hidden md:flex shadow-2xl flex-shrink-0 h-screen sticky top-0">
-        <div>
-            <!-- Logo chuẩn thương hiệu -->
-            <div class="h-20 flex flex-col items-center justify-center px-4 bg-[#71370F] border-b border-[#5a2c0c] text-center">
-                <div class="font-black text-lg tracking-wide">
-                    <span class="text-white">Góc</span> <span class="text-[#ffe4b5]">Tea</span>
+    <aside class="w-64 bg-sidebarBg text-slate-200 flex flex-col justify-between hidden md:flex shadow-2xl flex-shrink-0 h-screen sticky top-0">
+        <div class="overflow-y-auto">
+            <!-- Logo Header (Căn giữa) -->
+            <div class="p-5 bg-[#71370F] border-b border-[#5a2c0c] text-center">
+                <div class="font-extrabold text-2xl tracking-wide text-white leading-tight">
+                    Góc <span class="text-[#ffe4b5]">Tea</span>
                 </div>
-                <div class="text-[11px] font-semibold text-[#fef08a] tracking-wider uppercase mt-0.5">Boba & Coffee</div>
+                <div class="text-[11px] font-bold text-[#fef08a] tracking-wider mt-0.5">
+                    Boba & Coffee
+                </div>
             </div>
-            <nav class="p-4 space-y-1.5">
-                <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl font-semibold transition"><i class="fa-solid fa-chart-pie w-5 text-lg"></i><span>Tổng Quan</span></a>
-                <a href="products.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl font-semibold transition"><i class="fa-solid fa-wine-glass-empty w-5 text-lg"></i><span>Sản Phẩm</span></a>
-                <a href="orders.html" class="flex items-center gap-3 px-4 py-3 bg-brand-600 text-white rounded-xl font-bold shadow-md"><i class="fa-solid fa-receipt w-5 text-lg"></i><span>Đơn Hàng</span></a>
-                <a href="customers.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl font-semibold transition"><i class="fa-solid fa-users w-5 text-lg"></i><span>Khách Hàng</span></a>
+
+            <!-- Navigation Links -->
+            <nav class="p-4 space-y-6 text-sm">
+                <!-- KHU VỰC 1: TỔNG QUAN -->
+                <div>
+                    <div class="px-3 mb-2 text-[11px] font-bold tracking-wider text-amber-200/60 uppercase">TỔNG QUAN</div>
+                    <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                        <span>Tổng quan</span>
+                    </a>
+                </div>
+
+                <!-- KHU VỰC 2: QUẢN LÝ CỬA HÀNG -->
+                <div>
+                    <div class="px-3 mb-2 text-[11px] font-bold tracking-wider text-amber-200/60 uppercase">QUẢN LÝ CỬA HÀNG</div>
+                    <div class="space-y-1">
+                        <a href="customers.html" class="flex items-center justify-between px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                <span>Khách hàng</span>
+                            </div>
+                            <span class="px-2 py-0.5 bg-white/10 text-xs rounded-full font-semibold text-slate-300">34</span>
+                        </a>
+
+                        <a href="products.html" class="flex items-center justify-between px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+                                <span>Sản phẩm</span>
+                            </div>
+                            <span class="px-2 py-0.5 bg-white/10 text-xs rounded-full font-semibold text-slate-300">18</span>
+                        </a>
+
+                        <a href="orders.html" class="flex items-center justify-between px-3 py-2.5 bg-sidebarActive text-white rounded-xl font-semibold shadow-sm transition">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+                                <span>Đơn hàng</span>
+                            </div>
+                            <span class="px-2 py-0.5 bg-rose-500/80 text-white text-xs rounded-full font-semibold">8</span>
+                        </a>
+
+                        <a href="customer-stats.html" class="flex items-center gap-3 px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                            <span>Thống kê khách hàng</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KHU VỰC 3: HỆ THỐNG -->
+                <div>
+                    <div class="px-3 mb-2 text-[11px] font-bold tracking-wider text-amber-200/60 uppercase">HỆ THỐNG</div>
+                    <div class="space-y-1">
+                        <a href="../index.html" target="_blank" class="flex items-center justify-between px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                                <span>Xem cửa hàng</span>
+                            </div>
+                            <svg class="w-4 h-4 text-amber-200/70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+
+                        <a href="login.html" class="flex items-center gap-3 px-3 py-2.5 text-slate-300 hover:bg-rose-500/20 hover:text-rose-300 rounded-xl font-medium transition">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                            <span>Đăng xuất</span>
+                        </a>
+                    </div>
+                </div>
             </nav>
         </div>
-        <div class="p-4 border-t border-slate-800">
-            <a href="login.html" class="flex items-center gap-3 px-4 py-3 text-rose-400 hover:bg-rose-500/10 rounded-xl font-bold transition"><i class="fa-solid fa-right-from-bracket w-5 text-lg"></i><span>Đăng Xuất</span></a>
+
+        <!-- PHẦN ADMIN PHÍA DƯỚI SIDEBAR -->
+        <div class="p-4 border-t border-white/10 flex items-center gap-3 bg-[#321808]">
+            <div class="w-10 h-10 rounded-full bg-[#71370F] border border-amber-400/30 flex items-center justify-center font-bold text-white text-xs shadow-inner">
+                AD
+            </div>
+            <div class="leading-tight">
+                <div class="font-bold text-sm text-white">Admin</div>
+                <div class="text-xs text-amber-200/70 font-medium">Quản trị viên</div>
+            </div>
         </div>
     </aside>
 
-    <!-- Main Content chuẩn tỉ lệ giống Customers -->
+    <!-- Main Content -->
     <div class="flex-1 flex flex-col min-w-0 h-screen overflow-y-auto">
         <div id="toast-container" class="fixed top-5 right-5 z-50 space-y-2"></div>
         
         <header class="h-20 bg-white border-b border-slate-200 px-6 flex items-center justify-between shadow-xs flex-shrink-0">
             <h1 class="text-xl md:text-2xl font-extrabold text-slate-800 flex items-center gap-2.5">
-                <i class="fa-solid fa-receipt text-brand-600"></i> Quản Lý Đơn Hàng
+                <i class="fa-solid fa-receipt text-[#71370F]"></i> Quản Lý Đơn Hàng
             </h1>
+
+            <div class="flex items-center gap-4">
+                <!-- Ngày tháng năm hôm nay -->
+                <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-amber-50/80 border border-amber-200/60 rounded-xl text-xs font-bold text-amber-900">
+                    <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span id="current-date">11/11/2026</span>
+                </div>
+
+                <!-- Xem website -->
+                <a href="../index.html" target="_blank" title="Xem website" class="p-2.5 bg-slate-100 hover:bg-amber-100/60 text-slate-700 rounded-xl transition flex items-center gap-1.5 text-xs font-bold">
+                    <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    <span class="hidden md:inline">Xem website</span>
+                </a>
+
+                <!-- Thông báo -->
+                <a href="orders.html" title="Thông báo đơn hàng" class="relative p-2.5 bg-slate-100 hover:bg-amber-100/60 text-slate-700 rounded-xl transition flex items-center justify-center">
+                    <svg class="w-5 h-5 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                    <span class="absolute -top-1 -right-1 w-5 h-5 bg-rose-500 text-white rounded-full text-[10px] font-extrabold flex items-center justify-center shadow-sm">8</span>
+                </a>
+
+                <!-- Admin Info -->
+                <div class="flex items-center gap-2 pl-2 border-l border-slate-200">
+                    <div class="w-9 h-9 rounded-full bg-[#71370F] text-white flex items-center justify-center font-bold text-xs shadow-inner">
+                        AD
+                    </div>
+                    <div class="hidden lg:block leading-tight">
+                        <div class="font-bold text-xs text-slate-800">Admin</div>
+                        <div class="text-[10px] text-slate-400">Quản trị viên</div>
+                    </div>
+                </div>
+            </div>
         </header>
 
         <main class="p-6 space-y-6">
@@ -56,7 +161,7 @@
             <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 items-end">
                 <div class="lg:col-span-2">
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5 whitespace-nowrap overflow-hidden text-ellipsis">Tình trạng</label>
-                    <select id="filter-status" class="w-full px-2.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs md:text-sm focus:outline-none focus:border-brand-500">
+                    <select id="filter-status" class="w-full px-2.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs md:text-sm focus:outline-none focus:border-[#71370F]">
                         <option value="">Tất cả</option>
                         <option value="Đã xác nhận">Đã xác nhận</option>
                         <option value="Đang giao">Đang giao</option>
@@ -67,14 +172,14 @@
                 <div class="lg:col-span-5">
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Thời gian đặt hàng</label>
                     <div class="flex items-center gap-1.5 w-full">
-                        <input type="date" id="filter-date-from" class="w-full min-w-0 px-2 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-brand-500">
+                        <input type="date" id="filter-date-from" class="w-full min-w-0 px-2 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-[#71370F]">
                         <span class="text-slate-400 font-bold flex-shrink-0">-</span>
-                        <input type="date" id="filter-date-to" class="w-full min-w-0 px-2 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-brand-500">
+                        <input type="date" id="filter-date-to" class="w-full min-w-0 px-2 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-[#71370F]">
                     </div>
                 </div>
                 <div class="lg:col-span-3">
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Địa điểm giao hàng</label>
-                    <select id="filter-location" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs md:text-sm focus:outline-none focus:border-brand-500">
+                    <select id="filter-location" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs md:text-sm focus:outline-none focus:border-[#71370F]">
                         <option value="">Tất cả địa điểm</option>
                         <option value="Quận 1">Quận 1, TP.HCM</option>
                         <option value="Quận 3">Quận 3, TP.HCM</option>
@@ -84,13 +189,13 @@
                     </select>
                 </div>
                 <div class="lg:col-span-2">
-                    <button onclick="applyFilter()" class="w-full py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-xs md:text-sm font-bold shadow-md transition flex items-center justify-center gap-2 whitespace-nowrap">
+                    <button onclick="applyFilter()" class="w-full py-2.5 bg-[#71370F] hover:bg-[#5a2c0c] text-white rounded-xl text-xs md:text-sm font-bold shadow-md transition flex items-center justify-center gap-2 whitespace-nowrap">
                         <i class="fa-solid fa-filter"></i> Lọc đơn
                     </button>
                 </div>
             </div>
 
-            <!-- Bảng Đơn Hàng tỉ lệ 1:1 giống bảng Khách hàng -->
+            <!-- Bảng Đơn Hàng -->
             <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-2">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left text-sm text-slate-700 border-collapse">
@@ -107,7 +212,7 @@
                         <tbody id="order-table-body" class="divide-y divide-slate-100 font-medium">
                             <tr id="fixed-target-row" class="order-row hover:bg-slate-50/80 transition" data-status="Đang giao" data-date="2026-11-10" data-location="Quận Bình Thạnh">
                                 <td class="p-4 align-middle">
-                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #GT-2026-006</a>
+                                    <a href="order-detail.html" class="text-[#71370F] hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-[#71370F]"></i> #GT-2026-006</a>
                                     <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">10/11/2026, 15:30</span>
                                 </td>
                                 <td class="p-4 align-middle">
@@ -128,7 +233,7 @@
 
                             <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đã giao thành công" data-date="2026-11-08" data-location="Quận 1">
                                 <td class="p-4 align-middle">
-                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #GT-2026-005</a>
+                                    <a href="order-detail.html" class="text-[#71370F] hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-[#71370F]"></i> #GT-2026-005</a>
                                     <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">08/11/2026, 12:10</span>
                                 </td>
                                 <td class="p-4 align-middle">
@@ -149,7 +254,7 @@
 
                             <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đã xác nhận" data-date="2026-11-06" data-location="Phường Xuân Hòa">
                                 <td class="p-4 align-middle">
-                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #GT-2026-004</a>
+                                    <a href="order-detail.html" class="text-[#71370F] hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-[#71370F]"></i> #GT-2026-004</a>
                                     <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">06/11/2026, 14:02</span>
                                 </td>
                                 <td class="p-4 align-middle">
@@ -173,7 +278,7 @@
 
                             <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đã giao thành công" data-date="2026-10-20" data-location="Phường Xuân Hòa">
                                 <td class="p-4 align-middle">
-                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #GT-2026-003</a>
+                                    <a href="order-detail.html" class="text-[#71370F] hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-[#71370F]"></i> #GT-2026-003</a>
                                     <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">20/10/2026, 18:05</span>
                                 </td>
                                 <td class="p-4 align-middle">
@@ -194,7 +299,7 @@
 
                             <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đã hủy" data-date="2026-10-18" data-location="Phường Xuân Hòa">
                                 <td class="p-4 align-middle">
-                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #GT-2026-002</a>
+                                    <a href="order-detail.html" class="text-[#71370F] hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-[#71370F]"></i> #GT-2026-002</a>
                                     <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">18/10/2026, 16:37</span>
                                 </td>
                                 <td class="p-4 align-middle">
@@ -215,7 +320,7 @@
 
                             <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đã giao thành công" data-date="2026-10-15" data-location="Phường Xuân Hòa">
                                 <td class="p-4 align-middle">
-                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #GT-2026-001</a>
+                                    <a href="order-detail.html" class="text-[#71370F] hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-[#71370F]"></i> #GT-2026-001</a>
                                     <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">15/10/2026, 11:15</span>
                                 </td>
                                 <td class="p-4 align-middle">
@@ -242,7 +347,7 @@
             <!-- Thanh Chuyển Trang -->
             <div id="pagination-container" class="flex items-center justify-center gap-2.5 pt-2 pb-4">
                 <a href="orders.html" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-xl font-bold text-sm hover:bg-slate-50 transition shadow-xs flex items-center justify-center">Trước</a>
-                <a href="orders.html" class="w-10 h-10 bg-brand-600 text-white rounded-xl text-sm font-extrabold shadow-md flex items-center justify-center">1</a>
+                <a href="orders.html" class="w-10 h-10 bg-[#71370F] text-white rounded-xl text-sm font-extrabold shadow-md flex items-center justify-center">1</a>
                 <a href="orders.html" class="w-10 h-10 bg-white border border-slate-200 text-slate-700 rounded-xl text-sm font-bold hover:bg-slate-50 transition shadow-xs flex items-center justify-center">2</a>
                 <a href="orders.html" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-xl font-bold text-sm hover:bg-slate-50 transition shadow-xs flex items-center justify-center">Sau</a>
             </div>
@@ -259,7 +364,7 @@
             <form onsubmit="event.preventDefault(); submitOrderStatus();" class="space-y-4">
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Chọn trạng thái mới</label>
-                    <select id="new-status-select" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500">
+                    <select id="new-status-select" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
                         <option value="Đã xác nhận">Đã xác nhận</option>
                         <option value="Đang giao">Đang giao</option>
                         <option value="Đã giao thành công">Đã giao thành công</option>
@@ -268,13 +373,16 @@
                 </div>
                 <div class="flex gap-3 pt-2">
                     <button type="button" onclick="toggleModal('modal-edit-status')" class="flex-1 py-2.5 border border-slate-200 text-slate-600 rounded-xl text-sm font-bold hover:bg-slate-50">Hủy</button>
-                    <button type="submit" class="flex-1 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-sm font-bold shadow-md">Cập nhật</button>
+                    <button type="submit" class="flex-1 py-2.5 bg-[#71370F] hover:bg-[#5a2c0c] text-white rounded-xl text-sm font-bold shadow-md">Cập nhật</button>
                 </div>
             </form>
         </div>
     </div>
 
     <script>
+        const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('vi-VN', options);
+
         let currentEditingOrderCode = '';
         function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); }
         function openStatusModal(orderCode, currentStatus) {
@@ -300,7 +408,7 @@
 
             document.getElementById('pagination-container').innerHTML = `
                 <button onclick="showToast('Đang ở trang duy nhất của kết quả lọc')" class="px-4 py-2.5 bg-slate-100 border border-slate-200 text-slate-400 rounded-xl font-bold text-sm cursor-not-allowed shadow-xs flex items-center justify-center">Trước</button>
-                <button onclick="showToast('Đang ở trang duy nhất của kết quả lọc')" class="w-10 h-10 bg-brand-600 text-white rounded-xl text-sm font-extrabold shadow-md flex items-center justify-center">1</button>
+                <button onclick="showToast('Đang ở trang duy nhất của kết quả lọc')" class="w-10 h-10 bg-[#71370F] text-white rounded-xl text-sm font-extrabold shadow-md flex items-center justify-center">1</button>
                 <button onclick="showToast('Đang ở trang duy nhất của kết quả lọc')" class="px-4 py-2.5 bg-slate-100 border border-slate-200 text-slate-400 rounded-xl font-bold text-sm cursor-not-allowed shadow-xs flex items-center justify-center">Sau</button>
             `;
             showToast('Đã lọc và hiển thị 1 kết quả phù hợp!');
