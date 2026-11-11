@@ -913,21 +913,27 @@ ul {
 }
 
 .btn-them-gio-lon {
-  background: var(--mau-nhan);
-  color: var(--mau-nau);
+  background: var(--mau-nau);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  border: 1px solid var(--mau-nau);
 }
 
 .btn-them-gio-lon:hover {
-  background: var(--mau-nau);
-  color: #fff;
+  background: var(--mau-nhan);
+  color: var(--mau-nau);
+  border-color: var(--mau-nhan);
 }
 
 .btn-them-gio-lon svg {
-  stroke: currentColor !important;
+  stroke: #fff !important;
+}
+
+.btn-them-gio-lon:hover svg {
+  stroke: var(--mau-nau) !important;
 }
 
 .btn-mua-ngay {
@@ -1790,10 +1796,11 @@ ul {
 .order-product-detail img {
   width: 70px;
   height: 70px;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 5px;
+  background: #faf7f2;
   border-radius: 8px;
-  border: 1px solid #eee;
-  background: #fff;
+  border: 1px solid #e7e6e6;
 }
 
 .order-product-info {
@@ -1847,9 +1854,9 @@ ul {
 .btn-outline {
   display: inline-block;
   padding: 8px 24px;
-  background-color: var(--mau-kem);
+  background-color: var(--mau-nhan);
   color: var(--mau-nau);
-  border: 1px solid var(--mau-nau);
+  border: 1px solid var(--mau-nhan);
   border-radius: 6px;
   font-size: 14px;
   font-weight: 600;
@@ -2046,48 +2053,62 @@ ul {
 }
 
 /* ============================================
-   16. HIỆU ỨNG ĐỔ BÓNG (SHADOW) & HOVER TOÀN CỤC
+   16. HIỆU ỨNG ĐỔ BÓNG & ĐẢO MÀU KHI HOVER
    ============================================ */
-.btn-header,
+
+/* Các nút có nền Nâu, chữ Trắng -> Hover thành nền Vàng, chữ Nâu */
 .btn-banner,
 .btn-auth,
-.btn-them-gio-lon,
 .btn-mua-ngay,
-.btn-add-to-cart,
 .btn-thanh-toan,
-.btn-profile-save,
-.btn-outline,
 .btn-solid,
-.btn-xem-them,
-.btn-search-submit,
-.btn-solid,
+.btn-them-gio-lon,
 .btn-view-detail {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: all 0.25s ease-in-out;
 }
-
-.btn-header:hover,
 .btn-banner:hover,
 .btn-auth:hover,
-.btn-them-gio-lon:hover,
 .btn-mua-ngay:hover,
-.btn-add-to-cart:hover,
 .btn-thanh-toan:hover,
-.btn-profile-save:hover,
-.btn-outline:hover,
 .btn-solid:hover,
-.btn-xem-them:hover,
-.btn-search-submit:hover,
+.btn-them-gio-lon:hover,
 .btn-view-detail:hover {
-  background-color: var(--mau-nhan) !important; /* Nền vàng nhạt */
-  color: var(--mau-nau) !important; /* Chữ nâu */
+  background-color: var(--mau-nhan) !important;
+  color: var(--mau-nau) !important;
   border-color: var(--mau-nhan) !important;
   box-shadow: var(--bong-hover);
   transform: translateY(-2px);
 }
 
+/* Các nút có nền Vàng, chữ Nâu -> Hover thành nền Nâu, chữ Trắng */
+.btn-add-to-cart,
+.btn-xem-them,
+.btn-outline,
+.btn-profile-save {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease-in-out;
+}
+.btn-add-to-cart:hover,
+.btn-xem-them:hover,
+.btn-outline:hover,
+.btn-profile-save:hover {
+  background-color: var(--mau-nau) !important;
+  color: #fff !important;
+  border-color: var(--mau-nau) !important;
+  box-shadow: var(--bong-hover);
+  transform: translateY(-2px);
+}
+
+/* Nút Đăng nhập riêng biệt (viền trắng) */
+.btn-dang-nhap:hover {
+  background-color: #fff !important;
+  color: var(--mau-nau) !important;
+  border-color: #fff !important;
+}
+
 /* ============================================
-   17. RESPONSIVE
+              17. RESPONSIVE
    ============================================ */
 @media (max-width: 992px) {
   .banner-container,
@@ -2217,7 +2238,7 @@ textarea:focus {
   border-radius: 8px;
   border: 1px dashed #ddd;
   margin-top: 10px;
-  display: none; 
+  display: none;
 }
 
 /* Hiệu ứng: Nếu thẻ label "Địa chỉ mới" được chọn, thì form bên dưới sẽ hiện ra */
