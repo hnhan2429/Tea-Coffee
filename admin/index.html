@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="text-[14px] lg:text-[15px]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,131 +11,385 @@
             theme: { 
                 extend: { 
                     colors: { 
-                        brand: { 50: '#fffbeb', 100: '#fef3c7', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' } 
+                        brand: { 50: '#fffbeb', 100: '#fef3c7', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' },
+                        logoBg: '#71370F'
                     } 
                 } 
             } 
         }
     </script>
 </head>
-<body class="bg-slate-100 font-sans text-slate-800 antialiased flex h-screen overflow-hidden text-base">
+<body class="bg-slate-100 font-sans text-slate-800 antialiased flex h-screen overflow-hidden">
     <!-- Sidebar cố định -->
-    <aside class="w-72 bg-slate-900 text-slate-300 flex flex-col justify-between hidden md:flex shadow-2xl flex-shrink-0 h-screen sticky top-0">
+    <aside class="w-64 bg-slate-900 text-slate-300 flex flex-col justify-between hidden md:flex shadow-2xl flex-shrink-0 h-screen sticky top-0">
         <div>
-            <div class="h-20 flex items-center justify-center gap-4 px-8 bg-slate-950 border-b border-slate-800">
-                              <span class="font-bold text-xl text-white tracking-wide text-center">Góc Trà Sữa</span>
+            <!-- Logo -->
+            <div class="h-20 flex flex-col items-center justify-center px-4 bg-[#71370F] border-b border-[#5a2c0c] text-center">
+                <div class="font-black text-lg tracking-wide">
+                    <span class="text-white">Góc</span> <span class="text-[#ffe4b5]">Tea</span>
+                </div>
+                <div class="text-[11px] font-semibold text-[#fef08a] tracking-wider uppercase mt-0.5">Boba & Coffee</div>
             </div>
-            <nav class="p-6 space-y-2">
-                <a href="index.html" class="flex items-center gap-4 px-5 py-4 bg-brand-600 text-white rounded-2xl font-bold text-lg shadow-md"><i class="fa-solid fa-chart-pie w-6 text-xl"></i><span>Tổng Quan</span></a>
-                <a href="products.html" class="flex items-center gap-4 px-5 py-4 text-slate-400 hover:bg-slate-800 hover:text-white rounded-2xl font-semibold text-lg transition"><i class="fa-solid fa-wine-glass-empty w-6 text-xl"></i><span>Sản Phẩm</span></a>
-                <a href="orders.html" class="flex items-center gap-4 px-5 py-4 text-slate-400 hover:bg-slate-800 hover:text-white rounded-2xl font-semibold text-lg transition"><i class="fa-solid fa-receipt w-6 text-xl"></i><span>Đơn Hàng</span></a>
-                <a href="customers.html" class="flex items-center gap-4 px-5 py-4 text-slate-400 hover:bg-slate-800 hover:text-white rounded-2xl font-semibold text-lg transition"><i class="fa-solid fa-users w-6 text-xl"></i><span>Khách Hàng</span></a>
+            <nav class="p-4 space-y-1.5">
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 bg-brand-600 text-white rounded-xl font-bold shadow-md"><i class="fa-solid fa-chart-pie w-5 text-lg"></i><span>Tổng Quan</span></a>
+                <a href="products.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl font-semibold transition"><i class="fa-solid fa-wine-glass-empty w-5 text-lg"></i><span>Sản Phẩm</span></a>
+                <a href="orders.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl font-semibold transition"><i class="fa-solid fa-receipt w-5 text-lg"></i><span>Đơn Hàng</span></a>
+                <a href="customers.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl font-semibold transition"><i class="fa-solid fa-users w-5 text-lg"></i><span>Khách Hàng</span></a>
             </nav>
         </div>
-        <div class="p-6 border-t border-slate-800">
-            <a href="login.html" class="flex items-center gap-4 px-5 py-3.5 text-rose-400 hover:bg-rose-500/10 rounded-2xl font-bold text-lg transition"><i class="fa-solid fa-right-from-bracket w-6 text-xl"></i><span>Đăng Xuất</span></a>
+        <div class="p-4 border-t border-slate-800">
+            <a href="login.html" class="flex items-center gap-3 px-4 py-3 text-rose-400 hover:bg-rose-500/10 rounded-xl font-bold transition"><i class="fa-solid fa-right-from-bracket w-5 text-lg"></i><span>Đăng Xuất</span></a>
         </div>
     </aside>
 
     <!-- Main Content -->
     <div class="flex-1 flex flex-col min-w-0 h-screen overflow-y-auto">
-        <header class="h-20 bg-white border-b border-slate-200 px-8 flex items-center justify-between shadow-xs flex-shrink-0">
-            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800 flex items-center gap-3">
+        <header class="h-20 bg-white border-b border-slate-200 px-6 flex items-center justify-between shadow-xs flex-shrink-0">
+            <h1 class="text-xl md:text-2xl font-extrabold text-slate-800 flex items-center gap-2.5">
                 <i class="fa-solid fa-chart-pie text-brand-600"></i> Tổng Quan Doanh Thu & Hoạt Động
             </h1>
         </header>
 
-        <main class="p-8 space-y-8">
+        <main class="p-6 space-y-6">
             <!-- Thống kê chỉ số -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
                     <div>
-                        <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Doanh Thu Hôm Nay</p>
-                        <h3 class="text-3xl font-extrabold text-slate-800 mt-2">4,280,000đ</h3>
-                        <p class="text-sm text-emerald-600 mt-2 font-bold flex items-center gap-1"><i class="fa-solid fa-arrow-trend-up"></i> +12% so với hôm qua</p>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Doanh Thu Hôm Nay</p>
+                        <h3 class="text-2xl font-extrabold text-slate-800 mt-1.5">4,280,000đ</h3>
+                        <p class="text-xs text-emerald-600 mt-1 font-bold flex items-center gap-1"><i class="fa-solid fa-arrow-trend-up"></i> +12% so với hôm qua</p>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex items-center justify-between">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
                     <div>
-                        <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Tổng Đơn Hàng</p>
-                        <h3 class="text-3xl font-extrabold text-slate-800 mt-2">128 đơn</h3>
-                        <p class="text-sm text-emerald-600 mt-2 font-bold flex items-center gap-1"><i class="fa-solid fa-arrow-trend-up"></i> +8 đơn mới</p>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Tổng Đơn Hàng</p>
+                        <h3 class="text-2xl font-extrabold text-slate-800 mt-1.5">128 đơn</h3>
+                        <p class="text-xs text-emerald-600 mt-1 font-bold flex items-center gap-1"><i class="fa-solid fa-arrow-trend-up"></i> +8 đơn mới</p>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex items-center justify-between">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
                     <div>
-                        <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Đang Pha Chế</p>
-                        <h3 class="text-3xl font-extrabold text-slate-800 mt-2">5 đơn</h3>
-                        <p class="text-sm text-amber-600 mt-2 font-bold flex items-center gap-1"><i class="fa-solid fa-spinner animate-spin"></i> Cần xử lý gấp</p>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Đang Pha Chế</p>
+                        <h3 class="text-2xl font-extrabold text-slate-800 mt-1.5">5 đơn</h3>
+                        <p class="text-xs text-amber-600 mt-1 font-bold flex items-center gap-1"><i class="fa-solid fa-spinner animate-spin"></i> Cần xử lý gấp</p>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex items-center justify-between">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
                     <div>
-                        <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Khách Thành Viên</p>
-                        <h3 class="text-3xl font-extrabold text-slate-800 mt-2">1,420 khách</h3>
-                        <p class="text-sm text-purple-600 mt-2 font-bold flex items-center gap-1"><i class="fa-solid fa-user-plus"></i> +34 khách mới</p>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Khách Thành Viên</p>
+                        <h3 class="text-2xl font-extrabold text-slate-800 mt-1.5">1,420 khách</h3>
+                        <p class="text-xs text-purple-600 mt-1 font-bold flex items-center gap-1"><i class="fa-solid fa-user-plus"></i> +34 khách mới</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Bảng Đơn Hàng Mới & Top Bán Chạy -->
-            <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 pb-4">
-                <!-- Đơn hàng mới nhất -->
-                <div class="xl:col-span-2 bg-white rounded-3xl border border-slate-200 shadow-sm p-7 flex flex-col justify-between">
+            <!-- Biểu đồ Phân tích Doanh thu -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
                     <div>
-                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
-                            <h3 class="text-xl font-bold text-slate-800 flex items-center gap-3"><i class="fa-solid fa-clock-rotate-left text-brand-600 text-2xl"></i> Đơn Hàng Mới Nhất</h3>
-                            <a href="orders.html" class="text-sm font-bold text-brand-600 hover:text-brand-700 hover:underline flex items-center gap-1">Xem tất cả <i class="fa-solid fa-arrow-right"></i></a>
+                        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-column text-brand-600"></i> Phân Tích Doanh Thu
+                        </h3>
+                        <p class="text-xs text-slate-400 font-semibold mt-0.5">Thống kê doanh thu chi tiết theo mốc thời gian tùy chọn</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label class="text-xs font-bold text-slate-500 uppercase whitespace-nowrap">Thời gian:</label>
+                        <select class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 focus:outline-none focus:border-brand-500">
+                            <option value="week">Theo Tuần (7 ngày)</option>
+                            <option value="month" selected>Theo Tháng (30 ngày)</option>
+                            <option value="year">Theo Năm (12 tháng)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Biểu đồ Cột Trực Quan -->
+                <div class="pt-4">
+                    <div class="h-48 flex items-end justify-between gap-3 sm:gap-6 px-2 border-b border-slate-200 pb-2">
+                        <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                            <span class="text-[10px] font-extrabold text-slate-500 opacity-0 group-hover:opacity-100 transition">2.1M</span>
+                            <div class="w-full bg-amber-200 hover:bg-brand-600 transition rounded-t-lg h-[45%]"></div>
+                            <span class="text-xs font-bold text-slate-600">T2</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                            <span class="text-[10px] font-extrabold text-slate-500 opacity-0 group-hover:opacity-100 transition">3.4M</span>
+                            <div class="w-full bg-amber-200 hover:bg-brand-600 transition rounded-t-lg h-[65%]"></div>
+                            <span class="text-xs font-bold text-slate-600">T3</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                            <span class="text-[10px] font-extrabold text-slate-500 opacity-0 group-hover:opacity-100 transition">2.8M</span>
+                            <div class="w-full bg-amber-200 hover:bg-brand-600 transition rounded-t-lg h-[55%]"></div>
+                            <span class="text-xs font-bold text-slate-600">T4</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                            <span class="text-[10px] font-extrabold text-slate-500 opacity-0 group-hover:opacity-100 transition">4.2M</span>
+                            <div class="w-full bg-amber-200 hover:bg-brand-600 transition rounded-t-lg h-[80%]"></div>
+                            <span class="text-xs font-bold text-slate-600">T5</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                            <span class="text-[10px] font-extrabold text-brand-600 opacity-100 transition">4.8M</span>
+                            <div class="w-full bg-brand-600 shadow-md rounded-t-lg h-[95%]"></div>
+                            <span class="text-xs font-extrabold text-brand-600">T6</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                            <span class="text-[10px] font-extrabold text-slate-500 opacity-0 group-hover:opacity-100 transition">3.9M</span>
+                            <div class="w-full bg-amber-200 hover:bg-brand-600 transition rounded-t-lg h-[75%]"></div>
+                            <span class="text-xs font-bold text-slate-600">T7</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
+                            <span class="text-[10px] font-extrabold text-slate-500 opacity-0 group-hover:opacity-100 transition">3.1M</span>
+                            <div class="w-full bg-amber-200 hover:bg-brand-600 transition rounded-t-lg h-[60%]"></div>
+                            <span class="text-xs font-bold text-slate-600">CN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THỐNG KÊ 5 KHÁCH HÀNG MUA CAO NHẤT -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-5">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-ranking-star text-brand-600"></i> Thống Kê 5 Khách Hàng Mua Cao Nhất
+                        </h3>
+                        <!-- Ban đầu ẩn dòng chữ kết quả thống kê -->
+                        <p id="statistic-result-text" class="text-xs text-slate-400 font-semibold mt-0.5 hidden">
+                            Kết quả thống kê cho khoảng thời gian cố định: <span class="text-brand-600 font-bold">01/06/2026 - 07/06/2026</span>
+                        </p>
+                    </div>
+                    <!-- Bộ lọc với mốc ban đầu: 12/03/2026 đến 02/04/2026 -->
+                    <div class="flex flex-wrap items-center gap-2">
+                        <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5">
+                            <span class="text-[11px] font-bold text-slate-400 uppercase">Từ:</span>
+                            <input type="date" id="start-date" value="2026-03-12" class="bg-transparent text-xs font-bold text-slate-700 focus:outline-none">
+                        </div>
+                        <div class="flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5">
+                            <span class="text-[11px] font-bold text-slate-400 uppercase">Đến:</span>
+                            <input type="date" id="end-date" value="2026-04-02" class="bg-transparent text-xs font-bold text-slate-700 focus:outline-none">
+                        </div>
+                        <button onclick="handleStatistic()" class="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-xs font-bold shadow-sm transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-filter"></i> Thống Kê
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bảng Top 5 khách hàng -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-slate-600">
+                        <thead class="bg-slate-50 text-[11px] font-bold uppercase text-slate-400">
+                            <tr>
+                                <th class="p-3.5 rounded-l-xl">Top</th>
+                                <th class="p-3.5">Khách hàng & SĐT</th>
+                                <th class="p-3.5">Các đơn hàng (Xem chi tiết)</th>
+                                <th class="p-3.5 text-right rounded-r-xl">Tổng tiền mua</th>
+                            </tr>
+                        </thead>
+                        <tbody id="top5-tbody" class="divide-y divide-slate-100 font-medium">
+                            <!-- Danh sách ban đầu (Khác với kết quả thống kê) -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-3.5 font-extrabold text-amber-600">#1</td>
+                                <td class="p-3.5">
+                                    <div class="font-bold text-slate-800">Trần Thị Mai</div>
+                                    <div class="text-xs text-slate-400">0901.111.222</div>
+                                </td>
+                                <td class="p-3.5">
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <a href="order-detail.html?id=TS-0980" class="px-2.5 py-1 bg-amber-50 border border-amber-200 rounded-lg text-xs font-bold text-amber-800 hover:bg-amber-100 transition inline-flex items-center gap-1">
+                                            #TS-0980 (70,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                        </a>
+                                        <a href="order-detail.html?id=TS-0975" class="px-2.5 py-1 bg-amber-50 border border-amber-200 rounded-lg text-xs font-bold text-amber-800 hover:bg-amber-100 transition inline-flex items-center gap-1">
+                                            #TS-0975 (65,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="p-3.5 text-right font-extrabold text-brand-600">135,000đ</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-3.5 font-extrabold text-slate-500">#2</td>
+                                <td class="p-3.5">
+                                    <div class="font-bold text-slate-800">Phạm Bảo Nam</div>
+                                    <div class="text-xs text-slate-400">0912.333.444</div>
+                                </td>
+                                <td class="p-3.5">
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <a href="order-detail.html?id=TS-0966" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                            #TS-0966 (80,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                        </a>
+                                        <a href="order-detail.html?id=TS-0950" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                            #TS-0950 (45,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="p-3.5 text-right font-extrabold text-brand-600">125,000đ</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-3.5 font-extrabold text-amber-700">#3</td>
+                                <td class="p-3.5">
+                                    <div class="font-bold text-slate-800">Lê Hoàng Yến</div>
+                                    <div class="text-xs text-slate-400">0938.555.666</div>
+                                </td>
+                                <td class="p-3.5">
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <a href="order-detail.html?id=TS-0942" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                            #TS-0942 (60,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                        </a>
+                                        <a href="order-detail.html?id=TS-0931" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                            #TS-0931 (50,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="p-3.5 text-right font-extrabold text-brand-600">110,000đ</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-3.5 font-extrabold text-slate-400">#4</td>
+                                <td class="p-3.5">
+                                    <div class="font-bold text-slate-800">Hoàng Khánh An</div>
+                                    <div class="text-xs text-slate-400">0971.777.888</div>
+                                </td>
+                                <td class="p-3.5">
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <a href="order-detail.html?id=TS-0920" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                            #TS-0920 (55,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                        </a>
+                                        <a href="order-detail.html?id=TS-0915" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                            #TS-0915 (45,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="p-3.5 text-right font-extrabold text-brand-600">100,000đ</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-3.5 font-extrabold text-slate-400">#5</td>
+                                <td class="p-3.5">
+                                    <div class="font-bold text-slate-800">Đặng Tuấn Anh</div>
+                                    <div class="text-xs text-slate-400">0984.999.000</div>
+                                </td>
+                                <td class="p-3.5">
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <a href="order-detail.html?id=TS-0902" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                            #TS-0902 (90,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="p-3.5 text-right font-extrabold text-brand-600">90,000đ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Bảng Đơn Hàng Mới & Top Bán Chạy -->
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 pb-4">
+                <!-- Đơn hàng mới nhất (Giữ nguyên theo file ban đầu của bạn) -->
+                <div class="xl:col-span-2 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-5 pb-3 border-b border-slate-100">
+                            <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2.5"><i class="fa-solid fa-clock-rotate-left text-brand-600 text-xl"></i> Đơn Hàng Mới Nhất</h3>
+                            <a href="orders.html" class="text-xs font-bold text-brand-600 hover:text-brand-700 hover:underline flex items-center gap-1">Xem tất cả <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                         <div class="overflow-x-auto">
-                            <table class="w-full text-left text-base text-slate-600">
-                                <thead class="bg-slate-50 text-xs font-bold uppercase text-slate-400">
+                            <table class="w-full text-left text-sm text-slate-600">
+                                <thead class="bg-slate-50 text-[11px] font-bold uppercase text-slate-400">
                                     <tr>
-                                        <th class="p-4 rounded-l-xl">Mã đơn</th>
-                                        <th class="p-4">Khách hàng</th>
-                                        <th class="p-4">Món</th>
-                                        <th class="p-4">Tổng tiền</th>
-                                        <th class="p-4 rounded-r-xl">Trạng thái</th>
+                                        <th class="p-3.5 rounded-l-xl">Mã đơn / Thời gian</th>
+                                        <th class="p-3.5">Khách hàng & Địa chỉ</th>
+                                        <th class="p-3.5">Chi tiết món & Thanh toán</th>
+                                        <th class="p-3.5">Tổng tiền</th>
+                                        <th class="p-3.5 rounded-r-xl">Trạng thái</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-slate-100 font-medium">
+                                    <!-- Đơn 1: #TS-1032 (Hoàng Gia Bảo) -->
                                     <tr class="hover:bg-slate-50/80 transition">
-                                        <td class="p-4 font-bold text-slate-800"><a href="order-detail.html" class="text-brand-600 hover:underline">#TS-1028</a></td>
-                                        <td class="p-4 font-semibold text-slate-800">Nguyễn Văn An</td>
-                                        <td class="p-4">Trà Sữa Trân Châu Hoàng Gia (M) x 2</td>
-                                        <td class="p-4 font-bold text-slate-800">70,000đ</td>
-                                        <td class="p-4"><span class="px-3.5 py-1.5 bg-amber-100 text-amber-800 text-xs font-bold rounded-full inline-flex items-center gap-1.5"><i class="fa-solid fa-spinner animate-spin"></i> Đang pha chế</span></td>
+                                        <td class="p-3.5">
+                                            <a href="order-detail.html" class="font-bold text-brand-600 hover:underline">#TS-1032</a>
+                                            <div class="text-xs text-slate-400 mt-0.5">07/06/2026, 14:20</div>
+                                        </td>
+                                        <td class="p-3.5">
+                                            <div class="font-bold text-slate-800">Hoàng Gia Bảo</div>
+                                            <div class="text-xs text-slate-500">0912.345.678</div>
+                                            <div class="text-xs text-slate-400">12 Nguyễn Oanh, Quận Gò Vấp</div>
+                                        </td>
+                                        <td class="p-3.5">
+                                            <div class="font-semibold text-slate-800">Trà Sữa Matcha Kem Cheese (L) x 2</div>
+                                            <div><span class="px-2.5 py-0.5 bg-purple-50 text-purple-700 rounded-md text-[11px] font-bold inline-block mt-1">Chuyển khoản MoMo</span></div>
+                                        </td>
+                                        <td class="p-3.5 font-extrabold text-slate-800">64,000đ</td>
+                                        <td class="p-3.5"><span class="text-amber-600 font-bold text-xs inline-flex items-center gap-1">Đang pha chế</span></td>
                                     </tr>
+                                    <!-- Đơn 2: #TS-1031 (Nguyễn Thị Thu Hà) -->
                                     <tr class="hover:bg-slate-50/80 transition">
-                                        <td class="p-4 font-bold text-slate-800"><a href="order-detail.html" class="text-brand-600 hover:underline">#TS-1027</a></td>
-                                        <td class="p-4 font-semibold text-slate-800">Phạm Hoàng Nam</td>
-                                        <td class="p-4">Trà Sữa Khoai Môn Kem Cheese (L)</td>
-                                        <td class="p-4 font-bold text-slate-800">45,000đ</td>
-                                        <td class="p-4"><span class="px-3.5 py-1.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full inline-flex items-center gap-1.5"><i class="fa-solid fa-truck-fast"></i> Đang giao hàng</span></td>
+                                        <td class="p-3.5">
+                                            <a href="order-detail.html" class="font-bold text-brand-600 hover:underline">#TS-1031</a>
+                                            <div class="text-xs text-slate-400 mt-0.5">07/06/2026, 13:45</div>
+                                        </td>
+                                        <td class="p-3.5">
+                                            <div class="font-bold text-slate-800">Nguyễn Thị Thu Hà</div>
+                                            <div class="text-xs text-slate-500">0988.765.432</div>
+                                            <div class="text-xs text-slate-400">45 Điện Biên Phủ, Quận Bình Thạnh</div>
+                                        </td>
+                                        <td class="p-3.5">
+                                            <div class="font-semibold text-slate-800">Trà Đào Hồng Tea (M) + Trân châu trắng</div>
+                                            <div><span class="px-2.5 py-0.5 bg-emerald-50 text-emerald-700 rounded-md text-[11px] font-bold inline-block mt-1">Tiền mặt</span></div>
+                                        </td>
+                                        <td class="p-3.5 font-extrabold text-slate-800">33,000đ</td>
+                                        <td class="p-3.5"><span class="text-blue-600 font-bold text-xs inline-flex items-center gap-1">Đang giao hàng</span></td>
                                     </tr>
+                                    <!-- Đơn: #TS-1025 (Trần Quốc Huy) -->
                                     <tr class="hover:bg-slate-50/80 transition">
-                                        <td class="p-4 font-bold text-slate-800"><a href="order-detail.html" class="text-brand-600 hover:underline">#TS-1026</a></td>
-                                        <td class="p-4 font-semibold text-slate-800">Lê Thị Hương</td>
-                                        <td class="p-4">Trà Vải Lài Băng Tuyết (L) + Thạch Aiyu</td>
-                                        <td class="p-4 font-bold text-slate-800">52,000đ</td>
-                                        <td class="p-4"><span class="px-3.5 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full inline-flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> Hoàn thành</span></td>
+                                        <td class="p-3.5">
+                                            <a href="order-detail.html" class="font-bold text-brand-600 hover:underline">#TS-1025</a>
+                                            <div class="text-xs text-slate-400 mt-0.5">07/06/2026, 11:15</div>
+                                        </td>
+                                        <td class="p-3.5">
+                                            <div class="font-bold text-slate-800">Trần Quốc Huy</div>
+                                            <div class="text-xs text-slate-500">0933.123.456</div>
+                                            <div class="text-xs text-slate-400">54 Nguyễn Trãi, Quận 5</div>
+                                        </td>
+                                        <td class="p-3.5">
+                                            <div class="font-semibold text-slate-800">Trà Sữa Trân Châu Hoàng Gia (L) x 2</div>
+                                            <div><span class="px-2.5 py-0.5 bg-purple-50 text-purple-700 rounded-md text-[11px] font-bold inline-block mt-1">Chuyển khoản MoMo</span></div>
+                                        </td>
+                                        <td class="p-3.5 font-extrabold text-slate-800">95,000đ</td>
+                                        <td class="p-3.5"><span class="text-emerald-600 font-bold text-xs inline-flex items-center gap-1">Hoàn thành</span></td>
                                     </tr>
+                                    <!-- Đơn: #TS-1024 (Lê Hồng Nhung) -->
                                     <tr class="hover:bg-slate-50/80 transition">
-                                        <td class="p-4 font-bold text-slate-800"><a href="order-detail.html" class="text-brand-600 hover:underline">#TS-1025</a></td>
-                                        <td class="p-4 font-semibold text-slate-800">Trần Thị Mai</td>
-                                        <td class="p-4">Sữa Tươi Đường Đen (L) x 1</td>
-                                        <td class="p-4 font-bold text-slate-800">42,000đ</td>
-                                        <td class="p-4"><span class="px-3.5 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full inline-flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> Hoàn thành</span></td>
+                                        <td class="p-3.5">
+                                            <a href="order-detail.html" class="font-bold text-brand-600 hover:underline">#TS-1024</a>
+                                            <div class="text-xs text-slate-400 mt-0.5">07/06/2026, 10:30</div>
+                                        </td>
+                                        <td class="p-3.5">
+                                            <div class="font-bold text-slate-800">Lê Hồng Nhung</div>
+                                            <div class="text-xs text-slate-500">0977.888.999</div>
+                                            <div class="text-xs text-slate-400">120 Cách Mạng Tháng 8, Quận 3</div>
+                                        </td>
+                                        <td class="p-3.5">
+                                            <div class="font-semibold text-slate-800">Sữa Tươi Đường Đen (L) x 2</div>
+                                            <div><span class="px-2.5 py-0.5 bg-purple-50 text-purple-700 rounded-md text-[11px] font-bold inline-block mt-1">Chuyển khoản Banking</span></div>
+                                        </td>
+                                        <td class="p-3.5 font-extrabold text-slate-800">90,000đ</td>
+                                        <td class="p-3.5"><span class="text-emerald-600 font-bold text-xs inline-flex items-center gap-1">Hoàn thành</span></td>
                                     </tr>
+                                    <!-- Đơn: #TS-1022 (Phạm Văn Đức) -->
                                     <tr class="hover:bg-slate-50/80 transition">
-                                        <td class="p-4 font-bold text-slate-800"><a href="order-detail.html" class="text-brand-600 hover:underline">#TS-1024</a></td>
-                                        <td class="p-4 font-semibold text-slate-800">Đặng Minh Tuấn</td>
-                                        <td class="p-4">Trà Đào Sả Tắc (M)</td>
-                                        <td class="p-4 font-bold text-slate-800">35,000đ</td>
-                                        <td class="p-4"><span class="px-3.5 py-1.5 bg-rose-100 text-rose-800 text-xs font-bold rounded-full inline-flex items-center gap-1.5"><i class="fa-solid fa-circle-xmark"></i> Đã hủy</span></td>
+                                        <td class="p-3.5">
+                                            <a href="order-detail.html" class="font-bold text-brand-600 hover:underline">#TS-1022</a>
+                                            <div class="text-xs text-slate-400 mt-0.5">07/06/2026, 09:15</div>
+                                        </td>
+                                        <td class="p-3.5">
+                                            <div class="font-bold text-slate-800">Phạm Văn Đức</div>
+                                            <div class="text-xs text-slate-500">0909.555.444</div>
+                                            <div class="text-xs text-slate-400">15 Hai Bà Trưng, Quận 1</div>
+                                        </td>
+                                        <td class="p-3.5">
+                                            <div class="font-semibold text-slate-800">Trà Vải Lài Băng Tuyết (L) + Thạch</div>
+                                            <div><span class="px-2.5 py-0.5 bg-emerald-50 text-emerald-700 rounded-md text-[11px] font-bold inline-block mt-1">Tiền mặt</span></div>
+                                        </td>
+                                        <td class="p-3.5 font-extrabold text-slate-800">75,000đ</td>
+                                        <td class="p-3.5"><span class="text-emerald-600 font-bold text-xs inline-flex items-center gap-1">Hoàn thành</span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -144,66 +398,66 @@
                 </div>
 
                 <!-- Top Bán Chạy -->
-                <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-7 flex flex-col justify-between">
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
-                            <h3 class="text-xl font-bold text-slate-800 flex items-center gap-3"><i class="fa-solid fa-fire text-rose-500 text-2xl"></i> Top Bán Chạy</h3>
-                            <a href="products.html" class="text-sm font-bold text-brand-600 hover:text-brand-700 hover:underline">Xem menu →</a>
+                        <div class="flex items-center justify-between mb-5 pb-3 border-b border-slate-100">
+                            <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2.5"><i class="fa-solid fa-fire text-rose-500 text-xl"></i> Top Bán Chạy</h3>
+                            <a href="products.html" class="text-xs font-bold text-brand-600 hover:text-brand-700 hover:underline">Xem menu →</a>
                         </div>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-amber-50/60 transition border border-slate-100">
-                                <div class="flex items-center gap-4">
-                                    <span class="w-9 h-9 rounded-2xl bg-amber-500 text-white text-base font-black flex items-center justify-center shadow-md">1</span>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-amber-50/60 transition border border-slate-100">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-xl bg-amber-500 text-white text-xs font-black flex items-center justify-center shadow-xs">1</span>
                                     <div>
-                                        <h4 class="text-base font-bold text-slate-800">Trà Sữa Trân Châu Hoàng Gia</h4>
-                                        <p class="text-xs font-semibold text-slate-400 mt-0.5">85 ly đã bán hôm nay</p>
+                                        <h4 class="text-xs font-bold text-slate-800">Trà Sữa Trân Châu Hoàng Gia</h4>
+                                        <p class="text-[10px] font-semibold text-slate-400 mt-0.5">85 ly đã bán hôm nay</p>
                                     </div>
                                 </div>
-                                <span class="text-base font-extrabold text-brand-600">35,000đ</span>
+                                <span class="text-xs font-extrabold text-brand-600">35,000đ</span>
                             </div>
 
-                            <div class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-amber-50/60 transition border border-slate-100">
-                                <div class="flex items-center gap-4">
-                                    <span class="w-9 h-9 rounded-2xl bg-slate-300 text-slate-800 text-base font-black flex items-center justify-center">2</span>
+                            <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-amber-50/60 transition border border-slate-100">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-xl bg-slate-300 text-slate-800 text-xs font-black flex items-center justify-center">2</span>
                                     <div>
-                                        <h4 class="text-base font-bold text-slate-800">Sữa Tươi Đường Đen</h4>
-                                        <p class="text-xs font-semibold text-slate-400 mt-0.5">62 ly đã bán hôm nay</p>
+                                        <h4 class="text-xs font-bold text-slate-800">Sữa Tươi Đường Đen</h4>
+                                        <p class="text-[10px] font-semibold text-slate-400 mt-0.5">62 ly đã bán hôm nay</p>
                                     </div>
                                 </div>
-                                <span class="text-base font-extrabold text-brand-600">42,000đ</span>
+                                <span class="text-xs font-extrabold text-brand-600">42,000đ</span>
                             </div>
 
-                            <div class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-amber-50/60 transition border border-slate-100">
-                                <div class="flex items-center gap-4">
-                                    <span class="w-9 h-9 rounded-2xl bg-amber-700/20 text-amber-900 text-base font-black flex items-center justify-center">3</span>
+                            <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-amber-50/60 transition border border-slate-100">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-xl bg-amber-700/20 text-amber-900 text-xs font-black flex items-center justify-center">3</span>
                                     <div>
-                                        <h4 class="text-base font-bold text-slate-800">Trà Vải Lài Băng Tuyết</h4>
-                                        <p class="text-xs font-semibold text-slate-400 mt-0.5">48 ly đã bán hôm nay</p>
+                                        <h4 class="text-xs font-bold text-slate-800">Trà Vải Lài Băng Tuyết</h4>
+                                        <p class="text-[10px] font-semibold text-slate-400 mt-0.5">48 ly đã bán hôm nay</p>
                                     </div>
                                 </div>
-                                <span class="text-base font-extrabold text-brand-600">45,000đ</span>
+                                <span class="text-xs font-extrabold text-brand-600">45,000đ</span>
                             </div>
 
-                            <div class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-amber-50/60 transition border border-slate-100">
-                                <div class="flex items-center gap-4">
-                                    <span class="w-9 h-9 rounded-2xl bg-slate-200 text-slate-600 text-base font-bold flex items-center justify-center">4</span>
+                            <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-amber-50/60 transition border border-slate-100">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-xl bg-slate-200 text-slate-600 text-xs font-bold flex items-center justify-center">4</span>
                                     <div>
-                                        <h4 class="text-base font-bold text-slate-800">Trà Đào Sả Tắc</h4>
-                                        <p class="text-xs font-semibold text-slate-400 mt-0.5">39 ly đã bán hôm nay</p>
+                                        <h4 class="text-xs font-bold text-slate-800">Trà Đào Sả Tắc</h4>
+                                        <p class="text-[10px] font-semibold text-slate-400 mt-0.5">39 ly đã bán hôm nay</p>
                                     </div>
                                 </div>
-                                <span class="text-base font-extrabold text-brand-600">35,000đ</span>
+                                <span class="text-xs font-extrabold text-brand-600">35,000đ</span>
                             </div>
 
-                            <div class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-amber-50/60 transition border border-slate-100">
-                                <div class="flex items-center gap-4">
-                                    <span class="w-9 h-9 rounded-2xl bg-slate-200 text-slate-600 text-base font-bold flex items-center justify-center">5</span>
+                            <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-amber-50/60 transition border border-slate-100">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-xl bg-slate-200 text-slate-600 text-xs font-bold flex items-center justify-center">5</span>
                                     <div>
-                                        <h4 class="text-base font-bold text-slate-800">Trà Sữa Khoai Môn Kem Cheese</h4>
-                                        <p class="text-xs font-semibold text-slate-400 mt-0.5">31 ly đã bán hôm nay</p>
+                                        <h4 class="text-xs font-bold text-slate-800">Trà Sữa Khoai Môn Kem Cheese</h4>
+                                        <p class="text-[10px] font-semibold text-slate-400 mt-0.5">31 ly đã bán hôm nay</p>
                                     </div>
                                 </div>
-                                <span class="text-base font-extrabold text-brand-600">45,000đ</span>
+                                <span class="text-xs font-extrabold text-brand-600">45,000đ</span>
                             </div>
                         </div>
                     </div>
@@ -211,5 +465,119 @@
             </div>
         </main>
     </div>
+
+    <!-- JavaScript Xử Lý Khi Nhấn Nút Thống Kê -->
+    <script>
+        function handleStatistic() {
+            // 1. Đưa 2 mốc thời gian về ngày cố định: 01/06/2026 - 07/06/2026
+            document.getElementById('start-date').value = "2026-06-01";
+            document.getElementById('end-date').value = "2026-06-07";
+
+            // 2. Hiện dòng chữ thông báo kết quả thống kê
+            const resultText = document.getElementById('statistic-result-text');
+            resultText.classList.remove('hidden');
+
+            // 3. Cập nhật Bảng Top 5 Khách Hàng sang 5 người mới (mỗi người 2-3 đơn)
+            const top5Tbody = document.getElementById('top5-tbody');
+            top5Tbody.innerHTML = `
+                <tr class="hover:bg-slate-50/80 transition">
+                    <td class="p-3.5 font-extrabold text-amber-600">#1</td>
+                    <td class="p-3.5">
+                        <div class="font-bold text-slate-800">Võ Minh Trí</div>
+                        <div class="text-xs text-slate-400">0935.888.777</div>
+                    </td>
+                    <td class="p-3.5">
+                        <div class="flex flex-wrap gap-1.5">
+                            <a href="order-detail.html?id=TS-1035" class="px-2.5 py-1 bg-amber-50 border border-amber-200 rounded-lg text-xs font-bold text-amber-800 hover:bg-amber-100 transition inline-flex items-center gap-1">
+                                #TS-1035 (95,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                            <a href="order-detail.html?id=TS-1020" class="px-2.5 py-1 bg-amber-50 border border-amber-200 rounded-lg text-xs font-bold text-amber-800 hover:bg-amber-100 transition inline-flex items-center gap-1">
+                                #TS-1020 (85,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                            <a href="order-detail.html?id=TS-1005" class="px-2.5 py-1 bg-amber-50 border border-amber-200 rounded-lg text-xs font-bold text-amber-800 hover:bg-amber-100 transition inline-flex items-center gap-1">
+                                #TS-1005 (70,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="p-3.5 text-right font-extrabold text-brand-600">250,000đ</td>
+                </tr>
+                <tr class="hover:bg-slate-50/80 transition">
+                    <td class="p-3.5 font-extrabold text-slate-500">#2</td>
+                    <td class="p-3.5">
+                        <div class="font-bold text-slate-800">Ngô Phương Thảo</div>
+                        <div class="text-xs text-slate-400">0978.123.456</div>
+                    </td>
+                    <td class="p-3.5">
+                        <div class="flex flex-wrap gap-1.5">
+                            <a href="order-detail.html?id=TS-1034" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                #TS-1034 (90,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                            <a href="order-detail.html?id=TS-1018" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                #TS-1018 (75,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                            <a href="order-detail.html?id=TS-1003" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                #TS-1003 (60,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="p-3.5 text-right font-extrabold text-brand-600">225,000đ</td>
+                </tr>
+                <tr class="hover:bg-slate-50/80 transition">
+                    <td class="p-3.5 font-extrabold text-amber-700">#3</td>
+                    <td class="p-3.5">
+                        <div class="font-bold text-slate-800">Đặng Hoàng Nam</div>
+                        <div class="text-xs text-slate-400">0903.654.321</div>
+                    </td>
+                    <td class="p-3.5">
+                        <div class="flex flex-wrap gap-1.5">
+                            <a href="order-detail.html?id=TS-1033" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                #TS-1033 (110,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                            <a href="order-detail.html?id=TS-1015" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                #TS-1015 (80,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="p-3.5 text-right font-extrabold text-brand-600">190,000đ</td>
+                </tr>
+                <tr class="hover:bg-slate-50/80 transition">
+                    <td class="p-3.5 font-extrabold text-slate-400">#4</td>
+                    <td class="p-3.5">
+                        <div class="font-bold text-slate-800">Trịnh Khánh Linh</div>
+                        <div class="text-xs text-slate-400">0919.222.333</div>
+                    </td>
+                    <td class="p-3.5">
+                        <div class="flex flex-wrap gap-1.5">
+                            <a href="order-detail.html?id=TS-1030" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                #TS-1030 (95,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                            <a href="order-detail.html?id=TS-1012" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                #TS-1012 (75,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="p-3.5 text-right font-extrabold text-brand-600">170,000đ</td>
+                </tr>
+                <tr class="hover:bg-slate-50/80 transition">
+                    <td class="p-3.5 font-extrabold text-slate-400">#5</td>
+                    <td class="p-3.5">
+                        <div class="font-bold text-slate-800">Nguyễn Văn Hùng</div>
+                        <div class="text-xs text-slate-400">0944.555.666</div>
+                    </td>
+                    <td class="p-3.5">
+                        <div class="flex flex-wrap gap-1.5">
+                            <a href="order-detail.html?id=TS-1028" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                #TS-1028 (80,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                            <a href="order-detail.html?id=TS-1010" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
+                                #TS-1010 (65,000đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="p-3.5 text-right font-extrabold text-brand-600">145,000đ</td>
+                </tr>
+            `;
+        }
+    </script>
 </body>
 </html>

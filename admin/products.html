@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="text-[14px] lg:text-[15px]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,305 +12,339 @@
                 extend: { 
                     colors: { 
                         brand: { 50: '#fffbeb', 100: '#fef3c7', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' },
-                        coffee: { 600: '#8B4513', 700: '#71370F' }
                     } 
                 }
             }
         }
     </script>
     <style>
-        .admin-product-card {
-            transition: all 0.3s ease;
-        }
-        .admin-product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
+        .admin-product-card { transition: all 0.3s ease; }
+        .admin-product-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08); }
     </style>
 </head>
-<body class="bg-slate-100 font-sans text-slate-800 antialiased flex h-screen overflow-hidden text-base">
+<body class="bg-slate-100 font-sans text-slate-800 antialiased flex h-screen overflow-hidden">
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-5 right-5 z-50 space-y-2"></div>
+
     <!-- Sidebar -->
-    <aside class="w-72 bg-slate-900 text-slate-300 flex flex-col justify-between hidden md:flex shadow-2xl flex-shrink-0 h-screen sticky top-0">
+    <aside class="w-64 bg-slate-900 text-slate-300 flex flex-col justify-between hidden md:flex shadow-2xl flex-shrink-0 h-screen sticky top-0">
         <div>
-            <div class="h-20 flex items-center justify-center gap-4 px-8 bg-slate-950 border-b border-slate-800">
-                <span class="font-bold text-xl text-white tracking-wide text-center">Góc Trà Sữa</span>
+            <!-- Logo chuẩn theo ảnh mẫu -->
+            <div class="h-20 flex flex-col items-center justify-center px-4 bg-[#71370F] border-b border-[#5a2c0c] text-center">
+                <div class="font-black text-lg tracking-wide">
+                    <span class="text-white">Góc</span> <span class="text-[#ffe4b5]">Tea</span>
+                </div>
+                <div class="text-[11px] font-semibold text-[#fef08a] tracking-wider uppercase mt-0.5">Boba & Coffee</div>
             </div>
-            <nav class="p-6 space-y-2">
-                <a href="index.html" class="flex items-center gap-4 px-5 py-4 text-slate-400 hover:bg-slate-800 hover:text-white rounded-2xl font-semibold text-lg transition"><i class="fa-solid fa-chart-pie w-6 text-xl"></i><span>Tổng Quan</span></a>
-                <a href="products.html" class="flex items-center gap-4 px-5 py-4 bg-brand-600 text-white rounded-2xl font-bold text-lg shadow-md"><i class="fa-solid fa-wine-glass-empty w-6 text-xl"></i><span>Sản Phẩm</span></a>
-                <a href="orders.html" class="flex items-center gap-4 px-5 py-4 text-slate-400 hover:bg-slate-800 hover:text-white rounded-2xl font-semibold text-lg transition"><i class="fa-solid fa-receipt w-6 text-xl"></i><span>Đơn Hàng</span></a>
-                <a href="customers.html" class="flex items-center gap-4 px-5 py-4 text-slate-400 hover:bg-slate-800 hover:text-white rounded-2xl font-semibold text-lg transition"><i class="fa-solid fa-users w-6 text-xl"></i><span>Khách Hàng</span></a>
+            <nav class="p-4 space-y-1.5">
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl font-semibold transition"><i class="fa-solid fa-chart-pie w-5 text-lg"></i><span>Tổng Quan</span></a>
+                <a href="products.html" class="flex items-center gap-3 px-4 py-3 bg-brand-600 text-white rounded-xl font-bold shadow-md"><i class="fa-solid fa-wine-glass-empty w-5 text-lg"></i><span>Sản Phẩm</span></a>
+                <a href="orders.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl font-semibold transition"><i class="fa-solid fa-receipt w-5 text-lg"></i><span>Đơn Hàng</span></a>
+                <a href="customers.html" class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-xl font-semibold transition"><i class="fa-solid fa-users w-5 text-lg"></i><span>Khách Hàng</span></a>
             </nav>
         </div>
-        <div class="p-6 border-t border-slate-800">
-            <a href="login.html" class="flex items-center gap-4 px-5 py-3.5 text-rose-400 hover:bg-rose-500/10 rounded-2xl font-bold text-lg transition"><i class="fa-solid fa-right-from-bracket w-6 text-xl"></i><span>Đăng Xuất</span></a>
+        <div class="p-4 border-t border-slate-800">
+            <a href="login.html" class="flex items-center gap-3 px-4 py-3 text-rose-400 hover:bg-rose-500/10 rounded-xl font-bold transition"><i class="fa-solid fa-right-from-bracket w-5 text-lg"></i><span>Đăng Xuất</span></a>
         </div>
     </aside>
 
     <!-- Main Content -->
     <div class="flex-1 flex flex-col min-w-0 h-screen overflow-y-auto">
-        <!-- Toast Notification Container -->
-        <div id="toast-container" class="fixed top-5 right-5 z-50 space-y-2"></div>
-
-        <header class="h-20 bg-white border-b border-slate-200 px-8 flex items-center justify-between shadow-xs flex-shrink-0">
-            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800 flex items-center gap-3">
+        <header class="h-20 bg-white border-b border-slate-200 px-6 flex items-center justify-between shadow-xs flex-shrink-0">
+            <h1 class="text-xl md:text-2xl font-extrabold text-slate-800 flex items-center gap-2.5">
                 <i class="fa-solid fa-bowl-food text-brand-600"></i> Quản Lý Sản Phẩm (Admin)
             </h1>
-            <button onclick="toggleModal('modal-add-product')" class="px-5 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-base transition shadow-md flex items-center gap-2">
+            <button onclick="toggleModal('modal-add-product')" class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-sm transition shadow-md flex items-center gap-2">
                 <i class="fa-solid fa-plus"></i> Thêm Món Mới
             </button>
         </header>
 
-        <main class="p-8 space-y-8">
+        <main class="p-6 space-y-6 flex-1">
             <!-- 1. TRÀ SỮA -->
-            <section class="space-y-4">
-                <h3 class="text-xl font-bold text-slate-800 border-l-4 border-brand-500 pl-3">Trà Sữa</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <section class="space-y-3">
+                <h3 class="text-lg font-bold text-slate-800 border-l-4 border-brand-500 pl-3">Trà Sữa</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                     <!-- Trà sữa truyền thống -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-amber-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/tra-sua-truyen-thong.png" alt="Trà sữa truyền thống" class="w-full h-full object-contain p-3">
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/tra-sua-truyen-thong.png" alt="Trà sữa truyền thống" class="w-full h-full object-contain p-2">
                         </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-amber-50">
                             <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-amber-50 text-amber-800 rounded-full">Trà Sữa</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Trà sữa truyền thống</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Trà sữa truyền thống tại Góc Trà Sữa được pha chế từ lá trà đen thượng hạng, kết hợp cùng sữa đặc và sữa tươi tạo nên vị ngọt béo hài hòa.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">22.000 đ</p>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-amber-800 rounded-full">Trà Sữa</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Trà sữa truyền thống</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Vị trà đen đậm đà kết hợp cùng sữa đặc béo ngậy và trân châu.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">20.000 đ</p>
                             </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Trà sữa truyền thống', '22000', 'Trà Sữa', '../images/products/tra-sua-truyen-thong.png', 'Trà sữa truyền thống tại Góc Trà Sữa được pha chế từ lá trà đen thượng hạng, kết hợp cùng sữa đặc và sữa tươi tạo nên vị ngọt béo hài hòa. Đi kèm là những viên trân châu đen, dẻo và thơm, mang đến trải nghiệm ngọt ngào.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Trà sữa thái xanh -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-amber-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/tra-sua-thai-xanh.png" alt="Trà sữa thái xanh" class="w-full h-full object-contain p-3">
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                            <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-amber-50 text-amber-800 rounded-full">Trà Sữa</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Trà sữa thái xanh</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Hương vị trà xanh Thái Lan thơm mát nhẹ nhàng kết hợp vị béo ngậy đặc trưng của sữa.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">25.000 đ</p>
-                            </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Trà sữa thái xanh', '25000', 'Trà Sữa', '../images/products/tra-sua-thai-xanh.png', 'Hương vị trà xanh Thái Lan thơm mát nhẹ nhàng kết hợp vị béo ngậy đặc trưng của sữa. Mang lại cảm giác thanh mát tức thì.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Trà sữa thái đỏ -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-amber-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/tra-sua-thai-do.png" alt="Trà sữa thái đỏ" class="w-full h-full object-contain p-3">
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                            <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-amber-50 text-amber-800 rounded-full">Trà Sữa</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Trà sữa thái đỏ</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Đậm đà hương vị trà đỏ đậm đà chuẩn vị truyền thống Thái Lan đầy quyến rũ.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">25.000 đ</p>
-                            </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Trà sữa thái đỏ', '25000', 'Trà Sữa', '../images/products/tra-sua-thai-do.png', 'Đậm đà hương vị trà đỏ đậm đà chuẩn vị truyền thống Thái Lan đầy quyến rũ. Kết hợp hoàn hảo với các loại topping thạch.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Trà sữa khoai môn -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-amber-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/tra-sua-khoai-mon.png" alt="Trà sữa khoai môn" class="w-full h-full object-contain p-3">
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                            <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-amber-50 text-amber-800 rounded-full">Trà Sữa</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Trà sữa khoai môn</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Vị béo ngậy thơm lừng của khoai môn tươi tự nhiên hòa quện cùng dòng sữa béo mịn.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">28.000 đ</p>
-                            </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Trà sữa khoai môn', '28000', 'Trà Sữa', '../images/products/tra-sua-khoai-mon.png', 'Vị béo ngậy thơm lừng của khoai môn tươi tự nhiên hòa quện cùng dòng sữa béo mịn ngọt ngào.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            <div class="flex items-center gap-2 pt-2 border-t border-amber-200/60">
+                                <button onclick="openEditModal('Trà sữa truyền thống', '20000', 'Trà Sữa', '../images/products/tra-sua-truyen-thong.png', 'Vị trà đen đậm đà kết hợp cùng sữa đặc béo ngậy và trân châu.')" class="flex-1 py-2 bg-white hover:bg-amber-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Trà sữa truyền thống')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
                             </div>
                         </div>
                     </div>
                     <!-- Hồng trà sữa -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-amber-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/hong-tra-sua.png" alt="Hồng trà sữa" class="w-full h-full object-contain p-3">
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/hong-tra-sua.png" alt="Hồng trà sữa" class="w-full h-full object-contain p-2">
                         </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-amber-50">
                             <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-amber-50 text-amber-800 rounded-full">Trà Sữa</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Hồng trà sữa</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Hồng trà đậm vị kết hợp tinh tế cùng dòng sữa đặc béo ngọt thơm phức.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">24.000 đ</p>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-amber-800 rounded-full">Trà Sữa</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Hồng trà sữa</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Hương thơm đặc trưng của hồng trà kết hợp sữa tươi.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">20.000 đ</p>
                             </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Hồng trà sữa', '24000', 'Trà Sữa', '../images/products/hong-tra-sua.png', 'Hồng trà đậm vị kết hợp tinh tế cùng dòng sữa đặc béo ngọt thơm phức.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            <div class="flex items-center gap-2 pt-2 border-t border-amber-200/60">
+                                <button onclick="openEditModal('Hồng trà sữa', '20000', 'Trà Sữa', '../images/products/hong-tra-sua.png', 'Hương thơm đặc trưng của hồng trà kết hợp sữa tươi.')" class="flex-1 py-2 bg-white hover:bg-amber-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Hồng trà sữa')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Trà sữa khoai môn -->
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/tra-sua-khoai-mon.png" alt="Trà sữa khoai môn" class="w-full h-full object-contain p-2">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-amber-50">
+                            <div>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-amber-800 rounded-full">Trà Sữa</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Trà sữa khoai môn</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Khoai môn tím bùi bùi kết hợp cùng vị trà sữa béo ngọt.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">22.000 đ</p>
+                            </div>
+                            <div class="flex items-center gap-2 pt-2 border-t border-amber-200/60">
+                                <button onclick="openEditModal('Trà sữa khoai môn', '22000', 'Trà Sữa', '../images/products/tra-sua-khoai-mon.png', 'Khoai môn tím bùi bùi kết hợp cùng vị trà sữa béo ngọt.')" class="flex-1 py-2 bg-white hover:bg-amber-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Trà sữa khoai môn')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Trà sữa thái xanh -->
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/tra-sua-thai-xanh.png" alt="Trà sữa thái xanh" class="w-full h-full object-contain p-2">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-amber-50">
+                            <div>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-amber-800 rounded-full">Trà Sữa</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Trà sữa thái xanh</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Hương vị trà Thái xanh thơm lừng, ngọt ngào.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">25.000 đ</p>
+                            </div>
+                            <div class="flex items-center gap-2 pt-2 border-t border-amber-200/60">
+                                <button onclick="openEditModal('Trà sữa thái xanh', '25000', 'Trà Sữa', '../images/products/tra-sua-thai-xanh.png', 'Hương vị trà Thái xanh thơm lừng, ngọt ngào.')" class="flex-1 py-2 bg-white hover:bg-amber-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Trà sữa thái xanh')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Trà sữa thái đỏ -->
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/tra-sua-thai-do.png" alt="Trà sữa thái đỏ" class="w-full h-full object-contain p-2">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-amber-50">
+                            <div>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-amber-800 rounded-full">Trà Sữa</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Trà sữa thái đỏ</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Sắc đỏ quyến rũ từ trà Thái, mang đến vị ngọt thanh.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">25.000 đ</p>
+                            </div>
+                            <div class="flex items-center gap-2 pt-2 border-t border-amber-200/60">
+                                <button onclick="openEditModal('Trà sữa thái đỏ', '25000', 'Trà Sữa', '../images/products/tra-sua-thai-do.png', 'Sắc đỏ quyến rũ từ trà Thái, mang đến vị ngọt thanh.')" class="flex-1 py-2 bg-white hover:bg-amber-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Trà sữa thái đỏ')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 2. TRÀ TRÁI CÂY -->
-            <section class="space-y-4">
-                <h3 class="text-xl font-bold text-slate-800 border-l-4 border-emerald-500 pl-3">Trà Trái Cây</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <!-- Trà đào -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-emerald-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/tra-dao.png" alt="Trà đào" class="w-full h-full object-contain p-3">
+            <!-- 2. TRÀ TRÁI CÂY & SINH TỐ -->
+            <section class="space-y-3">
+                <h3 class="text-lg font-bold text-slate-800 border-l-4 border-emerald-500 pl-3">Trà Trái Cây & Sinh Tố</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                    <!-- Trà ổi hồng -->
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/tra-oi-hong.png" alt="Trà ổi hồng" class="w-full h-full object-contain p-2">
                         </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-emerald-50">
                             <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full">Trà Trái Cây</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Trà đào</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Vị trà thanh mát kết hợp cùng những miếng đào giòn ngọt thơm lừng sảng khoái.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">25.000 đ</p>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-emerald-700 rounded-full">Trà Trái Cây & Sinh Tố</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Trà ổi hồng</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Hương ổi hồng thơm mát, vị trà thanh khiết, giải nhiệt.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">20.000 đ</p>
                             </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Trà đào', '25000', 'Trà Trái Cây', '../images/products/tra-dao.png', 'Vị trà thanh mát kết hợp cùng những miếng đào giòn ngọt thơm lừng sảng khoái.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            <div class="flex items-center gap-2 pt-2 border-t border-emerald-200/60">
+                                <button onclick="openEditModal('Trà ổi hồng', '20000', 'Trà Trái Cây & Sinh Tố', '../images/products/tra-oi-hong.png', 'Hương ổi hồng thơm mát, vị trà thanh khiết, giải nhiệt.')" class="flex-1 py-2 bg-white hover:bg-emerald-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Trà ổi hồng')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
                             </div>
                         </div>
                     </div>
-                    <!-- Trà vải -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-emerald-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/tra-vai.png" alt="Trà vải" class="w-full h-full object-contain p-3">
+                    <!-- Trà đào -->
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/tra-dao.png" alt="Trà đào" class="w-full h-full object-contain p-2">
                         </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-emerald-50">
                             <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full">Trà Trái Cây</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Trà vải</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Hương vải thiều ngọt ngào đậm đà hòa quyện vào nước trà nhài thanh khiết giải nhiệt.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">25.000 đ</p>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-emerald-700 rounded-full">Trà Trái Cây & Sinh Tố</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Trà đào</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Những miếng đào giòn ngọt kết hợp trà đen thanh mát.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">25.000 đ</p>
                             </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Trà vải', '25000', 'Trà Trái Cây', '../images/products/tra-vai.png', 'Hương vải thiều ngọt ngào đậm đà hòa quyện vào nước trà nhài thanh khiết giải nhiệt.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            <div class="flex items-center gap-2 pt-2 border-t border-emerald-200/60">
+                                <button onclick="openEditModal('Trà đào', '25000', 'Trà Trái Cây & Sinh Tố', '../images/products/tra-dao.png', 'Những miếng đào giòn ngọt kết hợp trà đen thanh mát.')" class="flex-1 py-2 bg-white hover:bg-emerald-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Trà đào')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
                             </div>
                         </div>
                     </div>
                     <!-- Trà chanh dây -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-emerald-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/tra-chanh-day.png" alt="Trà chanh dây" class="w-full h-full object-contain p-3">
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/tra-chanh-day.png" alt="Trà chanh dây" class="w-full h-full object-contain p-2">
                         </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-emerald-50">
                             <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full">Trà Trái Cây</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Trà chanh dây</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Vị chua thanh tự nhiên của chanh dây tươi giúp kích thích vị giác cực đỉnh.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">30.000 đ</p>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-emerald-700 rounded-full">Trà Trái Cây & Sinh Tố</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Trà chanh dây</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Vị chua chua ngọt ngọt của chanh dây hòa quyện cùng trà.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">25.000 đ</p>
                             </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Trà chanh dây', '30000', 'Trà Trái Cây', '../images/products/tra-chanh-day.png', 'Vị chua thanh tự nhiên của chanh dây tươi giúp kích thích vị giác cực đỉnh.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            <div class="flex items-center gap-2 pt-2 border-t border-emerald-200/60">
+                                <button onclick="openEditModal('Trà chanh dây', '25000', 'Trà Trái Cây & Sinh Tố', '../images/products/tra-chanh-day.png', 'Vị chua chua ngọt ngọt của chanh dây hòa quyện cùng trà.')" class="flex-1 py-2 bg-white hover:bg-emerald-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Trà chanh dây')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
                             </div>
                         </div>
                     </div>
-                    <!-- Trà tắc -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-emerald-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/tra-tac.png" alt="Trà tắc" class="w-full h-full object-contain p-3">
+                    <!-- Trà vải hoa hồng -->
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/tra-vai-hoa-hong.png" alt="Trà vải hoa hồng" class="w-full h-full object-contain p-2">
                         </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-emerald-50">
                             <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full">Trà Trái Cây</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Trà tắc</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Nước tắc tươi vắt kết hợp mật ong ngọt dịu mang lại cảm giác sảng khoái tràn đầy.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">18.000 đ</p>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-emerald-700 rounded-full">Trà Trái Cây & Sinh Tố</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Trà vải hoa hồng</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Sự kết hợp tinh tế giữa vải thiều ngọt nước và hương hoa hồng.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">28.000 đ</p>
                             </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Trà tắc', '18000', 'Trà Trái Cây', '../images/products/tra-tac.png', 'Nước tắc tươi vắt kết hợp mật ong ngọt dịu mang lại cảm giác sảng khoái tràn đầy.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            <div class="flex items-center gap-2 pt-2 border-t border-emerald-200/60">
+                                <button onclick="openEditModal('Trà vải hoa hồng', '28000', 'Trà Trái Cây & Sinh Tố', '../images/products/tra-vai-hoa-hong.png', 'Sự kết hợp tinh tế giữa vải thiều ngọt nước và hương hoa hồng.')" class="flex-1 py-2 bg-white hover:bg-emerald-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Trà vải hoa hồng')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sinh tố bơ -->
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/sinh-to-bo.png" alt="Sinh tố bơ" class="w-full h-full object-contain p-2">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-emerald-50">
+                            <div>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-emerald-700 rounded-full">Trà Trái Cây & Sinh Tố</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Sinh tố bơ</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Bơ sáp béo ngậy xay nhuyễn cùng sữa tươi, thơm ngon và giàu dinh dưỡng.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">30.000 đ</p>
+                            </div>
+                            <div class="flex items-center gap-2 pt-2 border-t border-emerald-200/60">
+                                <button onclick="openEditModal('Sinh tố bơ', '30000', 'Trà Trái Cây & Sinh Tố', '../images/products/sinh-to-bo.png', 'Bơ sáp béo ngậy xay nhuyễn cùng sữa tươi, thơm ngon và giàu dinh dưỡng.')" class="flex-1 py-2 bg-white hover:bg-emerald-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Sinh tố bơ')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 3. ĐỒ UỐNG KHÁC -->
-            <section class="space-y-4">
-                <h3 class="text-xl font-bold text-slate-800 border-l-4 border-blue-500 pl-3">Đồ Uống Khác</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <!-- Sữa tươi trân châu đường đen -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-blue-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/sua-tuoi-tran-chau-duong-den.png" alt="Sữa tươi trân châu đường đen" class="w-full h-full object-contain p-3">
+            <!-- 3. COFFEE & LATTE -->
+            <section class="space-y-3">
+                <h3 class="text-lg font-bold text-slate-800 border-l-4 border-blue-500 pl-3">Coffee & Latte</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                    <!-- Cà phê sữa -->
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/ca-phe-sua.png" alt="Cà phê sữa" class="w-full h-full object-contain p-2">
                         </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-blue-50">
                             <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-blue-50 text-blue-700 rounded-full">Đồ Uống Khác</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Sữa tươi trân châu đường đen</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Sữa tươi thanh trùng kết hợp trân châu đường đen nấu dẻo quánh béo bùi.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">30.000 đ</p>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-blue-700 rounded-full">Coffee & Latte</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Cà phê sữa</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Cà phê Robusta đậm vị truyền thống hòa quyện cùng sữa đặc.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">20.000 đ</p>
                             </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Sữa tươi trân châu đường đen', '30000', 'Đồ Uống Khác', '../images/products/sua-tuoi-tran-chau-duong-den.png', 'Sữa tươi thanh trùng kết hợp trân châu đường đen nấu dẻo quánh béo bùi.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            <div class="flex items-center gap-2 pt-2 border-t border-blue-200/60">
+                                <button onclick="openEditModal('Cà phê sữa', '20000', 'Coffee & Latte', '../images/products/ca-phe-sua.png', 'Cà phê Robusta đậm vị truyền thống hòa quyện cùng sữa đặc.')" class="flex-1 py-2 bg-white hover:bg-blue-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Cà phê sữa')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bạc xỉu -->
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/bac-xiu.png" alt="Bạc xỉu" class="w-full h-full object-contain p-2">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-blue-50">
+                            <div>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-blue-700 rounded-full">Coffee & Latte</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Bạc xỉu</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Vị sữa béo nhẹ kết hợp chút cà phê, dịu dàng dễ uống.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">22.000 đ</p>
+                            </div>
+                            <div class="flex items-center gap-2 pt-2 border-t border-blue-200/60">
+                                <button onclick="openEditModal('Bạc xỉu', '22000', 'Coffee & Latte', '../images/products/bac-xiu.png', 'Vị sữa béo nhẹ kết hợp chút cà phê, dịu dàng dễ uống.')" class="flex-1 py-2 bg-white hover:bg-blue-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Bạc xỉu')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Americano -->
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/americano.png" alt="Americano" class="w-full h-full object-contain p-2">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-blue-50">
+                            <div>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-blue-700 rounded-full">Coffee & Latte</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Americano</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Cà phê đen nguyên chất, hương vị mạnh mẽ đánh thức tinh thần.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">22.000 đ</p>
+                            </div>
+                            <div class="flex items-center gap-2 pt-2 border-t border-blue-200/60">
+                                <button onclick="openEditModal('Americano', '22000', 'Coffee & Latte', '../images/products/americano.png', 'Cà phê đen nguyên chất, hương vị mạnh mẽ đánh thức tinh thần.')" class="flex-1 py-2 bg-white hover:bg-blue-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Americano')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
                             </div>
                         </div>
                     </div>
                     <!-- Matcha latte -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-blue-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/matcha-latte.png" alt="Matcha latte" class="w-full h-full object-contain p-3">
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/matcha-latte.png" alt="Matcha latte" class="w-full h-full object-contain p-2">
                         </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-blue-50">
                             <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-blue-50 text-blue-700 rounded-full">Đồ Uống Khác</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Matcha latte</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Bột Matcha nguyên chất Nhật Bản pha mịn màng với sữa tươi thơm ngậy nhẹ nhàng.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">32.000 đ</p>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-blue-700 rounded-full">Coffee & Latte</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Matcha latte</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Trà xanh Matcha nguyên chất từ Nhật Bản hòa quyện cùng sữa.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">28.000 đ</p>
                             </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Matcha latte', '32000', 'Đồ Uống Khác', '../images/products/matcha-latte.png', 'Bột Matcha nguyên chất Nhật Bản pha mịn màng với sữa tươi thơm ngậy nhẹ nhàng.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            <div class="flex items-center gap-2 pt-2 border-t border-blue-200/60">
+                                <button onclick="openEditModal('Matcha latte', '28000', 'Coffee & Latte', '../images/products/matcha-latte.png', 'Trà xanh Matcha nguyên chất từ Nhật Bản hòa quyện cùng sữa.')" class="flex-1 py-2 bg-white hover:bg-blue-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Matcha latte')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
                             </div>
                         </div>
                     </div>
-                    <!-- Cacao latte -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-blue-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/cacao-latte.png" alt="Cacao latte" class="w-full h-full object-contain p-3">
+                    <!-- Sữa tươi trân châu đường đen -->
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/sua-tuoi-tran-chau-duong-den.png" alt="Sữa tươi trân châu đường đen" class="w-full h-full object-contain p-2">
                         </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-blue-50">
                             <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-blue-50 text-blue-700 rounded-full">Đồ Uống Khác</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Cacao latte</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Cacao nguyên chất đậm đà quyện với sữa tươi thơm phức đầy lôi cuốn.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">30.000 đ</p>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-blue-700 rounded-full">Coffee & Latte</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Sữa tươi trân châu đường đen</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Sự kết hợp hoàn hảo giữa sữa tươi đường đen và trân châu dẻo.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">30.000 đ</p>
                             </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Cacao latte', '30000', 'Đồ Uống Khác', '../images/products/cacao-latte.png', 'Cacao nguyên chất đậm đà quyện với sữa tươi thơm phức đầy lôi cuốn.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Cà phê sữa -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-blue-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/ca-phe-sua.png" alt="Cà phê sữa" class="w-full h-full object-contain p-3">
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                            <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-blue-50 text-blue-700 rounded-full">Đồ Uống Khác</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Cà phê sữa</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Cà phê Robusta phin đậm đà chuẩn vị truyền thống pha cùng sữa đặc ngọt béo.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">20.000 đ</p>
-                            </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Cà phê sữa', '20000', 'Đồ Uống Khác', '../images/products/ca-phe-sua.png', 'Cà phê Robusta phin đậm đà chuẩn vị truyền thống pha cùng sữa đặc ngọt béo.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            <div class="flex items-center gap-2 pt-2 border-t border-blue-200/60">
+                                <button onclick="openEditModal('Sữa tươi trân châu đường đen', '30000', 'Coffee & Latte', '../images/products/sua-tuoi-tran-chau-duong-den.png', 'Sự kết hợp hoàn hảo giữa sữa tươi đường đen và trân châu dẻo.')" class="flex-1 py-2 bg-white hover:bg-blue-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Sữa tươi trân châu đường đen')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
                             </div>
                         </div>
                     </div>
@@ -318,175 +352,179 @@
             </section>
 
             <!-- 4. TOPPING -->
-            <section class="space-y-4">
-                <h3 class="text-xl font-bold text-slate-800 border-l-4 border-purple-500 pl-3">Topping</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <section class="space-y-3">
+                <h3 class="text-lg font-bold text-slate-800 border-l-4 border-purple-500 pl-3">Topping</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                     <!-- Trân châu đen -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-purple-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/tran-chau-den.png" alt="Trân châu đen" class="w-full h-full object-contain p-3">
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/tran-chau-den.png" alt="Trân châu đen" class="w-full h-full object-contain p-2">
                         </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-purple-50">
                             <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-purple-50 text-purple-700 rounded-full">Topping</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Trân châu đen</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Hạt trân châu mềm dẻo, thơm ngậy mùi đường đen tự nhiên.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">5.000 đ</p>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-purple-700 rounded-full">Topping</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Trân châu đen</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Trân châu đen dẻo dai, thơm mùi đường đen.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">5.000 đ</p>
                             </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Trân châu đen', '5000', 'Topping', '../images/products/tran-chau-den.png', 'Hạt trân châu mềm dẻo, thơm ngậy mùi đường đen tự nhiên.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Kem cheese -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-purple-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/kem-cheese.png" alt="Kem cheese" class="w-full h-full object-contain p-3">
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-                            <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-purple-50 text-purple-700 rounded-full">Topping</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Kem cheese</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Lớp kem phô mai béo mặn sánh mịn phủ trên mặt ly trà ngon tuyệt hảo.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">10.000 đ</p>
-                            </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Kem cheese', '10000', 'Topping', '../images/products/kem-cheese.png', 'Lớp kem phô mai béo mặn sánh mịn phủ trên mặt ly trà ngon tuyệt hảo.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            <div class="flex items-center gap-2 pt-2 border-t border-purple-200/60">
+                                <button onclick="openEditModal('Trân châu đen', '5000', 'Topping', '../images/products/tran-chau-den.png', 'Trân châu đen dẻo dai, thơm mùi đường đen.')" class="flex-1 py-2 bg-white hover:bg-purple-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Trân châu đen')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
                             </div>
                         </div>
                     </div>
                     <!-- Bánh flan -->
-                    <div class="admin-product-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-                        <div class="w-full h-56 bg-purple-50 flex items-center justify-center overflow-hidden">
-                            <img src="../images/products/banh-flan.png" alt="Bánh flan" class="w-full h-full object-contain p-3">
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/banh-flan.png" alt="Bánh flan" class="w-full h-full object-contain p-2">
                         </div>
-                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-purple-50">
                             <div>
-                                <span class="text-xs font-bold px-3 py-1 bg-purple-50 text-purple-700 rounded-full">Topping</span>
-                                <h4 class="font-bold text-slate-900 text-xl mt-2">Bánh flan</h4>
-                                <p class="text-slate-500 text-sm mt-2 line-clamp-2">Bánh flan trứng béo ngậy mềm mịn tự làm tan chảy ngay trong miệng.</p>
-                                <p class="text-brand-600 font-black text-xl mt-3">8.000 đ</p>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-purple-700 rounded-full">Topping</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Bánh flan</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Bánh flan mềm mịn, thơm mùi trứng sữa.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">8.000 đ</p>
                             </div>
-                            <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                                <button onclick="openEditModal('Bánh flan', '8000', 'Topping', '../images/products/banh-flan.png', 'Bánh flan trứng béo ngậy mềm mịn tự làm tan chảy ngay trong miệng.')" class="flex-1 py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
-                                <button onclick="showToast('Đã xóa')" class="flex-1 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm rounded-xl transition flex items-center justify-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            <div class="flex items-center gap-2 pt-2 border-t border-purple-200/60">
+                                <button onclick="openEditModal('Bánh flan', '8000', 'Topping', '../images/products/banh-flan.png', 'Bánh flan mềm mịn, thơm mùi trứng sữa.')" class="flex-1 py-2 bg-white hover:bg-purple-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Bánh flan')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Kem cheese -->
+                    <div class="admin-product-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <div class="w-full h-44 bg-white flex items-center justify-center overflow-hidden">
+                            <img src="../images/products/kem-cheese.png" alt="Kem cheese" class="w-full h-full object-contain p-2">
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between space-y-3 bg-purple-50">
+                            <div>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 bg-white/80 text-purple-700 rounded-full">Topping</span>
+                                <h4 class="font-bold text-slate-900 text-base mt-1.5">Kem cheese</h4>
+                                <p class="text-slate-600 text-xs mt-1 line-clamp-2">Lớp kem phô mai mặn mặn, béo ngậy.</p>
+                                <p class="text-brand-600 font-black text-base mt-2">10.000 đ</p>
+                            </div>
+                            <div class="flex items-center gap-2 pt-2 border-t border-purple-200/60">
+                                <button onclick="openEditModal('Kem cheese', '10000', 'Topping', '../images/products/kem-cheese.png', 'Lớp kem phô mai mặn mặn, béo ngậy.')" class="flex-1 py-2 bg-white hover:bg-purple-100 text-amber-800 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                <button onclick="openDeleteModal('Kem cheese')" class="flex-1 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs rounded-lg transition flex items-center justify-center gap-1 shadow-xs"><i class="fa-solid fa-trash-can"></i> Xóa</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- THANH CHUYỂN TRANG -->
-            <div class="flex items-center justify-center gap-3 pt-6 pb-4">
-                <a href="products.html" class="px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-2xl font-bold text-base hover:bg-slate-50 transition shadow-xs flex items-center justify-center">
-                    Trước
-                </a>
-                <a href="products.html" class="w-12 h-12 bg-brand-600 text-white rounded-2xl text-lg font-extrabold shadow-md flex items-center justify-center">
-                    1
-                </a>
-                <a href="products.html" class="w-12 h-12 bg-white border border-slate-200 text-slate-700 rounded-2xl text-lg font-bold hover:bg-slate-50 transition shadow-xs flex items-center justify-center">
-                    2
-                </a>
-                <a href="products.html" class="px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-2xl font-bold text-base hover:bg-slate-50 transition shadow-xs flex items-center justify-center">
-                    Sau
-                </a>
+            <!-- Thanh Dấu Trang (Phân trang giống trang orders) -->
+            <div id="pagination-container" class="flex items-center justify-center gap-2.5 pt-2 pb-4">
+                <a href="products.html" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-xl font-bold text-sm hover:bg-slate-50 transition shadow-xs flex items-center justify-center">Trước</a>
+                <a href="products.html" class="w-10 h-10 bg-brand-600 text-white rounded-xl text-sm font-extrabold shadow-md flex items-center justify-center">1</a>
+                <a href="products.html" class="w-10 h-10 bg-white border border-slate-200 text-slate-700 rounded-xl text-sm font-bold hover:bg-slate-50 transition shadow-xs flex items-center justify-center">2</a>
+                <a href="products.html" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-xl font-bold text-sm hover:bg-slate-50 transition shadow-xs flex items-center justify-center">Sau</a>
             </div>
         </main>
     </div>
 
-    <!-- Modal Thêm Sản Phẩm Mới -->
-    <div id="modal-add-product" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-slate-100">
-            <div class="flex justify-between items-center mb-6 pb-4 border-b border-slate-100">
-                <h3 class="text-xl font-bold text-slate-800">Thêm Sản Phẩm Mới</h3>
-                <button onclick="toggleModal('modal-add-product')" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-2xl"></i></button>
+    <!-- POPUP XÓA SẢN PHẨM -->
+    <div id="modal-delete-product" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-slate-100 text-center space-y-4">
+            <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-2xl mx-auto flex items-center justify-center text-2xl shadow-inner">
+                <i class="fa-solid fa-triangle-exclamation"></i>
             </div>
-            <form onsubmit="event.preventDefault(); toggleModal('modal-add-product'); showToast('Đã thêm sản phẩm thành công!');" class="space-y-5">
+            <div>
+                <h3 class="text-lg font-bold text-slate-900">Xác Nhận Xóa Món</h3>
+                <p class="text-sm text-slate-500 mt-1">Bạn có chắc muốn xóa <span id="delete-product-name" class="font-bold text-slate-800"></span> khỏi thực đơn không?</p>
+            </div>
+            <div class="flex gap-3 pt-2">
+                <button type="button" onclick="toggleModal('modal-delete-product')" class="flex-1 py-2.5 border border-slate-200 text-slate-600 rounded-xl text-sm font-bold hover:bg-slate-50 transition">Hủy</button>
+                <button type="button" onclick="confirmDelete()" class="flex-1 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-sm font-bold shadow-md transition">Xóa luôn</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP SỬA SẢN PHẨM -->
+    <div id="modal-edit-product" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-100">
+                <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2"><i class="fa-solid fa-pen-to-square text-brand-600"></i> Sửa Thông Tin Sản Phẩm</h3>
+                <button onclick="toggleModal('modal-edit-product')" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <form onsubmit="event.preventDefault(); toggleModal('modal-edit-product'); showToast('Đã cập nhật sản phẩm thành công!');" class="space-y-4">
                 <div>
-                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Tên món</label>
-                    <input type="text" placeholder="VD: Trà sữa Matcha" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Tên món</label>
+                    <input type="text" id="edit-name" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500">
                 </div>
                 <div>
-                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Danh mục</label>
-                    <select class="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Danh mục</label>
+                    <select id="edit-category" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500">
                         <option>Trà Sữa</option>
-                        <option>Trà Trái Cây</option>
-                        <option>Đồ Uống Khác</option>
+                        <option>Trà Trái Cây & Sinh Tố</option>
+                        <option>Coffee & Latte</option>
                         <option>Topping</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Giá bán (đ)</label>
-                    <input type="number" placeholder="25000" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Giá bán (đ)</label>
+                    <input type="text" id="edit-price" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500">
                 </div>
                 <div>
-                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Mô tả chi tiết sản phẩm</label>
-                    <textarea rows="3" placeholder="Nhập hương vị, nguyên liệu, chi tiết món..." class="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500 resize-none"></textarea>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Mô tả chi tiết sản phẩm</label>
+                    <textarea id="edit-description" rows="2" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 resize-none"></textarea>
                 </div>
                 <div>
-                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Hình ảnh</label>
-                    <input type="file" class="w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-amber-50 file:text-brand-700 hover:file:bg-amber-100">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Hình ảnh</label>
+                    <img id="edit-preview-img" src="" alt="Ảnh sản phẩm" class="w-16 h-16 object-contain rounded-xl border border-slate-200 bg-slate-50 p-1 mb-2">
+                    <input type="file" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-amber-50 file:text-brand-700 hover:file:bg-amber-100">
                 </div>
-                <div class="flex gap-4 pt-3">
-                    <button type="button" onclick="toggleModal('modal-add-product')" class="flex-1 py-3 border border-slate-200 text-slate-600 rounded-xl text-base font-bold hover:bg-slate-50">Hủy</button>
-                    <button type="submit" class="flex-1 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-base font-bold shadow-md">Lưu món</button>
+                <div class="flex gap-3 pt-2">
+                    <button type="button" onclick="toggleModal('modal-edit-product')" class="flex-1 py-2.5 border border-slate-200 text-slate-600 rounded-xl text-sm font-bold hover:bg-slate-50">Hủy</button>
+                    <button type="submit" class="flex-1 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-sm font-bold shadow-md">Lưu thay đổi</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal Sửa Sản Phẩm -->
-    <div id="modal-edit-product" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-slate-100 max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center mb-6 pb-4 border-b border-slate-100">
-                <h3 class="text-xl font-bold text-slate-800">Sửa Thông Tin Sản Phẩm</h3>
-                <button onclick="toggleModal('modal-edit-product')" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-2xl"></i></button>
+    <!-- POPUP THÊM MỚI -->
+    <div id="modal-add-product" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-100">
+                <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2"><i class="fa-solid fa-plus text-brand-600"></i> Thêm Sản Phẩm Mới</h3>
+                <button onclick="toggleModal('modal-add-product')" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-xl"></i></button>
             </div>
-            <form onsubmit="event.preventDefault(); toggleModal('modal-edit-product'); showToast('Đã cập nhật sản phẩm thành công!');" class="space-y-5">
+            <form onsubmit="event.preventDefault(); toggleModal('modal-add-product'); showToast('Đã thêm sản phẩm thành công!');" class="space-y-4">
                 <div>
-                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Tên món</label>
-                    <input type="text" id="edit-name" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Tên món</label>
+                    <input type="text" placeholder="VD: Trà sữa Matcha" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500">
                 </div>
                 <div>
-                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Danh mục</label>
-                    <select id="edit-category" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Danh mục</label>
+                    <select class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500">
                         <option>Trà Sữa</option>
-                        <option>Trà Trái Cây</option>
-                        <option>Đồ Uống Khác</option>
+                        <option>Trà Trái Cây & Sinh Tố</option>
+                        <option>Coffee & Latte</option>
                         <option>Topping</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Giá bán (đ)</label>
-                    <input type="number" id="edit-price" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Giá bán (đ)</label>
+                    <input type="text" id="add-price" placeholder="VD: 25000" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500">
                 </div>
                 <div>
-                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Mô tả chi tiết sản phẩm</label>
-                    <textarea id="edit-description" rows="3" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-base focus:outline-none focus:border-brand-500 resize-none"></textarea>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Mô tả chi tiết sản phẩm</label>
+                    <textarea rows="2" placeholder="Nhập hương vị..." class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500 resize-none"></textarea>
                 </div>
                 <div>
-                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Hình ảnh hiện tại</label>
-                    <div class="mb-3">
-                        <img id="edit-preview-img" src="" alt="Ảnh sản phẩm" class="w-20 h-20 object-contain rounded-2xl border border-slate-200 bg-slate-50 p-2">
-                    </div>
-                    <label class="block text-sm font-bold text-slate-700 uppercase mb-2">Chọn ảnh mới (nếu muốn thay đổi)</label>
-                    <input type="file" class="w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-amber-50 file:text-brand-700 hover:file:bg-amber-100">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Hình ảnh</label>
+                    <input type="file" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-amber-50 file:text-brand-700 hover:file:bg-amber-100">
                 </div>
-                <div class="flex gap-4 pt-3">
-                    <button type="button" onclick="toggleModal('modal-edit-product')" class="flex-1 py-3 border border-slate-200 text-slate-600 rounded-xl text-base font-bold hover:bg-slate-50">Hủy</button>
-                    <button type="submit" class="flex-1 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-base font-bold shadow-md">Lưu thay đổi</button>
+                <div class="flex gap-3 pt-2">
+                    <button type="button" onclick="toggleModal('modal-add-product')" class="flex-1 py-2.5 border border-slate-200 text-slate-600 rounded-xl text-sm font-bold hover:bg-slate-50">Hủy</button>
+                    <button type="submit" class="flex-1 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-sm font-bold shadow-md">Lưu món</button>
                 </div>
             </form>
         </div>
     </div>
 
     <script>
-        function toggleModal(id) { 
-            document.getElementById(id).classList.toggle('hidden'); 
-        }
-
+        function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); }
+        
         function openEditModal(name, price, category, imgSrc, description = '') {
             document.getElementById('edit-name').value = name;
             document.getElementById('edit-price').value = price;
@@ -495,13 +533,22 @@
             document.getElementById('edit-description').value = description;
             toggleModal('modal-edit-product');
         }
-        
+
+        function openDeleteModal(name) {
+            document.getElementById('delete-product-name').innerText = name;
+            toggleModal('modal-delete-product');
+        }
+
+        function confirmDelete() {
+            toggleModal('modal-delete-product');
+            showToast('Đã xóa sản phẩm thành công!');
+        }
+
         function showToast(message) {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            
-            toast.className = 'p-4 rounded-2xl shadow-xl text-base font-bold flex items-center gap-3 text-white bg-emerald-600 transition duration-300';
-            toast.innerHTML = `<i class="fa-solid fa-circle-check text-xl"></i> <span>${message}</span>`;
+            toast.className = 'p-3.5 rounded-xl shadow-xl text-sm font-bold flex items-center gap-2.5 text-white bg-emerald-600 transition duration-300';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-lg"></i> <span>${message}</span>`;
             container.appendChild(toast);
             setTimeout(() => toast.remove(), 2500);
         }
