@@ -58,9 +58,9 @@
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5 whitespace-nowrap overflow-hidden text-ellipsis">Tình trạng</label>
                     <select id="filter-status" class="w-full px-2.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs md:text-sm focus:outline-none focus:border-brand-500">
                         <option value="">Tất cả</option>
-                        <option value="Đang pha chế">Đang pha chế</option>
-                        <option value="Đang giao hàng">Đang giao hàng</option>
-                        <option value="Hoàn thành">Hoàn thành</option>
+                        <option value="Đã xác nhận">Đã xác nhận</option>
+                        <option value="Đang giao">Đang giao</option>
+                        <option value="Đã giao thành công">Đã giao thành công</option>
                         <option value="Đã hủy">Đã hủy</option>
                     </select>
                 </div>
@@ -80,6 +80,7 @@
                         <option value="Quận 3">Quận 3, TP.HCM</option>
                         <option value="Quận Gò Vấp">Quận Gò Vấp, TP.HCM</option>
                         <option value="Quận Bình Thạnh">Quận Bình Thạnh, TP.HCM</option>
+                        <option value="Phường Xuân Hòa">Phường Xuân Hòa, TP.HCM</option>
                     </select>
                 </div>
                 <div class="lg:col-span-2">
@@ -104,31 +105,10 @@
                             </tr>
                         </thead>
                         <tbody id="order-table-body" class="divide-y divide-slate-100 font-medium">
-                            <tr id="fixed-target-row" class="order-row hover:bg-slate-50/80 transition" data-status="Đang pha chế" data-date="2026-06-07" data-location="Quận Gò Vấp">
+                            <tr id="fixed-target-row" class="order-row hover:bg-slate-50/80 transition" data-status="Đang giao" data-date="2026-11-10" data-location="Quận Bình Thạnh">
                                 <td class="p-4 align-middle">
-                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #TS-1032</a>
-                                    <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">07/06/2026, 14:20</span>
-                                </td>
-                                <td class="p-4 align-middle">
-                                    <div class="font-bold text-slate-900 text-base">Hoàng Gia Bảo</div>
-                                    <div class="text-xs text-slate-500 font-semibold mt-0.5">0912.345.678</div>
-                                    <div class="text-xs text-slate-600 font-medium mt-0.5 flex items-center gap-1"><i class="fa-solid fa-location-dot text-rose-500"></i> 12 Nguyễn Oanh, Quận Gò Vấp</div>
-                                </td>
-                                <td class="p-4 align-middle">
-                                    <div class="text-slate-900 font-bold text-sm">Trà Sữa Matcha Kem Cheese (L) x 2</div>
-                                    <span class="inline-block mt-1 text-[11px] font-bold px-2.5 py-0.5 bg-purple-50 text-purple-700 rounded-md">Chuyển khoản MoMo</span>
-                                </td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-lg">64,000đ</td>
-                                <td class="p-4 align-middle"><span class="text-amber-800 text-xs font-bold inline-flex items-center gap-1.5"><i class="fa-solid fa-spinner animate-spin"></i> Đang pha chế</span></td>
-                                <td class="p-4 align-middle text-right">
-                                    <button onclick="openStatusModal('#TS-1032', 'Đang pha chế')" class="px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-xs font-bold transition inline-flex items-center gap-1"><i class="fa-solid fa-pen-to-square"></i> Cập nhật</button>
-                                </td>
-                            </tr>
-
-                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đang giao hàng" data-date="2026-06-07" data-location="Quận Bình Thạnh">
-                                <td class="p-4 align-middle">
-                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #TS-1031</a>
-                                    <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">07/06/2026, 13:45</span>
+                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #GT-2026-006</a>
+                                    <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">10/11/2026, 15:30</span>
                                 </td>
                                 <td class="p-4 align-middle">
                                     <div class="font-bold text-slate-900 text-base">Nguyễn Thị Thu Hà</div>
@@ -136,20 +116,20 @@
                                     <div class="text-xs text-slate-600 font-medium mt-0.5 flex items-center gap-1"><i class="fa-solid fa-location-dot text-rose-500"></i> 45 Điện Biên Phủ, Quận Bình Thạnh</div>
                                 </td>
                                 <td class="p-4 align-middle">
-                                    <div class="text-slate-900 font-bold text-sm">Trà Đào Hồng Tea (M) + Trân châu trắng</div>
-                                    <span class="inline-block mt-1 text-[11px] font-bold px-2.5 py-0.5 bg-emerald-50 text-emerald-700 rounded-md">Tiền mặt</span>
+                                    <div class="text-slate-900 font-bold text-sm">Trà đào (Size M, Bánh flan) x1</div>
+                                    <span class="inline-block mt-1 text-[11px] font-bold px-2.5 py-0.5 bg-purple-50 text-purple-700 rounded-md">Thanh toán trực tuyến</span>
                                 </td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-lg">33,000đ</td>
-                                <td class="p-4 align-middle"><span class="text-blue-800 text-xs font-bold inline-flex items-center gap-1.5"><i class="fa-solid fa-truck-fast"></i> Đang giao hàng</span></td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-lg">37.000 đ</td>
+                                <td class="p-4 align-middle"><span class="text-blue-800 text-xs font-bold inline-flex items-center gap-1.5"><i class="fa-solid fa-truck-fast"></i> Đang giao</span></td>
                                 <td class="p-4 align-middle text-right">
-                                    <button onclick="openStatusModal('#TS-1031', 'Đang giao hàng')" class="px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-xs font-bold transition inline-flex items-center gap-1"><i class="fa-solid fa-pen-to-square"></i> Cập nhật</button>
+                                    <button onclick="openStatusModal('#GT-2026-006', 'Đang giao')" class="px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-xs font-bold transition inline-flex items-center gap-1"><i class="fa-solid fa-pen-to-square"></i> Cập nhật</button>
                                 </td>
                             </tr>
 
-                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Hoàn thành" data-date="2026-06-07" data-location="Quận 1">
+                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đã giao thành công" data-date="2026-11-08" data-location="Quận 1">
                                 <td class="p-4 align-middle">
-                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #TS-1030</a>
-                                    <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">07/06/2026, 12:10</span>
+                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #GT-2026-005</a>
+                                    <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">08/11/2026, 12:10</span>
                                 </td>
                                 <td class="p-4 align-middle">
                                     <div class="font-bold text-slate-900 text-base">Vũ Minh Triết</div>
@@ -157,76 +137,101 @@
                                     <div class="text-xs text-slate-600 font-medium mt-0.5 flex items-center gap-1"><i class="fa-solid fa-location-dot text-rose-500"></i> 88 Nguyễn Huệ, Quận 1</div>
                                 </td>
                                 <td class="p-4 align-middle">
-                                    <div class="text-slate-900 font-bold text-sm">Cà Phê Sữa Đá Sài Gòn x 2</div>
-                                    <span class="inline-block mt-1 text-[11px] font-bold px-2.5 py-0.5 bg-purple-50 text-purple-700 rounded-md">Chuyển khoản Banking</span>
-                                </td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-lg">44,000đ</td>
-                                <td class="p-4 align-middle"><span class="text-emerald-800 text-xs font-bold inline-flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> Hoàn thành</span></td>
-                                <td class="p-4 align-middle text-right">
-                                    <button onclick="openStatusModal('#TS-1030', 'Hoàn thành')" class="px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-xs font-bold transition inline-flex items-center gap-1"><i class="fa-solid fa-pen-to-square"></i> Cập nhật</button>
-                                </td>
-                            </tr>
-
-                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Hoàn thành" data-date="2026-06-05" data-location="Quận 1">
-                                <td class="p-4 align-middle">
-                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #TS-1028</a>
-                                    <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">05/06/2026, 16:45</span>
-                                </td>
-                                <td class="p-4 align-middle">
-                                    <div class="font-bold text-slate-900 text-base">Mai Thanh Trúc</div>
-                                    <div class="text-xs text-slate-500 font-semibold mt-0.5">0911.222.333</div>
-                                    <div class="text-xs text-slate-600 font-medium mt-0.5 flex items-center gap-1"><i class="fa-solid fa-location-dot text-rose-500"></i> 10 Đồng Khởi, Quận 1</div>
-                                </td>
-                                <td class="p-4 align-middle">
-                                    <div class="text-slate-900 font-bold text-sm">Trà Sữa Truyền Thống (M) x 2</div>
-                                    <span class="inline-block mt-1 text-[11px] font-bold px-2.5 py-0.5 bg-purple-50 text-purple-700 rounded-md">Chuyển khoản MoMo</span>
-                                </td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-lg">40,000đ</td>
-                                <td class="p-4 align-middle"><span class="text-emerald-800 text-xs font-bold inline-flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> Hoàn thành</span></td>
-                                <td class="p-4 align-middle text-right">
-                                    <button onclick="openStatusModal('#TS-1028', 'Hoàn thành')" class="px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-xs font-bold transition inline-flex items-center gap-1"><i class="fa-solid fa-pen-to-square"></i> Cập nhật</button>
-                                </td>
-                            </tr>
-
-                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Hoàn thành" data-date="2026-06-04" data-location="Quận 3">
-                                <td class="p-4 align-middle">
-                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #TS-1027</a>
-                                    <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">04/06/2026, 14:10</span>
-                                </td>
-                                <td class="p-4 align-middle">
-                                    <div class="font-bold text-slate-900 text-base">Phan Quốc Bảo</div>
-                                    <div class="text-xs text-slate-500 font-semibold mt-0.5">0922.334.455</div>
-                                    <div class="text-xs text-slate-600 font-medium mt-0.5 flex items-center gap-1"><i class="fa-solid fa-location-dot text-rose-500"></i> 25 Điện Biên Phủ, Quận 3</div>
-                                </td>
-                                <td class="p-4 align-middle">
-                                    <div class="text-slate-900 font-bold text-sm">Americano (L)</div>
+                                    <div class="text-slate-900 font-bold text-sm">Cà phê sữa (Size S) x2</div>
                                     <span class="inline-block mt-1 text-[11px] font-bold px-2.5 py-0.5 bg-emerald-50 text-emerald-700 rounded-md">Tiền mặt</span>
                                 </td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-lg">22,000đ</td>
-                                <td class="p-4 align-middle"><span class="text-emerald-800 text-xs font-bold inline-flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> Hoàn thành</span></td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-lg">40.000 đ</td>
+                                <td class="p-4 align-middle"><span class="text-emerald-800 text-xs font-bold inline-flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> Đã giao thành công</span></td>
                                 <td class="p-4 align-middle text-right">
-                                    <button onclick="openStatusModal('#TS-1027', 'Hoàn thành')" class="px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-xs font-bold transition inline-flex items-center gap-1"><i class="fa-solid fa-pen-to-square"></i> Cập nhật</button>
+                                    <button onclick="openStatusModal('#GT-2026-005', 'Đã giao thành công')" class="px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-xs font-bold transition inline-flex items-center gap-1"><i class="fa-solid fa-pen-to-square"></i> Cập nhật</button>
                                 </td>
                             </tr>
 
-                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đã hủy" data-date="2026-06-03" data-location="Quận Gò Vấp">
+                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đã xác nhận" data-date="2026-11-06" data-location="Phường Xuân Hòa">
                                 <td class="p-4 align-middle">
-                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #TS-1026</a>
-                                    <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">03/06/2026, 19:20</span>
+                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #GT-2026-004</a>
+                                    <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">06/11/2026, 14:02</span>
                                 </td>
                                 <td class="p-4 align-middle">
-                                    <div class="font-bold text-slate-900 text-base">Lương Tấn Phát</div>
-                                    <div class="text-xs text-slate-500 font-semibold mt-0.5">0989.112.233</div>
-                                    <div class="text-xs text-slate-600 font-medium mt-0.5 flex items-center gap-1"><i class="fa-solid fa-location-dot text-rose-500"></i> 30 Quang Trung, Quận Gò Vấp</div>
+                                    <div class="font-bold text-slate-900 text-base">Nguyễn Văn A</div>
+                                    <div class="text-xs text-slate-500 font-semibold mt-0.5">0903.123.456</div>
+                                    <div class="text-xs text-slate-600 font-medium mt-0.5 flex items-center gap-1"><i class="fa-solid fa-location-dot text-rose-500"></i> 89 Võ Thị Sáu, Phường Xuân Hòa, TP.HCM</div>
                                 </td>
                                 <td class="p-4 align-middle">
-                                    <div class="text-slate-900 font-bold text-sm">Trà Ổi Hồng (L) x 2</div>
-                                    <span class="inline-block mt-1 text-[11px] font-bold px-2.5 py-0.5 bg-purple-50 text-purple-700 rounded-md">Chuyển khoản MoMo</span>
+                                    <div class="text-slate-900 font-bold text-sm">Trà sữa truyền thống (Size M, Kem cheese) x1</div>
+                                    <div class="text-slate-900 font-bold text-sm">Trà đào (Size S) x2</div>
+                                    <div class="text-slate-900 font-bold text-sm">Matcha latte (Size L, Trân châu đen) x1</div>
+                                    <div class="text-slate-900 font-bold text-sm">Bánh flan x1</div>
+                                    <span class="inline-block mt-1 text-[11px] font-bold px-2.5 py-0.5 bg-emerald-50 text-emerald-700 rounded-md">Tiền mặt</span>
                                 </td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-lg">40,000đ</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-lg">133.000 đ</td>
+                                <td class="p-4 align-middle"><span class="text-amber-800 text-xs font-bold inline-flex items-center gap-1.5"><i class="fa-solid fa-spinner animate-spin"></i> Đã xác nhận</span></td>
+                                <td class="p-4 align-middle text-right">
+                                    <button onclick="openStatusModal('#GT-2026-004', 'Đã xác nhận')" class="px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-xs font-bold transition inline-flex items-center gap-1"><i class="fa-solid fa-pen-to-square"></i> Cập nhật</button>
+                                </td>
+                            </tr>
+
+                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đã giao thành công" data-date="2026-10-20" data-location="Phường Xuân Hòa">
+                                <td class="p-4 align-middle">
+                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #GT-2026-003</a>
+                                    <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">20/10/2026, 18:05</span>
+                                </td>
+                                <td class="p-4 align-middle">
+                                    <div class="font-bold text-slate-900 text-base">Nguyễn Văn A</div>
+                                    <div class="text-xs text-slate-500 font-semibold mt-0.5">0903.123.456</div>
+                                    <div class="text-xs text-slate-600 font-medium mt-0.5 flex items-center gap-1"><i class="fa-solid fa-location-dot text-rose-500"></i> 89 Võ Thị Sáu, Phường Xuân Hòa, TP.HCM</div>
+                                </td>
+                                <td class="p-4 align-middle">
+                                    <div class="text-slate-900 font-bold text-sm">Matcha latte (Size L) x1</div>
+                                    <span class="inline-block mt-1 text-[11px] font-bold px-2.5 py-0.5 bg-emerald-50 text-emerald-700 rounded-md">Tiền mặt</span>
+                                </td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-lg">41.000 đ</td>
+                                <td class="p-4 align-middle"><span class="text-emerald-800 text-xs font-bold inline-flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> Đã giao thành công</span></td>
+                                <td class="p-4 align-middle text-right">
+                                    <button onclick="openStatusModal('#GT-2026-003', 'Đã giao thành công')" class="px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-xs font-bold transition inline-flex items-center gap-1"><i class="fa-solid fa-pen-to-square"></i> Cập nhật</button>
+                                </td>
+                            </tr>
+
+                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đã hủy" data-date="2026-10-18" data-location="Phường Xuân Hòa">
+                                <td class="p-4 align-middle">
+                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #GT-2026-002</a>
+                                    <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">18/10/2026, 16:37</span>
+                                </td>
+                                <td class="p-4 align-middle">
+                                    <div class="font-bold text-slate-900 text-base">Nguyễn Văn A</div>
+                                    <div class="text-xs text-slate-500 font-semibold mt-0.5">0903.123.456</div>
+                                    <div class="text-xs text-slate-600 font-medium mt-0.5 flex items-center gap-1"><i class="fa-solid fa-location-dot text-rose-500"></i> 89 Võ Thị Sáu, Phường Xuân Hòa, TP.HCM</div>
+                                </td>
+                                <td class="p-4 align-middle">
+                                    <div class="text-slate-900 font-bold text-sm">Trà đào (Size S) x1</div>
+                                    <span class="inline-block mt-1 text-[11px] font-bold px-2.5 py-0.5 bg-emerald-50 text-emerald-700 rounded-md">Tiền mặt</span>
+                                </td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-lg">25.000 đ</td>
                                 <td class="p-4 align-middle"><span class="text-rose-800 text-xs font-bold inline-flex items-center gap-1.5"><i class="fa-solid fa-circle-xmark"></i> Đã hủy</span></td>
                                 <td class="p-4 align-middle text-right">
-                                    <button onclick="openStatusModal('#TS-1026', 'Đã hủy')" class="px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-xs font-bold transition inline-flex items-center gap-1"><i class="fa-solid fa-pen-to-square"></i> Cập nhật</button>
+                                    <button onclick="openStatusModal('#GT-2026-002', 'Đã hủy')" class="px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-xs font-bold transition inline-flex items-center gap-1"><i class="fa-solid fa-pen-to-square"></i> Cập nhật</button>
+                                </td>
+                            </tr>
+
+                            <tr class="order-row hover:bg-slate-50/80 transition" data-status="Đã giao thành công" data-date="2026-10-15" data-location="Phường Xuân Hòa">
+                                <td class="p-4 align-middle">
+                                    <a href="order-detail.html" class="text-brand-600 hover:underline font-extrabold text-base flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-500"></i> #GT-2026-001</a>
+                                    <span class="text-[11px] text-slate-400 font-semibold mt-0.5 block">15/10/2026, 11:15</span>
+                                </td>
+                                <td class="p-4 align-middle">
+                                    <div class="font-bold text-slate-900 text-base">Nguyễn Văn A</div>
+                                    <div class="text-xs text-slate-500 font-semibold mt-0.5">0903.123.456</div>
+                                    <div class="text-xs text-slate-600 font-medium mt-0.5 flex items-center gap-1"><i class="fa-solid fa-location-dot text-rose-500"></i> 89 Võ Thị Sáu, Phường Xuân Hòa, TP.HCM</div>
+                                </td>
+                                <td class="p-4 align-middle">
+                                    <div class="text-slate-900 font-bold text-sm">Trà sữa khoai môn (Size M) x1</div>
+                                    <div class="text-slate-900 font-bold text-sm">Cà phê sữa (Size S) x1</div>
+                                    <span class="inline-block mt-1 text-[11px] font-bold px-2.5 py-0.5 bg-emerald-50 text-emerald-700 rounded-md">Tiền mặt</span>
+                                </td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-lg">46.000 đ</td>
+                                <td class="p-4 align-middle"><span class="text-emerald-800 text-xs font-bold inline-flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> Đã giao thành công</span></td>
+                                <td class="p-4 align-middle text-right">
+                                    <button onclick="openStatusModal('#GT-2026-001', 'Đã giao thành công')" class="px-3.5 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl text-xs font-bold transition inline-flex items-center gap-1"><i class="fa-solid fa-pen-to-square"></i> Cập nhật</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -255,9 +260,9 @@
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Chọn trạng thái mới</label>
                     <select id="new-status-select" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-brand-500">
-                        <option value="Đang pha chế">Đang pha chế</option>
-                        <option value="Đang giao hàng">Đang giao hàng</option>
-                        <option value="Hoàn thành">Hoàn thành</option>
+                        <option value="Đã xác nhận">Đã xác nhận</option>
+                        <option value="Đang giao">Đang giao</option>
+                        <option value="Đã giao thành công">Đã giao thành công</option>
                         <option value="Đã hủy">Đã hủy</option>
                     </select>
                 </div>

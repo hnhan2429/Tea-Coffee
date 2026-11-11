@@ -71,6 +71,33 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-100 font-medium">
+                            <!-- 0. Nguyễn Văn A (Mới nhất: 15/10/2026) - khách đang đăng nhập bên user -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 font-black flex items-center justify-center text-sm">NVA</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-base">Nguyễn Văn A</div>
+                                            <span class="text-[11px] text-slate-400 font-semibold">Tham gia: 15/10/2026</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0903.123.456</td>
+                                <td class="p-4 align-middle"><span class="px-3 py-1 bg-slate-200 text-slate-800 font-bold text-xs rounded-lg">Đồng</span></td>
+                                <td class="p-4 align-middle font-bold text-slate-800 text-sm">3 đơn</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">220.000 đ</td>
+                                <td class="p-4 align-middle">
+                                    <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
+                                        <i class="fa-solid fa-circle-check"></i> Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-4 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Nguyễn Văn A')" class="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg text-xs font-bold transition flex items-center gap-1"><i class="fa-solid fa-lock"></i> Khóa</button>
+                                        <button onclick="openEditModal('Nguyễn Văn A', '0903.123.456', 'Đồng')" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg text-xs font-bold transition flex items-center gap-1"><i class="fa-solid fa-pen-to-square"></i> Sửa</button>
+                                    </div>
+                                </td>
+                            </tr>
                             <!-- 1. Lê Hoàng Long (Mới nhất: 04/06/2026) -->
                             <tr class="hover:bg-slate-50/80 transition">
                                 <td class="p-4 align-middle">
@@ -85,7 +112,7 @@
                                 <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0931.444.555</td>
                                 <td class="p-4 align-middle"><span class="px-3 py-1 bg-blue-100 text-blue-800 font-bold text-xs rounded-lg">Bạc</span></td>
                                 <td class="p-4 align-middle font-bold text-slate-800 text-sm">4 đơn</td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-base">260,000đ</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">260.000 đ</td>
                                 <td class="p-4 align-middle">
                                     <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
                                         <i class="fa-solid fa-circle-check"></i> Hoạt động
@@ -113,7 +140,7 @@
                                 <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0945.666.777</td>
                                 <td class="p-4 align-middle"><span class="px-3 py-1 bg-amber-100 text-amber-800 font-bold text-xs rounded-lg">Vàng</span></td>
                                 <td class="p-4 align-middle font-bold text-slate-800 text-sm">14 đơn</td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-base">980,000đ</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">980.000 đ</td>
                                 <td class="p-4 align-middle">
                                     <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
                                         <i class="fa-solid fa-circle-check"></i> Hoạt động
@@ -141,7 +168,7 @@
                                 <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0989.112.233</td>
                                 <td class="p-4 align-middle"><span class="px-3 py-1 bg-blue-100 text-blue-800 font-bold text-xs rounded-lg">Bạc</span></td>
                                 <td class="p-4 align-middle font-bold text-slate-800 text-sm">8 đơn</td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-base">520,000đ</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">520.000 đ</td>
                                 <td class="p-4 align-middle">
                                     <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
                                         <i class="fa-solid fa-circle-check"></i> Hoạt động
@@ -169,7 +196,7 @@
                                 <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0922.334.455</td>
                                 <td class="p-4 align-middle"><span class="px-3 py-1 bg-slate-200 text-slate-800 font-bold text-xs rounded-lg">Đồng</span></td>
                                 <td class="p-4 align-middle font-bold text-slate-800 text-sm">3 đơn</td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-base">145,000đ</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">145.000 đ</td>
                                 <td class="p-4 align-middle">
                                     <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
                                         <i class="fa-solid fa-circle-check"></i> Hoạt động
@@ -197,7 +224,7 @@
                                 <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0911.222.333</td>
                                 <td class="p-4 align-middle"><span class="px-3 py-1 bg-purple-100 text-purple-800 font-bold text-xs rounded-lg">Kim Cương</span></td>
                                 <td class="p-4 align-middle font-bold text-slate-800 text-sm">45 đơn</td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-base">3,120,000đ</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">3.120.000 đ</td>
                                 <td class="p-4 align-middle">
                                     <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
                                         <i class="fa-solid fa-circle-check"></i> Hoạt động
@@ -225,7 +252,7 @@
                                 <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0905.111.222</td>
                                 <td class="p-4 align-middle"><span class="px-3 py-1 bg-blue-100 text-blue-800 font-bold text-xs rounded-lg">Bạc</span></td>
                                 <td class="p-4 align-middle font-bold text-slate-800 text-sm">12 đơn</td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-base">750,000đ</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">750.000 đ</td>
                                 <td class="p-4 align-middle">
                                     <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
                                         <i class="fa-solid fa-circle-check"></i> Hoạt động
@@ -253,7 +280,7 @@
                                 <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0988.765.432</td>
                                 <td class="p-4 align-middle"><span class="px-3 py-1 bg-amber-100 text-amber-800 font-bold text-xs rounded-lg">Vàng</span></td>
                                 <td class="p-4 align-middle font-bold text-slate-800 text-sm">24 đơn</td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-base">1,580,000đ</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">1.580.000 đ</td>
                                 <td class="p-4 align-middle">
                                     <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
                                         <i class="fa-solid fa-circle-check"></i> Hoạt động
@@ -281,7 +308,7 @@
                                 <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0912.345.678</td>
                                 <td class="p-4 align-middle"><span class="px-3 py-1 bg-slate-200 text-slate-800 font-bold text-xs rounded-lg">Đồng</span></td>
                                 <td class="p-4 align-middle font-bold text-slate-800 text-sm">5 đơn</td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-base">320,000đ</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">320.000 đ</td>
                                 <td class="p-4 align-middle">
                                     <span class="px-3 py-1.5 bg-rose-100 text-rose-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
                                         <i class="fa-solid fa-user-slash"></i> Đã khóa
@@ -309,7 +336,7 @@
                                 <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0977.888.999</td>
                                 <td class="p-4 align-middle"><span class="px-3 py-1 bg-blue-100 text-blue-800 font-bold text-xs rounded-lg">Bạc</span></td>
                                 <td class="p-4 align-middle font-bold text-slate-800 text-sm">10 đơn</td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-base">680,000đ</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">680.000 đ</td>
                                 <td class="p-4 align-middle">
                                     <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
                                         <i class="fa-solid fa-circle-check"></i> Hoạt động
@@ -337,7 +364,7 @@
                                 <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0987.654.321</td>
                                 <td class="p-4 align-middle"><span class="px-3 py-1 bg-purple-100 text-purple-800 font-bold text-xs rounded-lg">Kim Cương</span></td>
                                 <td class="p-4 align-middle font-bold text-slate-800 text-sm">32 đơn</td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-base">2,480,000đ</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">2.480.000 đ</td>
                                 <td class="p-4 align-middle">
                                     <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
                                         <i class="fa-solid fa-circle-check"></i> Hoạt động
@@ -365,7 +392,7 @@
                                 <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0901.234.567</td>
                                 <td class="p-4 align-middle"><span class="px-3 py-1 bg-amber-100 text-amber-800 font-bold text-xs rounded-lg">Vàng</span></td>
                                 <td class="p-4 align-middle font-bold text-slate-800 text-sm">18 đơn</td>
-                                <td class="p-4 align-middle font-black text-slate-900 text-base">1,250,000đ</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">1.250.000 đ</td>
                                 <td class="p-4 align-middle">
                                     <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
                                         <i class="fa-solid fa-circle-check"></i> Hoạt động
