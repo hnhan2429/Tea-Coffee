@@ -264,9 +264,9 @@
                 <div class="lg:col-span-4">
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Khoảng chi tiêu (đ)</label>
                     <div class="flex items-center gap-1.5 w-full">
-                        <input type="number" min="0" placeholder="Từ" class="w-full min-w-0 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
+                        <input type="text" inputmode="numeric" data-currency-input placeholder="Từ" class="w-full min-w-0 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
                         <span class="text-slate-400 font-bold flex-shrink-0">-</span>
-                        <input type="number" min="0" placeholder="Đến" class="w-full min-w-0 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
+                        <input type="text" inputmode="numeric" data-currency-input placeholder="Đến" class="w-full min-w-0 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
                     </div>
                 </div>
                 <div class="lg:col-span-2">
@@ -720,5 +720,6 @@
             setTimeout(() => toast.remove(), 3000);
         }
     </script>
+    <script src="currency-input.js"></script>
 </body>
 </html>

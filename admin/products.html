@@ -265,9 +265,9 @@
                 <div class="lg:col-span-3">
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Khoảng giá (đ)</label>
                     <div class="flex items-center gap-1.5 w-full">
-                        <input type="number" min="0" placeholder="Từ" class="w-full min-w-0 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
+                        <input type="text" inputmode="numeric" data-currency-input placeholder="Từ" class="w-full min-w-0 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
                         <span class="text-slate-400 font-bold flex-shrink-0">-</span>
-                        <input type="number" min="0" placeholder="Đến" class="w-full min-w-0 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
+                        <input type="text" inputmode="numeric" data-currency-input placeholder="Đến" class="w-full min-w-0 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
                     </div>
                 </div>
                 <div class="lg:col-span-2">
@@ -888,7 +888,7 @@
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Giá bán (đ)</label>
-                    <input type="text" id="edit-price" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
+                    <input type="text" id="edit-price" inputmode="numeric" data-currency-input class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Mô tả chi tiết sản phẩm</label>
@@ -935,7 +935,7 @@
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Giá bán (đ)</label>
-                    <input type="text" id="add-price" placeholder="VD: 25000" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
+                    <input type="text" id="add-price" inputmode="numeric" data-currency-input placeholder="VD: 25000" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Mô tả chi tiết sản phẩm</label>
@@ -963,6 +963,7 @@
         function openEditModal(name, price, category, imgSrc, description = '') {
             document.getElementById('edit-name').value = name;
             document.getElementById('edit-price').value = price;
+            formatCurrencyInput(document.getElementById('edit-price'));
             document.getElementById('edit-category').value = category;
             document.getElementById('edit-preview-img').src = imgSrc;
             document.getElementById('edit-description').value = description;
@@ -998,5 +999,6 @@
             setTimeout(() => toast.remove(), 2500);
         }
     </script>
+    <script src="currency-input.js"></script>
 </body>
 </html>
