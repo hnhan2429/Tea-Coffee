@@ -164,9 +164,9 @@
                             <span class="text-[11px] font-bold text-slate-400 uppercase">Đến:</span>
                             <input type="date" id="end-date" value="2026-04-02" class="bg-transparent text-xs font-bold text-slate-700 focus:outline-none">
                         </div>
-                        <button onclick="handleStatistic()" class="px-4 py-2 bg-[#71370F] hover:bg-[#5a2c0c] text-white rounded-xl text-xs font-bold shadow-sm transition flex items-center gap-1.5">
+                        <a href="order-stats.html" class="px-4 py-2 bg-[#71370F] hover:bg-[#5a2c0c] text-white rounded-xl text-xs font-bold shadow-sm transition flex items-center gap-1.5">
                             <i class="fa-solid fa-filter"></i> Thống Kê
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -279,111 +279,6 @@
     <script>
         const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
         document.getElementById('current-date').innerText = new Date().toLocaleDateString('vi-VN', options);
-
-        function handleStatistic() {
-            document.getElementById('start-date').value = "2026-06-01";
-            document.getElementById('end-date').value = "2026-06-07";
-
-            const top5Tbody = document.getElementById('top5-tbody');
-            top5Tbody.innerHTML = `
-                <tr class="hover:bg-slate-50/80 transition">
-                    <td class="p-3.5 font-extrabold text-amber-600">#1</td>
-                    <td class="p-3.5">
-                        <div class="font-bold text-slate-800">Võ Minh Trí</div>
-                        <div class="text-xs text-slate-400">0935.888.777</div>
-                    </td>
-                    <td class="p-3.5">
-                        <div class="flex flex-wrap gap-1.5">
-                            <a href="order-detail.html?id=GT-2026-1035" class="px-2.5 py-1 bg-amber-50 border border-amber-200 rounded-lg text-xs font-bold text-amber-900 hover:bg-amber-100 transition inline-flex items-center gap-1">
-                                #GT-2026-1035 (95.000 đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                            <a href="order-detail.html?id=GT-2026-1020" class="px-2.5 py-1 bg-amber-50 border border-amber-200 rounded-lg text-xs font-bold text-amber-900 hover:bg-amber-100 transition inline-flex items-center gap-1">
-                                #GT-2026-1020 (85.000 đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                            <a href="order-detail.html?id=GT-2026-1005" class="px-2.5 py-1 bg-amber-50 border border-amber-200 rounded-lg text-xs font-bold text-amber-900 hover:bg-amber-100 transition inline-flex items-center gap-1">
-                                #GT-2026-1005 (70.000 đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                        </div>
-                    </td>
-                    <td class="p-3.5 text-right font-extrabold text-[#71370F]">250.000 đ</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80 transition">
-                    <td class="p-3.5 font-extrabold text-slate-500">#2</td>
-                    <td class="p-3.5">
-                        <div class="font-bold text-slate-800">Ngô Phương Thảo</div>
-                        <div class="text-xs text-slate-400">0978.123.456</div>
-                    </td>
-                    <td class="p-3.5">
-                        <div class="flex flex-wrap gap-1.5">
-                            <a href="order-detail.html?id=GT-2026-1034" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
-                                #GT-2026-1034 (90.000 đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                            <a href="order-detail.html?id=GT-2026-1018" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
-                                #GT-2026-1018 (75.000 đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                            <a href="order-detail.html?id=GT-2026-1003" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
-                                #GT-2026-1003 (60.000 đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                        </div>
-                    </td>
-                    <td class="p-3.5 text-right font-extrabold text-[#71370F]">225.000 đ</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80 transition">
-                    <td class="p-3.5 font-extrabold text-amber-700">#3</td>
-                    <td class="p-3.5">
-                        <div class="font-bold text-slate-800">Đặng Hoàng Nam</div>
-                        <div class="text-xs text-slate-400">0903.654.321</div>
-                    </td>
-                    <td class="p-3.5">
-                        <div class="flex flex-wrap gap-1.5">
-                            <a href="order-detail.html?id=GT-2026-1033" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
-                                #GT-2026-1033 (110.000 đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                            <a href="order-detail.html?id=GT-2026-1015" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
-                                #GT-2026-1015 (80.000 đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                        </div>
-                    </td>
-                    <td class="p-3.5 text-right font-extrabold text-[#71370F]">190.000 đ</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80 transition">
-                    <td class="p-3.5 font-extrabold text-slate-400">#4</td>
-                    <td class="p-3.5">
-                        <div class="font-bold text-slate-800">Trịnh Khánh Linh</div>
-                        <div class="text-xs text-slate-400">0919.222.333</div>
-                    </td>
-                    <td class="p-3.5">
-                        <div class="flex flex-wrap gap-1.5">
-                            <a href="order-detail.html?id=GT-2026-1030" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
-                                #GT-2026-1030 (95.000 đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                            <a href="order-detail.html?id=GT-2026-1012" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
-                                #GT-2026-1012 (75.000 đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                        </div>
-                    </td>
-                    <td class="p-3.5 text-right font-extrabold text-[#71370F]">170.000 đ</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80 transition">
-                    <td class="p-3.5 font-extrabold text-slate-400">#5</td>
-                    <td class="p-3.5">
-                        <div class="font-bold text-slate-800">Nguyễn Văn Hùng</div>
-                        <div class="text-xs text-slate-400">0944.555.666</div>
-                    </td>
-                    <td class="p-3.5">
-                        <div class="flex flex-wrap gap-1.5">
-                            <a href="order-detail.html?id=GT-2026-1028" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
-                                #GT-2026-1028 (80.000 đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                            <a href="order-detail.html?id=GT-2026-1010" class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-200 transition inline-flex items-center gap-1">
-                                #GT-2026-1010 (65.000 đ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                        </div>
-                    </td>
-                    <td class="p-3.5 text-right font-extrabold text-[#71370F]">145.000 đ</td>
-                </tr>
-            `;
-        }
     </script>
 </body>
 </html>
