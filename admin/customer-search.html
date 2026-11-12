@@ -158,7 +158,7 @@
         </header>
 
         <main class="p-6 space-y-6">
-            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 flex items-center justify-between gap-3"><p class="font-bold text-slate-700">Kết quả tìm kiếm</p><a href="customers.html" class="px-4 py-2 bg-[#71370F] text-white rounded-xl text-sm font-bold">Quay lại khách hàng</a></div>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 flex items-center justify-between gap-3"><p class="font-bold text-slate-700">Từ khóa:"Nguyễn Văn A"--1 kết quả</p><a href="customers.html" class="px-4 py-2 bg-[#71370F] text-white rounded-xl text-sm font-bold">Quay lại khách hàng</a></div>
             <!-- 4 BẢNG THỐNG KÊ KHÁCH HÀNG (DÙNG SVG OFFLINE) -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 <!-- 1. Tổng Khách Hàng -->
@@ -240,7 +240,7 @@
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                     </span>
-                    <form action="customer-search.html" method="get" class="flex w-full gap-2"><input name="q" type="text" placeholder="Tìm kiếm theo tên, số điện thoại..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F] font-medium"><button type="submit" class="px-4 py-2.5 bg-[#71370F] hover:bg-[#5a2c0c] text-white rounded-xl text-sm font-bold">Tìm kiếm</button></form>
+                    <form action="customer-search.html" method="get" class="flex w-full gap-2"><input name="q" type="text" placeholder="Tìm kiếm theo tên, số điện thoại..." class="w-full h-11 pl-10 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F] font-medium"><button type="submit" class="h-11 px-4 bg-[#71370F] hover:bg-[#5a2c0c] text-white rounded-xl text-sm font-bold">Tìm kiếm</button></form>
                 </div>
                 <a href="add-customer.html" class="px-5 py-3 bg-[#71370F] hover:bg-[#5a2c0c] text-white rounded-xl text-sm font-bold shadow-md transition flex items-center justify-center gap-2">
                     <svg class="w-5 h-5 text-amber-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
@@ -698,24 +698,7 @@
             </form>
         </div>
     </div>
-
     <script>
-        const params = new URLSearchParams(location.search); const query = (params.get('q') || '').trim().toLocaleLowerCase('vi');
-        const customerRows = [...document.querySelectorAll('tbody tr')]; let matched = 0;
-        customerRows.forEach(row => { const hit = !query || row.innerText.toLocaleLowerCase('vi').includes(query); row.style.display = hit ? '' : 'none'; if(hit) matched++; });
-        const resultLabel = document.querySelector('main p.font-bold'); if(resultLabel) resultLabel.textContent = `Từ khóa: "${params.get('q') || ''}" — ${matched} kết quả`;
-        const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-        document.getElementById('current-date').innerText = new Date().toLocaleDateString('vi-VN', options);
-
-        function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); }
-        function goEditCustomer(name, phone, email = '', address = '') { window.location.href = 'customer-edit.html?' + new URLSearchParams({name, phone, email, address}); }
-        function openEditModal(name, phone, email = '', address = '') {
-            document.getElementById('edit-user-name').value = name;
-            document.getElementById('edit-user-phone').value = phone;
-            document.getElementById('edit-user-email').value = email;
-            document.getElementById('edit-user-address').value = address;
-            toggleModal('modal-edit-user');
-        }
         function showToast(msg) {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
