@@ -209,7 +209,7 @@
                                 Giá bán (đ)
                             </label>
                             <div class="relative">
-                                <input type="text" inputmode="numeric" id="price-input" placeholder="VD: 25.000" class="w-full pl-4 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F] font-bold transition">
+                                <input type="text" inputmode="numeric" data-currency-input id="price-input" placeholder="VD: 25.000" class="w-full pl-4 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F] font-bold transition">
                                 <span class="absolute inset-y-0 right-4 flex items-center text-sm font-bold text-slate-400">đ</span>
                             </div>
                         </div>
@@ -326,14 +326,6 @@
         const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
         document.getElementById('current-date').innerText = new Date().toLocaleDateString('vi-VN', options);
 
-        // Tự động định dạng tiền: thêm dấu chấm phân cách hàng nghìn
-        document.querySelectorAll('input[inputmode="numeric"]').forEach(input => {
-            input.addEventListener('input', function () {
-                const value = this.value.replace(/\\D/g, '');
-                this.value = value ? Number(value).toLocaleString('vi-VN') : '';
-            });
-        });
-
         function handleAddProduct(event) {
             event.preventDefault();
             showToast('Đã lưu sản phẩm mới thành công!');
@@ -351,5 +343,6 @@
             setTimeout(() => toast.remove(), 2500);
         }
     </script>
+    <script src="currency-input.js"></script>
 </body>
 </html>
