@@ -703,7 +703,7 @@
         document.getElementById('current-date').innerText = new Date().toLocaleDateString('vi-VN', options);
 
         function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); }
-        function goEditCustomer(name, phone, email = '', address = '') { window.location.href = 'customer-edit.html?' + new URLSearchParams({name, phone, email, address}); }
+        function goEditCustomer() { window.location.href = 'customer-edit.html'; }
         function openEditModal(name, phone, email = '', address = '') {
             document.getElementById('edit-user-name').value = name;
             document.getElementById('edit-user-phone').value = phone;

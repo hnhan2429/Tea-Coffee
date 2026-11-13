@@ -699,9 +699,7 @@
         </div>
     </div>
     <script>
-        function goEditCustomer(name, phone, email = '', address = '') {
-            window.location.href = 'customer-edit.html?' + new URLSearchParams({name, phone, email, address});
-        }
+        function goEditCustomer() { window.location.href = 'customer-edit.html'; }
 
         function showToast(msg) {
             const container = document.getElementById('toast-container');
