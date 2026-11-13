@@ -956,6 +956,11 @@
 
     <script>
 
+        function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); }
+        function goEditProduct(name, price, category, imgSrc, description = '') {
+            window.location.href = 'product-edit.html?' + new URLSearchParams({name, price, category, imgSrc, description});
+        }
+
         // Các món đã có trong đơn hàng (đã bán ra) thì chỉ ẩn, không xóa
         const SOLD_PRODUCTS = ['Trà sữa truyền thống', 'Trà đào', 'Cà phê sữa', 'Matcha latte', 'Trân châu đen', 'Bánh flan', 'Kem cheese'];
         let deleteMode = 'delete';
