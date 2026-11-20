@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chi Tiết Đơn Hàng - Góc Tea</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script>
+    // Kiểm tra trạng thái đăng nhập ngay lập tức
+    if (sessionStorage.getItem("daDangNhap") === "false") {
+      window.location.href = "login.html";
+    }
+  </script>
   </head>
   <body>
     <!-- ================= HEADER ================= -->
@@ -405,18 +411,6 @@
                   return false;
                 "
                 >Liên hệ CSKH</a
-              >
-              <a
-                href="products.html"
-                class="btn-solid"
-                style="
-                  padding: 10px 24px;
-                  font-weight: 600;
-                  border-radius: 6px;
-                  text-decoration: none;
-                  font-size: 15px;
-                "
-                >Đặt lại</a
               >
             </div>
           </div>
