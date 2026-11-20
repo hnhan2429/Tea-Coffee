@@ -208,7 +208,10 @@
                                 <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                                 Giá bán (đ)
                             </label>
-                            <input type="number" placeholder="VD: 25000" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F] font-medium transition">
+                            <div class="relative">
+                                <input type="text" inputmode="numeric" data-currency-input id="price-input" placeholder="VD: 25.000" class="w-full pl-4 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F] font-bold transition">
+                                <span class="absolute inset-y-0 right-4 flex items-center text-sm font-bold text-slate-400">đ</span>
+                            </div>
                         </div>
 
                         <!-- Mã món -->
@@ -230,17 +233,77 @@
                         <textarea rows="3" placeholder="Nhập mô tả hương vị, nguyên liệu nổi bật..." class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F] font-medium transition resize-none"></textarea>
                     </div>
 
-                    <!-- Tải ảnh sản phẩm -->
+                    <!-- Size -->
+                    <div>
+                        <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Size &amp; phụ thu theo size</label>
+                        <p class="text-[11px] text-slate-400 font-semibold mb-3">Chọn các size có bán. Ô bên phải là số tiền cộng thêm so với giá bán gốc.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <input type="checkbox" checked class="w-4 h-4 accent-[#71370F]">
+                                <span class="flex-1"><span class="block text-sm font-extrabold text-slate-800">Size S</span><span class="block text-[11px] text-slate-400 font-semibold">Nhỏ - giá gốc</span></span>
+                                <span class="relative w-28">
+                                    <input type="text" inputmode="numeric" value="0" class="w-full pl-3 pr-7 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold text-right focus:outline-none focus:border-[#71370F]">
+                                    <span class="absolute inset-y-0 right-2.5 flex items-center text-xs font-bold text-slate-400">đ</span>
+                                </span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <input type="checkbox" checked class="w-4 h-4 accent-[#71370F]">
+                                <span class="flex-1"><span class="block text-sm font-extrabold text-slate-800">Size M</span><span class="block text-[11px] text-slate-400 font-semibold">Vừa</span></span>
+                                <span class="relative w-28">
+                                    <input type="text" inputmode="numeric" value="4.000" class="w-full pl-3 pr-7 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold text-right focus:outline-none focus:border-[#71370F]">
+                                    <span class="absolute inset-y-0 right-2.5 flex items-center text-xs font-bold text-slate-400">đ</span>
+                                </span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <input type="checkbox" checked class="w-4 h-4 accent-[#71370F]">
+                                <span class="flex-1"><span class="block text-sm font-extrabold text-slate-800">Size L</span><span class="block text-[11px] text-slate-400 font-semibold">Lớn</span></span>
+                                <span class="relative w-28">
+                                    <input type="text" inputmode="numeric" value="8.000" class="w-full pl-3 pr-7 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold text-right focus:outline-none focus:border-[#71370F]">
+                                    <span class="absolute inset-y-0 right-2.5 flex items-center text-xs font-bold text-slate-400">đ</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Topping -->
+                    <div>
+                        <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Topping cho phép thêm</label>
+                        <p class="text-[11px] text-slate-400 font-semibold mb-3">Bấm để chọn các topping có thể gọi kèm món này.</p>
+                        <div class="flex flex-wrap gap-3">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 transition peer-checked:bg-[#71370F] peer-checked:text-white peer-checked:border-[#71370F]">Trân châu đen <span class="opacity-70">+5.000 đ</span></span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 transition peer-checked:bg-[#71370F] peer-checked:text-white peer-checked:border-[#71370F]">Bánh flan <span class="opacity-70">+8.000 đ</span></span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 transition peer-checked:bg-[#71370F] peer-checked:text-white peer-checked:border-[#71370F]">Kem cheese <span class="opacity-70">+10.000 đ</span></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Tải ảnh sản phẩm + xem trước -->
                     <div>
                         <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2 flex items-center gap-1.5">
                             <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                             Hình ảnh sản phẩm
                         </label>
-                        <div class="border-2 border-dashed border-slate-200 rounded-2xl p-6 text-center bg-slate-50/50 hover:bg-slate-50 transition">
-                            <svg class="w-10 h-10 text-slate-400 mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
-                            <p class="text-xs font-bold text-slate-700">Kéo thả ảnh vào đây hoặc bấm để chọn tệp</p>
-                            <p class="text-[11px] text-slate-400 mt-1">Định dạng hỗ trợ: PNG, JPG (Tối đa 5MB)</p>
-                            <input type="file" accept="image/*" class="mt-3 text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#71370F] file:text-white hover:file:bg-[#5a2c0c] cursor-pointer">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="md:col-span-2 border-2 border-dashed border-slate-200 rounded-2xl p-6 text-center bg-slate-50/50 hover:bg-slate-50 transition flex flex-col items-center justify-center">
+                                <svg class="w-10 h-10 text-slate-400 mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                                <p class="text-xs font-bold text-slate-700">Bấm để chọn tệp ảnh</p>
+                                <p class="text-[11px] text-slate-400 mt-1">Định dạng hỗ trợ: PNG, JPG (Tối đa 5MB)</p>
+                                <input type="file" accept="image/*" class="mt-3 text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#71370F] file:text-white hover:file:bg-[#5a2c0c] cursor-pointer">
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-bold text-slate-400 uppercase mb-2">Xem trước (ảnh mẫu)</p>
+                                <div class="relative aspect-square w-full max-w-[200px] mx-auto rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden flex items-center justify-center">
+                                    <img src="../images/products/tra-sua-truyen-thong.png" alt="Ảnh mẫu xem trước sản phẩm" class="w-full h-full object-cover">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -280,5 +343,6 @@
             setTimeout(() => toast.remove(), 2500);
         }
     </script>
+    <script src="currency-input.js"></script>
 </body>
 </html>

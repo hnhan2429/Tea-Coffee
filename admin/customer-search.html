@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="vi" class="text-[14px] lg:text-[15px]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>- Tìm Kiếm Khách Hàng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        sidebarBg: '#3d1e0b',
+                        sidebarHover: '#4e2810',
+                        sidebarActive: '#5c3013',
+                        brand: { 50: '#fffbeb', 100: '#fef3c7', 500: '#d97706', 600: '#71370F', 700: '#5a2c0c' },
+                        logoBg: '#71370F'
+                    } 
+                } 
+            } 
+        }
+    </script>
+</head>
+<body class="bg-amber-50/30 font-sans text-slate-800 antialiased flex h-screen overflow-hidden">
+    <!-- Sidebar cố định -->
+    <aside class="w-64 bg-sidebarBg text-slate-200 flex flex-col justify-between hidden md:flex shadow-2xl flex-shrink-0 h-screen sticky top-0">
+        <div class="overflow-y-auto">
+            <!-- Logo Header (Căn giữa) -->
+            <div class="p-5 bg-[#71370F] border-b border-[#5a2c0c] text-center">
+                <div class="font-extrabold text-2xl tracking-wide text-white leading-tight">
+                    Góc <span class="text-[#ffe4b5]">Tea</span>
+                </div>
+                <div class="text-[11px] font-bold text-[#fef08a] tracking-wider mt-0.5">
+                    Boba & Coffee
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="p-4 space-y-6 text-sm">
+                <!-- KHU VỰC 1: TỔNG QUAN -->
+                <div>
+                    <div class="px-3 mb-2 text-[11px] font-bold tracking-wider text-amber-200/60 uppercase">TỔNG QUAN</div>
+                    <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                        <span>Tổng quan</span>
+                    </a>
+                </div>
+
+                <!-- KHU VỰC 2: QUẢN LÝ CỬA HÀNG -->
+                <div>
+                    <div class="px-3 mb-2 text-[11px] font-bold tracking-wider text-amber-200/60 uppercase">QUẢN LÝ CỬA HÀNG</div>
+                    <div class="space-y-1">
+                        <a href="customers.html" class="flex items-center justify-between px-3 py-2.5 bg-sidebarActive text-white rounded-xl font-semibold shadow-sm transition">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                <span>Khách hàng</span>
+                            </div>
+                            <span class="px-2 py-0.5 bg-white/10 text-xs rounded-full font-semibold text-white">34</span>
+                        </a>
+
+                        <a href="products.html" class="flex items-center justify-between px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+                                <span>Sản phẩm</span>
+                            </div>
+                            <span class="px-2 py-0.5 bg-white/10 text-xs rounded-full font-semibold text-slate-300">18</span>
+                        </a>
+
+                        <a href="orders.html" class="flex items-center justify-between px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+                                <span>Đơn hàng</span>
+                            </div>
+                            <span class="px-2 py-0.5 bg-rose-500/80 text-white text-xs rounded-full font-semibold">8</span>
+                        </a>
+
+                        <a href="customer-stats.html" class="flex items-center gap-3 px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                            <span>Thống kê khách hàng</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KHU VỰC 3: HỆ THỐNG -->
+                <div>
+                    <div class="px-3 mb-2 text-[11px] font-bold tracking-wider text-amber-200/60 uppercase">HỆ THỐNG</div>
+                    <div class="space-y-1">
+                        <a href="../index.html" target="_blank" class="flex items-center justify-between px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                                <span>Xem cửa hàng</span>
+                            </div>
+                            <svg class="w-4 h-4 text-amber-200/70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+
+                        <a href="login.html" class="flex items-center gap-3 px-3 py-2.5 text-slate-300 hover:bg-rose-500/20 hover:text-rose-300 rounded-xl font-medium transition">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                            <span>Đăng xuất</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- PHẦN ADMIN PHÍA DƯỚI SIDEBAR -->
+        <div class="p-4 border-t border-white/10 flex items-center gap-3 bg-[#321808]">
+            <div class="w-10 h-10 rounded-full bg-[#71370F] border border-amber-400/30 flex items-center justify-center font-bold text-white text-xs shadow-inner">
+                AD
+            </div>
+            <div class="leading-tight">
+                <div class="font-bold text-sm text-white">Admin</div>
+                <div class="text-xs text-amber-200/70 font-medium">Quản trị viên</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-w-0 h-screen overflow-y-auto">
+        <div id="toast-container" class="fixed top-5 right-5 z-50 space-y-2"></div>
+        
+        <!-- Header với các tiện ích góc trên bên phải -->
+        <header class="h-20 bg-white border-b border-slate-200 px-6 flex items-center justify-between shadow-xs flex-shrink-0">
+            <h1 class="text-xl md:text-2xl font-extrabold text-slate-800 flex items-center gap-2.5">
+                <svg class="w-7 h-7 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                Quản Lý Khách Hàng
+            </h1>
+
+            <div class="flex items-center gap-4">
+                <!-- Ngày tháng năm hôm nay -->
+                <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-amber-50/80 border border-amber-200/60 rounded-xl text-xs font-bold text-amber-900">
+                    <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span id="current-date">13/11/2026</span>
+                </div>
+
+                <!-- Xem website -->
+                <a href="../index.html" target="_blank" title="Xem website" class="p-2.5 bg-slate-100 hover:bg-amber-100/60 text-slate-700 rounded-xl transition flex items-center gap-1.5 text-xs font-bold">
+                    <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    <span class="hidden md:inline">Xem website</span>
+                </a>
+
+                <!-- Thông báo -->
+                <a href="orders.html" title="Thông báo đơn hàng" class="relative p-2.5 bg-slate-100 hover:bg-amber-100/60 text-slate-700 rounded-xl transition flex items-center justify-center">
+                    <svg class="w-5 h-5 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                    <span class="absolute -top-1 -right-1 w-5 h-5 bg-rose-500 text-white rounded-full text-[10px] font-extrabold flex items-center justify-center shadow-sm">8</span>
+                </a>
+
+                <!-- Admin Info -->
+                <div class="flex items-center gap-2 pl-2 border-l border-slate-200">
+                    <div class="w-9 h-9 rounded-full bg-[#71370F] text-white flex items-center justify-center font-bold text-xs shadow-inner">
+                        AD
+                    </div>
+                    <div class="hidden lg:block leading-tight">
+                        <div class="font-bold text-xs text-slate-800">Admin</div>
+                        <div class="text-[10px] text-slate-400">Quản trị viên</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="p-6 space-y-6">
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 flex items-center justify-between gap-3"><p class="font-bold text-slate-700">Từ khóa:"Nguyễn Văn A"--1 kết quả</p><a href="customers.html" class="px-4 py-2 bg-[#71370F] text-white rounded-xl text-sm font-bold">Quay lại khách hàng</a></div>
+            <!-- 4 BẢNG THỐNG KÊ KHÁCH HÀNG (DÙNG SVG OFFLINE) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- 1. Tổng Khách Hàng -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                            Tổng Khách Hàng
+                        </p>
+                        <h3 class="text-2xl font-extrabold text-slate-800 mt-1.5">1,420</h3>
+                        <p class="text-xs text-emerald-600 mt-1 font-bold flex items-center gap-1">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                            +34 khách mới tuần này
+                        </p>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 text-[#71370F] flex items-center justify-center shadow-inner">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                </div>
+
+                <!-- 2. Đang Trực Tuyến -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z"/></svg>
+                            Đang Trực Tuyến
+                        </p>
+                        <h3 class="text-2xl font-extrabold text-slate-800 mt-1.5">48</h3>
+                        <p class="text-xs text-emerald-600 mt-1 font-bold flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block"></span>
+                            Hoạt động ngay bây giờ
+                        </p>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shadow-inner">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
+                    </div>
+                </div>
+
+                <!-- 3. Đã Khóa -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-rose-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                            Đã Khóa
+                        </p>
+                        <h3 class="text-2xl font-extrabold text-slate-800 mt-1.5">3</h3>
+                        <p class="text-xs text-rose-600 mt-1 font-bold flex items-center gap-1">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                            Vi phạm chính sách
+                        </p>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center shadow-inner">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
+                    </div>
+                </div>
+
+                <!-- 4. Khách Quen Thuộc -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                            Khách Quen Thuộc
+                        </p>
+                        <h3 class="text-2xl font-extrabold text-slate-800 mt-1.5">315</h3>
+                        <p class="text-xs text-purple-600 mt-1 font-bold flex items-center gap-1">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+                            Mua từ 5 đơn trở lên
+                        </p>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center shadow-inner">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THANH THAO TÁC & NÚT THÊM KHÁCH HÀNG MỚI (CHUYỂN SANG add-customer.html) -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="relative flex-1 max-w-md">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    </span>
+                    <form action="customer-search.html" method="get" class="flex w-full gap-2"><input name="q" type="text" placeholder="Tìm kiếm theo tên, số điện thoại..." class="w-full h-11 pl-10 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F] font-medium"><button type="submit" class="h-11 px-4 bg-[#71370F] hover:bg-[#5a2c0c] text-white rounded-xl text-sm font-bold">Tìm kiếm</button></form>
+                </div>
+                <a href="add-customer.html" class="px-5 py-3 bg-[#71370F] hover:bg-[#5a2c0c] text-white rounded-xl text-sm font-bold shadow-md transition flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5 text-amber-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+                    Thêm Khách Hàng Mới
+                </a>
+            </div>
+
+            <!-- TÌM KIẾM NÂNG CAO KHÁCH HÀNG (kết hợp nhiều điều kiện, giao diện tĩnh) -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 items-end">
+                <div class="lg:col-span-4">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Tên khách hàng</label>
+                    <input type="text" placeholder="Nhập tên khách hàng" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
+                </div>
+                <div class="lg:col-span-2">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Trạng thái</label>
+                    <select class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
+                        <option>Tất cả</option>
+                        <option>Hoạt động</option>
+                        <option>Đã khóa</option>
+                    </select>
+                </div>
+                <div class="lg:col-span-4">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Khoảng chi tiêu (đ)</label>
+                    <div class="flex items-center gap-1.5 w-full">
+                        <input type="text" inputmode="numeric" data-currency-input placeholder="Từ" class="w-full min-w-0 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
+                        <span class="text-slate-400 font-bold flex-shrink-0">-</span>
+                        <input type="text" inputmode="numeric" data-currency-input placeholder="Đến" class="w-full min-w-0 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F]">
+                    </div>
+                </div>
+                <div class="lg:col-span-2">
+                    <button type="button" onclick="window.location.href='customer-search.html?advanced=1'" class="w-full py-2.5 bg-[#71370F] hover:bg-[#5a2c0c] text-white rounded-xl text-sm font-bold shadow-md transition flex items-center justify-center gap-2 whitespace-nowrap">Tìm nâng cao</button>
+                </div>
+            </div>
+
+            <!-- Bảng Khách Hàng -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-2">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-slate-700 border-collapse">
+                        <thead class="bg-slate-50 text-[11px] font-extrabold uppercase text-slate-500 border-b border-slate-200 tracking-wider">
+                            <tr>
+                                <th class="p-4 align-middle rounded-l-xl">Khách Hàng</th>
+                                <th class="p-4 align-middle">Số Điện Thoại</th>
+                                                                <th class="p-4 align-middle">Đã Mua</th>
+                                <th class="p-4 align-middle">Chi Tiêu</th>
+                                <th class="p-4 align-middle">Trạng Thái</th>
+                                <th class="p-4 align-middle text-right rounded-r-xl">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 font-medium">
+                            <!-- 1. Nguyễn Văn A -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 font-black flex items-center justify-center text-sm">NVA</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-base">Nguyễn Văn A</div>
+                                            <span class="text-[11px] text-slate-400 font-semibold">nguyenvana@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0903.123.456</td>
+                                                                <td class="p-4 align-middle font-bold text-slate-800 text-sm">3 đơn</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">220.000 đ</td>
+                                <td class="p-4 align-middle">
+                                    <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                        Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-4 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Nguyễn Văn A')" class="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                            Khóa
+                                        </button>
+                                        <button onclick="goEditCustomer('Nguyễn Văn A', '0903.123.456', 'nguyenvana@gmail.com', '123 An Dương Vương, Phường An Đông, TP.HCM')" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 2. Lê Hoàng Long -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-violet-100 text-violet-700 font-black flex items-center justify-center text-sm">LHL</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-base">Lê Hoàng Long</div>
+                                            <span class="text-[11px] text-slate-400 font-semibold">lehoanglong@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0931.444.555</td>
+                                                                <td class="p-4 align-middle font-bold text-slate-800 text-sm">4 đơn</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">260.000 đ</td>
+                                <td class="p-4 align-middle">
+                                    <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                        Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-4 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Lê Hoàng Long')" class="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                            Khóa
+                                        </button>
+                                        <button onclick="goEditCustomer('Lê Hoàng Long', '0931.444.555', 'lehoanglong@gmail.com', '45 Lê Văn Việt, TP. Thủ Đức')" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 3. Đỗ Quỳnh Nga -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-fuchsia-100 text-fuchsia-700 font-black flex items-center justify-center text-sm">ĐQN</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-base">Đỗ Quỳnh Nga</div>
+                                            <span class="text-[11px] text-slate-400 font-semibold">doquynhnga@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0945.666.777</td>
+                                                                <td class="p-4 align-middle font-bold text-slate-800 text-sm">14 đơn</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">980.000 đ</td>
+                                <td class="p-4 align-middle">
+                                    <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                        Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-4 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Đỗ Quỳnh Nga')" class="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                            Khóa
+                                        </button>
+                                        <button onclick="goEditCustomer('Đỗ Quỳnh Nga', '0945.666.777', 'doquynhnga@gmail.com', '12 Nguyễn Trãi, Phường Chợ Quán, TP.HCM')" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 4. Lương Tấn Phát -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-700 font-black flex items-center justify-center text-sm">TP</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-base">Lương Tấn Phát</div>
+                                            <span class="text-[11px] text-slate-400 font-semibold">luongtanphat@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0989.112.233</td>
+                                                                <td class="p-4 align-middle font-bold text-slate-800 text-sm">8 đơn</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">520.000 đ</td>
+                                <td class="p-4 align-middle">
+                                    <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                        Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-4 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Lương Tấn Phát')" class="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                            Khóa
+                                        </button>
+                                        <button onclick="goEditCustomer('Lương Tấn Phát', '0989.112.233', 'luongtanphat@gmail.com', '88 Cách Mạng Tháng 8, Phường Nhiêu Lộc, TP.HCM')" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 5. Phan Quốc Bảo -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-700 font-black flex items-center justify-center text-sm">QB</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-base">Phan Quốc Bảo</div>
+                                            <span class="text-[11px] text-slate-400 font-semibold">phanquocbao@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0922.334.455</td>
+                                                                <td class="p-4 align-middle font-bold text-slate-800 text-sm">3 đơn</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">145.000 đ</td>
+                                <td class="p-4 align-middle">
+                                    <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                        Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-4 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Phan Quốc Bảo')" class="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                            Khóa
+                                        </button>
+                                        <button onclick="goEditCustomer('Phan Quốc Bảo', '0922.334.455', 'phanquocbao@gmail.com', '15 Lý Tự Trọng, Phường Sài Gòn, TP.HCM')" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 6. Mai Thanh Trúc -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-pink-100 text-pink-700 font-black flex items-center justify-center text-sm">TT</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-base">Mai Thanh Trúc</div>
+                                            <span class="text-[11px] text-slate-400 font-semibold">maithanhtruc@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0911.222.333</td>
+                                                                <td class="p-4 align-middle font-bold text-slate-800 text-sm">45 đơn</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">3.120.000 đ</td>
+                                <td class="p-4 align-middle">
+                                    <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                        Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-4 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Mai Thanh Trúc')" class="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                            Khóa
+                                        </button>
+                                        <button onclick="goEditCustomer('Mai Thanh Trúc', '0911.222.333', 'maithanhtruc@gmail.com', '99 Lê Duẩn, Phường Sài Gòn, TP.HCM')" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 7. Vũ Minh Triết -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 font-black flex items-center justify-center text-sm">MT</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-base">Vũ Minh Triết</div>
+                                            <span class="text-[11px] text-slate-400 font-semibold">vuminhtriet@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0905.111.222</td>
+                                                                <td class="p-4 align-middle font-bold text-slate-800 text-sm">12 đơn</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">750.000 đ</td>
+                                <td class="p-4 align-middle">
+                                    <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                        Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-4 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Vũ Minh Triết')" class="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                            Khóa
+                                        </button>
+                                        <button onclick="goEditCustomer('Vũ Minh Triết', '0905.111.222', 'vuminhtriet@gmail.com', '72 Hai Bà Trưng, Phường Tân Định, TP.HCM')" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 8. Nguyễn Thị Thu Hà -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 font-black flex items-center justify-center text-sm">TH</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-base">Nguyễn Thị Thu Hà</div>
+                                            <span class="text-[11px] text-slate-400 font-semibold">nguyenthithuha@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0988.765.432</td>
+                                                                <td class="p-4 align-middle font-bold text-slate-800 text-sm">24 đơn</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">1.580.000 đ</td>
+                                <td class="p-4 align-middle">
+                                    <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                        Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-4 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Nguyễn Thị Thu Hà')" class="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                            Khóa
+                                        </button>
+                                        <button onclick="goEditCustomer('Nguyễn Thị Thu Hà', '0988.765.432', 'nguyenthithuha@gmail.com', '10 Phan Xích Long, Phú Nhuận')" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 9. Hoàng Gia Bảo -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 font-black flex items-center justify-center text-sm">GB</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-base">Hoàng Gia Bảo</div>
+                                            <span class="text-[11px] text-slate-400 font-semibold">hoanggiabao@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0912.345.678</td>
+                                                                <td class="p-4 align-middle font-bold text-slate-800 text-sm">5 đơn</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">320.000 đ</td>
+                                <td class="p-4 align-middle">
+                                    <span class="px-3 py-1.5 bg-rose-100 text-rose-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
+                                        Đã khóa
+                                    </span>
+                                </td>
+                                <td class="p-4 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã mở khóa tài khoản Hoàng Gia Bảo')" class="px-3 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg>
+                                            Mở khóa
+                                        </button>
+                                        <button onclick="goEditCustomer('Hoàng Gia Bảo', '0912.345.678', 'hoanggiabao@gmail.com', '45 Hoàng Văn Thụ, Tân Bình')" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 10. Phạm Hoàng Nam -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 font-black flex items-center justify-center text-sm">HN</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-base">Phạm Hoàng Nam</div>
+                                            <span class="text-[11px] text-slate-400 font-semibold">phamhoangnam@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0977.888.999</td>
+                                                                <td class="p-4 align-middle font-bold text-slate-800 text-sm">10 đơn</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">680.000 đ</td>
+                                <td class="p-4 align-middle">
+                                    <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                        Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-4 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Phạm Hoàng Nam')" class="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                            Khóa
+                                        </button>
+                                        <button onclick="goEditCustomer('Phạm Hoàng Nam', '0977.888.999', 'phamhoangnam@gmail.com', '300 Nguyễn Thị Minh Khai, Phường Xuân Hòa, TP.HCM')" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 11. Trần Thị Mai -->
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 align-middle">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 font-black flex items-center justify-center text-sm">TM</div>
+                                        <div>
+                                            <div class="font-bold text-slate-900 text-base">Trần Thị Mai</div>
+                                            <span class="text-[11px] text-slate-400 font-semibold">tranthimai@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 align-middle font-mono font-bold text-slate-800 text-sm">0987.654.321</td>
+                                                                <td class="p-4 align-middle font-bold text-slate-800 text-sm">32 đơn</td>
+                                <td class="p-4 align-middle font-black text-slate-900 text-base">2.480.000 đ</td>
+                                <td class="p-4 align-middle">
+                                    <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-full inline-flex items-center gap-1.5">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                        Hoạt động
+                                    </span>
+                                </td>
+                                <td class="p-4 align-middle text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="showToast('Đã khóa tài khoản Trần Thị Mai')" class="px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                            Khóa
+                                        </button>
+                                        <button onclick="goEditCustomer('Trần Thị Mai', '0987.654.321', 'tranthimai@gmail.com', '55 Nguyễn Huệ, Phường Sài Gòn, TP.HCM')" class="px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            Sửa
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- THANH PHÂN TRANG -->
+            <div class="flex items-center justify-center gap-2.5 pt-2 pb-4">
+                <a href="customers.html" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-xl font-bold text-sm hover:bg-slate-50 transition shadow-xs flex items-center justify-center">Trước</a>
+                <a href="customers.html" class="w-10 h-10 bg-[#71370F] text-white rounded-xl text-sm font-extrabold shadow-md flex items-center justify-center">1</a>
+                <a href="customers.html" class="w-10 h-10 bg-white border border-slate-200 text-slate-700 rounded-xl text-sm font-bold hover:bg-slate-50 transition shadow-xs flex items-center justify-center">2</a>
+                <a href="customers.html" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-xl font-bold text-sm hover:bg-slate-50 transition shadow-xs flex items-center justify-center">Sau</a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Sửa Thông Tin Khách Hàng (Bổ sung đầy đủ thông tin & dùng icon offline) -->
+    <div id="modal-edit-user" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-100 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-100">
+                <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                    Sửa Thông Tin Khách Hàng
+                </h3>
+                <button onclick="toggleModal('modal-edit-user')" class="text-slate-400 hover:text-slate-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <form onsubmit="event.preventDefault(); toggleModal('modal-edit-user'); showToast('Đã cập nhật thông tin thành công!');" class="space-y-4">
+                <div class="flex gap-3 pt-2">
+                    <button type="button" onclick="toggleModal('modal-edit-user')" class="flex-1 py-2.5 border border-slate-200 text-slate-600 rounded-xl text-sm font-bold hover:bg-slate-50">Hủy</button>
+                    <button type="submit" class="flex-1 py-2.5 bg-[#71370F] hover:bg-[#5a2c0c] text-white rounded-xl text-sm font-bold shadow-md">Lưu thay đổi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function goEditCustomer() { window.location.href = 'customer-edit.html'; }
+
+        function showToast(msg) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'p-3.5 rounded-xl shadow-xl text-sm font-bold flex items-center gap-2.5 text-white bg-emerald-600 transition duration-300';
+            toast.innerHTML = `<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> <span>${msg}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+    </script>
+
+    <script>
+      // Trang mẫu chỉ hiển thị bản ghi đầu tiên theo yêu cầu.
+      document.addEventListener('DOMContentLoaded', function () {
+        const tbody = document.querySelector('table tbody');
+        if (!tbody) return;
+        Array.from(tbody.querySelectorAll(':scope > tr')).forEach((row, index) => {
+          row.style.display = index === 0 ? '' : 'none';
+        });
+      });
+    </script>
+    <script src="currency-input.js"></script>
+</body>
+</html>
