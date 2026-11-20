@@ -2301,3 +2301,80 @@ textarea:focus {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
+
+/* Style cho nút Mua lại */
+.btn-mua-lai {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  background-color: #ffffff;
+  color: #7c5232; /* Màu nâu chữ */
+  border: 2px solid #7c5232; /* Tăng độ dày viền lên 2px cho đậm hơn */
+  border-radius: 6px; /* Bo góc nhẹ 6px cho mềm mại, giống nút Xem chi tiết */
+  font-size: 14px;
+  font-weight: 700; /* Chữ đậm hơn cho rõ nét */
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+/* Hiệu ứng khi đưa chuột vào (Hover) */
+.btn-mua-lai:hover {
+  background-color: #7c5232;
+  color: #ffffff;
+}
+
+/* ===== FIX CĂN HÀNG HEADER ===== */
+.header .nav a,
+.header .header-action-item,
+.header .user-dropdown summary {
+  padding: 4px 0 2px !important; /* trên 4 = dưới 2 + viền 2 → cân đối */
+  border-bottom: 2px solid transparent !important;
+  line-height: 1.4;
+}
+
+/* Thẻ bọc ngoài của dropdown: bỏ padding để không bị cộng dồn */
+.header .header-action-item:has(.user-dropdown) {
+  padding: 0 !important;
+  border-bottom: none !important;
+}
+
+/* Giữ gạch chân khi hover / active */
+.header .nav a:hover,
+.header .nav a.active,
+.header a.header-action-item:hover,
+.header a.header-action-item.active,
+.header .user-dropdown:hover summary,
+.header .header-action-item.active summary {
+  border-bottom-color: var(--mau-nhan) !important;
+}
+
+/* ===== MÀU CHỮ + ICON KHI HOVER / ACTIVE ===== */
+.header .nav a:hover,
+.header .nav a.active {
+  color: var(--mau-nhan) !important;
+}
+
+.header .header-action-item:hover .main-text,
+.header .header-action-item.active .main-text,
+.header .user-dropdown:hover .main-text {
+  color: var(--mau-nhan) !important;
+}
+
+.header .header-action-item:hover .cart-icon-wrapper svg,
+.header .header-action-item.active .cart-icon-wrapper svg,
+.header .user-dropdown:hover summary svg,
+.header .header-action-item.active summary svg {
+  stroke: var(--mau-nhan) !important;
+}
+
+/* Trả lại padding ngang cho menu để gạch chân dài ra */
+.header .nav a {
+  padding: 4px 4px 2px !important;
+}
+
+.header .nav {
+  gap: 22px;
+}

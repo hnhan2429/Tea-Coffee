@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lịch Sử Mua Hàng - Góc Tea</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script>
+    // Kiểm tra trạng thái đăng nhập ngay lập tức
+    if (sessionStorage.getItem("daDangNhap") === "false") {
+      window.location.href = "login.html";
+    }
+  </script>
   </head>
   <body>
     <script>
@@ -357,7 +363,7 @@
             </div>
           </div>
 
-         <div
+          <div
             style="
               padding: 15px 20px;
               background: #fff;
@@ -528,9 +534,12 @@
                 >41.000 đ</strong
               >
             </div>
-            <a href="order-detail.html" class="btn-view-detail">
-              Xem chi tiết &rarr;
-            </a>
+            <div style="display: flex; gap: 10px; align-items: center">
+              <a href="products.html" class="btn-mua-lai"> Mua lại </a>
+              <a href="order-detail.html" class="btn-view-detail">
+                Xem chi tiết &rarr;
+              </a>
+            </div>
           </div>
         </div>
         <!-- ĐƠN HÀNG 3 (Đã hủy) -->
@@ -885,9 +894,13 @@
                 >46.000 đ</strong
               >
             </div>
-            <a href="order-detail.html" class="btn-view-detail">
-              Xem chi tiết &rarr;
-            </a>
+            <div style="display: flex; gap: 10px; align-items: center">
+              <!-- Nút Mua lại -->
+              <a href="products.html" class="btn-mua-lai"> Mua lại </a>
+              <a href="order-detail.html" class="btn-view-detail">
+                Xem chi tiết &rarr;
+              </a>
+            </div>
           </div>
         </div>
       </div>
