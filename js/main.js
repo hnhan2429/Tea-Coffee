@@ -179,3 +179,34 @@ function formatTienTe(input) {
     input.value = value;
   }
 }
+
+function kichHoatDanhMuc() {
+  const links = document.querySelectorAll(".categories-inner a");
+  const tieuDe = document.querySelectorAll(".category-title-mini[id]");
+  if (!tieuDe.length) return; // chỉ chạy ở trang có danh mục
+
+  function capNhat() {
+    let idHienTai = "";
+    tieuDe.forEach((h) => {
+      if (h.getBoundingClientRect().top <= 160) idHienTai = h.id;
+    });
+
+    // Cuộn tới cuối trang thì coi như đang ở mục cuối (Topping)
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 5) {
+      idHienTai = tieuDe[tieuDe.length - 1].id;
+    }
+
+    links.forEach((a) => {
+      const href = a.getAttribute("href");
+      if (href.includes("#")) {
+        a.classList.toggle("active", href.split("#")[1] === idHienTai);
+      } else if (href === "products.html") {
+        // "Sản phẩm" chỉ sáng khi chưa cuộn tới mục nào
+        a.classList.toggle("active", idHienTai === "");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", capNhat, { passive: true });
+  capNhat();
+}
