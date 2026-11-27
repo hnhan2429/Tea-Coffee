@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="vi" class="text-[14px] lg:text-[15px]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Góc Trà Sữa - Sửa Sản Phẩm Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        sidebarBg: '#3d1e0b',
+                        sidebarHover: '#4e2810',
+                        sidebarActive: '#5c3013',
+                        brand: { 50: '#fffbeb', 100: '#fef3c7', 500: '#d97706', 600: '#71370F', 700: '#5a2c0c' },
+                        logoBg: '#71370F'
+                    } 
+                } 
+            } 
+        }
+    </script>
+</head>
+<body class="bg-amber-50/30 font-sans text-slate-800 antialiased flex h-screen overflow-hidden">
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-5 right-5 z-50 space-y-2"></div>
+
+    <!-- Sidebar cố định -->
+    <aside class="w-64 bg-sidebarBg text-slate-200 flex flex-col justify-between hidden md:flex shadow-2xl flex-shrink-0 h-screen sticky top-0">
+        <div class="overflow-y-auto">
+            <!-- Logo Header -->
+            <div class="p-5 bg-[#71370F] border-b border-[#5a2c0c] text-center">
+                <div class="font-extrabold text-2xl tracking-wide text-white leading-tight">
+                    Góc <span class="text-[#ffe4b5]">Tea</span>
+                </div>
+                <div class="text-[11px] font-bold text-[#fef08a] tracking-wider mt-0.5">
+                    Boba & Coffee
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="p-4 space-y-6 text-sm">
+                <!-- KHU VỰC 1: TỔNG QUAN -->
+                <div>
+                    <div class="px-3 mb-2 text-[11px] font-bold tracking-wider text-amber-200/60 uppercase">TỔNG QUAN</div>
+                    <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                        <span>Tổng quan</span>
+                    </a>
+                </div>
+
+                <!-- KHU VỰC 2: QUẢN LÝ CỬA HÀNG -->
+                <div>
+                    <div class="px-3 mb-2 text-[11px] font-bold tracking-wider text-amber-200/60 uppercase">QUẢN LÝ CỬA HÀNG</div>
+                    <div class="space-y-1">
+                        <a href="customers.html" class="flex items-center justify-between px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                <span>Khách hàng</span>
+                            </div>
+                            <span class="px-2 py-0.5 bg-white/10 text-xs rounded-full font-semibold text-slate-300">34</span>
+                        </a>
+
+                        <a href="products.html" class="flex items-center justify-between px-3 py-2.5 bg-sidebarActive text-white rounded-xl font-semibold shadow-sm transition">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+                                <span>Sản phẩm</span>
+                            </div>
+                            <span class="px-2 py-0.5 bg-white/10 text-xs rounded-full font-semibold text-white">18</span>
+                        </a>
+
+                        <a href="orders.html" class="flex items-center justify-between px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+                                <span>Đơn hàng</span>
+                            </div>
+                            <span class="px-2 py-0.5 bg-rose-500/80 text-white text-xs rounded-full font-semibold">8</span>
+                        </a>
+
+                        <a href="customer-stats.html" class="flex items-center gap-3 px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                            <span>Thống kê khách hàng</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KHU VỰC 3: HỆ THỐNG -->
+                <div>
+                    <div class="px-3 mb-2 text-[11px] font-bold tracking-wider text-amber-200/60 uppercase">HỆ THỐNG</div>
+                    <div class="space-y-1">
+                        <a href="../index.html" target="_blank" class="flex items-center justify-between px-3 py-2.5 text-slate-300 hover:bg-sidebarHover hover:text-white rounded-xl font-medium transition">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                                <span>Xem cửa hàng</span>
+                            </div>
+                            <svg class="w-4 h-4 text-amber-200/70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+
+                        <a href="login.html" class="flex items-center gap-3 px-3 py-2.5 text-slate-300 hover:bg-rose-500/20 hover:text-rose-300 rounded-xl font-medium transition">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                            <span>Đăng xuất</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- PHẦN ADMIN PHÍA DƯỚI SIDEBAR -->
+        <div class="p-4 border-t border-white/10 flex items-center gap-3 bg-[#321808]">
+            <div class="w-10 h-10 rounded-full bg-[#71370F] border border-amber-400/30 flex items-center justify-center font-bold text-white text-xs shadow-inner">
+                AD
+            </div>
+            <div class="leading-tight">
+                <div class="font-bold text-sm text-white">Admin</div>
+                <div class="text-xs text-amber-200/70 font-medium">Quản trị viên</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-w-0 h-screen overflow-y-auto">
+        <!-- Header -->
+        <header class="h-20 bg-white border-b border-slate-200 px-6 flex items-center justify-between shadow-xs flex-shrink-0">
+            <h1 class="text-xl md:text-2xl font-extrabold text-slate-800 flex items-center gap-2.5">
+                <a href="products.html" class="text-slate-400 hover:text-[#71370F] transition" title="Quay lại">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                </a>
+                Sửa Sản Phẩm
+            </h1>
+
+            <div class="flex items-center gap-4">
+                <!-- Ngày tháng năm hôm nay -->
+                <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-amber-50/80 border border-amber-200/60 rounded-xl text-xs font-bold text-amber-900">
+                    <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span id="current-date">12/11/2026</span>
+                </div>
+
+                <!-- Xem website -->
+                <a href="../index.html" target="_blank" title="Xem website" class="p-2.5 bg-slate-100 hover:bg-amber-100/60 text-slate-700 rounded-xl transition flex items-center gap-1.5 text-xs font-bold">
+                    <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    <span class="hidden md:inline">Xem website</span>
+                </a>
+
+                <!-- Thông báo (Nút hình cái chuông đã được thêm lại)[cite: 2] -->
+                <a href="orders.html" title="Thông báo đơn hàng" class="relative p-2.5 bg-slate-100 hover:bg-amber-100/60 text-slate-700 rounded-xl transition flex items-center justify-center">
+                    <svg class="w-5 h-5 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                    <span class="absolute -top-1 -right-1 w-5 h-5 bg-rose-500 text-white rounded-full text-[10px] font-extrabold flex items-center justify-center shadow-sm">8</span>
+                </a>
+
+                <!-- Admin Info -->
+                <div class="flex items-center gap-2 pl-2 border-l border-slate-200">
+                    <div class="w-9 h-9 rounded-full bg-[#71370F] text-white flex items-center justify-center font-bold text-xs shadow-inner">AD</div>
+                    <div class="hidden lg:block leading-tight">
+                        <div class="font-bold text-xs text-slate-800">Admin</div>
+                        <div class="text-[10px] text-slate-400">Quản trị viên</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Form Container -->
+        <main class="p-6 max-w-4xl mx-auto w-full space-y-6">
+            <!-- Form Card -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 md:p-8">
+                <div class="flex items-center justify-between pb-6 mb-6 border-b border-slate-100">
+                    <div>
+                        <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+                            <svg class="w-6 h-6 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                            Chỉnh Sửa Thông Tin Món
+                        </h2>
+                        <p class="text-xs text-slate-500 mt-1">Cập nhật các chi tiết bên dưới, thay đổi sẽ hiển thị trên thực đơn cửa hàng sau khi lưu.</p>
+                    </div>
+                    <a href="products.html" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition flex items-center gap-1.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Hủy Bỏ
+                    </a>
+                </div>
+
+                <form onsubmit="handleEditProduct(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Tên món -->
+                        <div>
+                            <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2 flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+                                Tên món
+                            </label>
+                            <input type="text" value="Trà sữa truyền thống" placeholder="VD: Trà sữa Oolong Nướng" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F] font-medium transition">
+                        </div>
+
+                        <!-- Danh mục -->
+                        <div>
+                            <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2 flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+                                Danh mục
+                            </label>
+                            <select class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F] font-medium transition">
+                                <option value="">-- Chọn danh mục --</option>
+                                <option value="Trà Sữa" selected>Trà Sữa</option>
+                                <option value="Trà Trái Cây & Sinh Tố">Trà Trái Cây & Sinh Tố</option>
+                                <option value="Coffee & Latte">Coffee & Latte</option>
+                                <option value="Topping">Topping</option>
+                            </select>
+                        </div>
+
+                        <!-- Giá bán -->
+                        <div>
+                            <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2 flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                Giá bán (đ)
+                            </label>
+                            <div class="relative">
+                                <input type="text" inputmode="numeric" data-currency-input id="price-input" value="25.000" placeholder="VD: 25.000" class="w-full pl-4 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F] font-bold transition">
+                                <span class="absolute inset-y-0 right-4 flex items-center text-sm font-bold text-slate-400">đ</span>
+                            </div>
+                        </div>
+
+                        <!-- Mã món -->
+                        <div>
+                            <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2 flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h10M7 12h10m-7 5h7"/></svg>
+                                Mã món (SKU)
+                            </label>
+                            <input type="text" value="TS001" placeholder="Tự động tạo hoặc nhập thủ công..." class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F] font-medium transition">
+                        </div>
+                    </div>
+
+                    <!-- Mô tả sản phẩm -->
+                    <div>
+                        <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2 flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg>
+                            Mô tả chi tiết sản phẩm
+                        </label>
+                        <textarea rows="3" placeholder="Nhập mô tả hương vị, nguyên liệu nổi bật..." class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#71370F] font-medium transition resize-none">Trà đen thơm hòa quyện cùng sữa béo, vị ngọt dịu dễ uống.</textarea>
+                    </div>
+
+                    <!-- Size -->
+                    <div>
+                        <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Size &amp; phụ thu theo size</label>
+                        <p class="text-[11px] text-slate-400 font-semibold mb-3">Chọn các size có bán. Ô bên phải là số tiền cộng thêm so với giá bán gốc.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <label class="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <input type="checkbox" checked class="w-4 h-4 accent-[#71370F]">
+                                <span class="flex-1"><span class="block text-sm font-extrabold text-slate-800">Size S</span><span class="block text-[11px] text-slate-400 font-semibold">Nhỏ - giá gốc</span></span>
+                                <span class="relative w-28">
+                                    <input type="text" inputmode="numeric" value="0" class="w-full pl-3 pr-7 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold text-right focus:outline-none focus:border-[#71370F]">
+                                    <span class="absolute inset-y-0 right-2.5 flex items-center text-xs font-bold text-slate-400">đ</span>
+                                </span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <input type="checkbox" checked class="w-4 h-4 accent-[#71370F]">
+                                <span class="flex-1"><span class="block text-sm font-extrabold text-slate-800">Size M</span><span class="block text-[11px] text-slate-400 font-semibold">Vừa</span></span>
+                                <span class="relative w-28">
+                                    <input type="text" inputmode="numeric" value="4.000" class="w-full pl-3 pr-7 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold text-right focus:outline-none focus:border-[#71370F]">
+                                    <span class="absolute inset-y-0 right-2.5 flex items-center text-xs font-bold text-slate-400">đ</span>
+                                </span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                                <input type="checkbox" checked class="w-4 h-4 accent-[#71370F]">
+                                <span class="flex-1"><span class="block text-sm font-extrabold text-slate-800">Size L</span><span class="block text-[11px] text-slate-400 font-semibold">Lớn</span></span>
+                                <span class="relative w-28">
+                                    <input type="text" inputmode="numeric" value="8.000" class="w-full pl-3 pr-7 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold text-right focus:outline-none focus:border-[#71370F]">
+                                    <span class="absolute inset-y-0 right-2.5 flex items-center text-xs font-bold text-slate-400">đ</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Topping -->
+                    <div>
+                        <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Topping cho phép thêm</label>
+                        <p class="text-[11px] text-slate-400 font-semibold mb-3">Bấm để chọn các topping có thể gọi kèm món này.</p>
+                        <div class="flex flex-wrap gap-3">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" checked class="peer sr-only">
+                                <span class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 transition peer-checked:bg-[#71370F] peer-checked:text-white peer-checked:border-[#71370F]">Trân châu đen <span class="opacity-70">+5.000 đ</span></span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 transition peer-checked:bg-[#71370F] peer-checked:text-white peer-checked:border-[#71370F]">Bánh flan <span class="opacity-70">+8.000 đ</span></span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" class="peer sr-only">
+                                <span class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 transition peer-checked:bg-[#71370F] peer-checked:text-white peer-checked:border-[#71370F]">Kem cheese <span class="opacity-70">+10.000 đ</span></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Tải ảnh sản phẩm + xem trước -->
+                    <div>
+                        <label class="block text-xs font-extrabold text-slate-700 uppercase mb-2 flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-[#71370F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            Hình ảnh sản phẩm
+                        </label>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="md:col-span-2 border-2 border-dashed border-slate-200 rounded-2xl p-6 text-center bg-slate-50/50 hover:bg-slate-50 transition flex flex-col items-center justify-center">
+                                <svg class="w-10 h-10 text-slate-400 mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                                <p class="text-xs font-bold text-slate-700">Bấm để chọn ảnh mới</p>
+                                <p class="text-[11px] text-slate-400 mt-1">PNG, JPG (tối đa 5MB). Bỏ trống nếu muốn giữ ảnh hiện tại.</p>
+                                <input type="file" accept="image/*" class="mt-3 text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#71370F] file:text-white hover:file:bg-[#5a2c0c] cursor-pointer">
+                            </div>
+                            <div>
+                                <p class="text-[11px] font-bold text-slate-400 uppercase mb-2">Ảnh hiện tại</p>
+                                <div class="relative aspect-square w-full max-w-[200px] mx-auto rounded-2xl border border-slate-200 bg-slate-50 overflow-hidden flex items-center justify-center">
+                                    <img src="../images/products/tra-sua-truyen-thong.png" alt="Ảnh sản phẩm hiện tại" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nút Thao Tác -->
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                        <a href="products.html" class="flex-1 py-3 border border-slate-200 text-slate-600 rounded-xl text-sm font-bold hover:bg-slate-50 transition text-center">
+                            Hủy Bỏ
+                        </a>
+                        <button type="submit" class="flex-1 py-3 bg-[#71370F] hover:bg-[#5a2c0c] text-white rounded-xl text-sm font-bold shadow-md transition flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5 text-amber-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            Lưu Thay Đổi
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('vi-VN', options);
+
+        function handleEditProduct(event) {
+            event.preventDefault();
+            showToast('Đã cập nhật sản phẩm thành công!');
+            setTimeout(() => {
+                window.location.href = 'products.html';
+            }, 1500);
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'p-3.5 rounded-xl shadow-xl text-sm font-bold flex items-center gap-2.5 text-white bg-emerald-600 transition duration-300';
+            toast.innerHTML = `<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> <span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 2500);
+        }
+    </script>
+    <script src="currency-input.js"></script>
+</body>
+</html>
