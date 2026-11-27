@@ -2378,3 +2378,182 @@ textarea:focus {
 .header .nav {
   gap: 22px;
 }
+
+/* ===== THANH MENU + DANH MỤC (HÀNG DƯỚI) ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+.header-categories {
+  background: var(--mau-nau);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.categories-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.categories-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.categories-inner a {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 12px 6px 10px;
+  border-bottom: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.categories-inner a:hover,
+.categories-inner a.active {
+  color: var(--mau-nhan);
+  border-bottom-color: var(--mau-nhan);
+}
+
+.category-title-mini {
+  scroll-margin-top: 140px;
+}
+
+/* ===== HÀNG DƯỚI: xếp đều, thẳng hàng với logo (giống mẫu) ===== */
+.categories-inner {
+  justify-content: flex-start; /* không dàn sát hai mép nữa */
+  gap: 40px; /* khoảng cách đều giữa các mục */
+}
+
+.categories-inner a {
+  padding: 13px 0 11px; /* bỏ padding ngang → chữ đầu thẳng hàng với logo */
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase; /* viết hoa như mẫu, xóa dòng này nếu không thích */
+  letter-spacing: 0.3px;
+}
+
+/* ===== HÀNG TRÊN: ô tìm kiếm nằm đúng giữa ===== */
+@media (min-width: 993px) {
+  .header-top {
+    display: grid;
+    grid-template-columns: 1fr minmax(320px, 420px) 1fr;
+    align-items: center;
+  }
+
+  .header-top .search-form {
+    max-width: none;
+    width: 100%;
+  }
+
+  .header-top .header-actions {
+    justify-self: end; /* tài khoản + giỏ hàng dồn về mép phải */
+  }
+}
+
+/* ===== CHỈNH LẠI HÀNG DƯỚI CHO CÂN ĐỐI ===== */
+.header-categories {
+  background: var(--mau-nau); /* nâu đậm hơn để phân tầng với hàng trên */
+  border-top: none;
+}
+
+.categories-inner {
+  justify-content: center; /* menu nằm giữa, cân với ô tìm kiếm */
+  gap: 48px;
+}
+
+.categories-inner a {
+  padding: 10px 0 8px; /* thấp hơn một chút cho gọn */
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: none; /* bỏ viết hoa cho mềm mắt */
+  letter-spacing: 0;
+  color: #f5e6d3; /* kem nhạt, dịu hơn trắng */
+}
+
+.categories-inner a:hover,
+.categories-inner a.active {
+  color: var(--mau-nhan);
+  border-bottom-color: var(--mau-nhan);
+}
+
+/* Hàng trên thoáng hơn một chút */
+.header-top {
+  min-height: 72px;
+}
+
+/* ===== CÂN LẠI HEADER 2 HÀNG ===== */
+
+/* Hàng trên: chiều cao cố định, ô tìm kiếm rộng hơn */
+.header-top {
+  min-height: 70px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+@media (min-width: 993px) {
+  .header-top {
+    grid-template-columns: 1fr minmax(380px, 520px) 1fr;
+  }
+}
+
+/* Hàng dưới: nền nâu đậm hơn một chút + đường ngăn mờ phía trên */
+.header-categories {
+  background: var(--mau-nau);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.categories-inner {
+  justify-content: center;
+  gap: 44px;
+  min-height: 48px;
+  align-items: stretch; /* link cao bằng cả hàng */
+}
+
+/* Link cao bằng hàng → gạch chân nằm đúng sát đáy, chữ nằm giữa */
+.categories-inner a {
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #fff;
+  border-bottom: 3px solid transparent;
+}
+
+.categories-inner a:hover,
+.categories-inner a.active {
+  color: var(--mau-nhan);
+  border-bottom-color: var(--mau-nhan);
+}
+
+/* ===== Ô TÌM KIẾM GIÃN LẤP ĐẦY KHOẢNG GIỮA ===== */
+@media (min-width: 993px) {
+  .header-top {
+    grid-template-columns: auto 1fr auto; /* logo | tìm kiếm giãn | tài khoản + giỏ */
+    gap: 48px;
+  }
+
+  .header-top .search-form {
+    max-width: none; /* giới hạn để không quá dài */
+    width: 100%;
+    margin: 0; /* bỏ canh giữa cũ */
+    justify-self: center;
+  }
+}
+
+/* ===== Ô TÌM KIẾM NẰM GIỮA LOGO VÀ TÀI KHOẢN ===== */
+@media (min-width: 993px) {
+  .header-top .search-form {
+    justify-self: center; /* canh giữa trong khoảng trống */
+    max-width: 500px; /* độ dài ô tìm kiếm */
+    width: 100%;
+  }
+}

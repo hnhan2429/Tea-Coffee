@@ -6,11 +6,11 @@
     <title>Lịch Sử Mua Hàng - Góc Tea</title>
     <link rel="stylesheet" href="css/style.css" />
     <script>
-    // Kiểm tra trạng thái đăng nhập ngay lập tức
-    if (sessionStorage.getItem("daDangNhap") === "false") {
-      window.location.href = "login.html";
-    }
-  </script>
+      // Kiểm tra trạng thái đăng nhập ngay lập tức
+      if (sessionStorage.getItem("daDangNhap") === "false") {
+        window.location.href = "login.html";
+      }
+    </script>
   </head>
   <body>
     <script>
@@ -22,7 +22,7 @@
     </script>
 
     <!-- ================= HEADER ================= -->
-    <header class="header">
+   <header class="header">
       <div class="header-top">
         <a href="index.html" class="logo" style="line-height: 1.1">
           Góc <span>Tea</span>
@@ -38,11 +38,7 @@
             >Boba & Coffee</small
           >
         </a>
-        <nav class="nav">
-          <a href="index.html">Trang chủ</a>
-          <a href="products.html">Sản phẩm</a>
-          <a href="order-history.html" class="active">Đơn hàng</a>
-        </nav>
+
         <form class="search-form" action="search.html" method="get">
           <input
             type="text"
@@ -59,6 +55,19 @@
         </form>
         <div class="header-actions" id="header-actions"></div>
       </div>
+      <nav class="header-categories">
+        <div class="categories-inner">
+          <a href="index.html">Trang chủ</a>
+          <a href="products.html" >Sản phẩm</a>
+          <a href="products.html#tra-sua">Trà Sữa</a>
+          <a href="products.html#tra-trai-cay-sinh-to"
+            >Trà Trái Cây & Sinh Tố</a
+          >
+          <a href="products.html#coffee-latte">Coffee & Latte</a>
+          <a href="products.html#topping">Topping</a>
+          <a href="order-history.html" class="active">Đơn hàng</a>
+        </div>
+      </nav>
     </header>
 
     <!-- ================= MAIN ================= -->
@@ -171,7 +180,9 @@
                 >
                   Trà sữa truyền thống
                 </h4>
-                <p style="font-size: 14px; color: var(--mau-xam)">Size M, Kem cheese</p>
+                <p style="font-size: 14px; color: var(--mau-xam)">
+                  Size M, Kem cheese
+                </p>
               </div>
               <div
                 style="

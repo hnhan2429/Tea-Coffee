@@ -24,11 +24,7 @@
             >Boba & Coffee</small
           >
         </a>
-        <nav class="nav">
-          <a href="index.html">Trang chủ</a>
-          <a href="products.html" class="active">Sản phẩm</a>
-          <a href="order-history.html">Đơn hàng</a>
-        </nav>
+
         <form class="search-form" action="search.html" method="get">
           <input
             type="text"
@@ -45,6 +41,19 @@
         </form>
         <div class="header-actions" id="header-actions"></div>
       </div>
+      <nav class="header-categories">
+        <div class="categories-inner">
+          <a href="index.html">Trang chủ</a>
+          <a href="products.html" class="active">Sản phẩm</a>
+          <a href="products.html#tra-sua">Trà Sữa</a>
+          <a href="products.html#tra-trai-cay-sinh-to"
+            >Trà Trái Cây & Sinh Tố</a
+          >
+          <a href="products.html#coffee-latte">Coffee & Latte</a>
+          <a href="products.html#topping">Topping</a>
+          <a href="order-history.html">Đơn hàng</a>
+        </div>
+      </nav>
     </header>
 
     <!-- ================= MAIN ================= -->
@@ -79,7 +88,9 @@
               <select name="phan-loai" class="search-select">
                 <option value="all">Tất cả</option>
                 <option value="tra-sua">Trà Sữa</option>
-                <option value="tra-trai-cay-sinh-to">Trà Trái Cây & Sinh Tố</option>
+                <option value="tra-trai-cay-sinh-to">
+                  Trà Trái Cây & Sinh Tố
+                </option>
                 <option value="coffee-latte">Coffee & Latte</option>
                 <option value="topping">Topping</option>
               </select>
@@ -114,7 +125,7 @@
 
         <!-- DANH SÁCH SẢN PHẨM -->
         <!-- Phân loại 1: Trà sữa -->
-        <h3 class="category-title-mini">Trà Sữa</h3>
+        <h3 class="category-title-mini" id="tra-sua">Trà Sữa</h3>
         <div class="product-grid">
           <!-- SP 1: Trà sữa truyền thống -->
           <div class="product-card">
@@ -265,7 +276,9 @@
         </div>
 
         <!-- Phân loại 2: Trà Trái Cây & Sinh Tố -->
-        <h3 class="category-title-mini">Trà Trái Cây & Sinh Tố</h3>
+        <h3 class="category-title-mini" id="tra-trai-cay-sinh-to">
+          Trà Trái Cây & Sinh Tố
+        </h3>
         <div class="product-grid">
           <!-- SP 6: Trà ổi hồng -->
           <div class="product-card">
@@ -417,7 +430,7 @@
         </div>
 
         <!-- Phân loại 3: Coffee & Latte -->
-        <h3 class="category-title-mini">Coffee & Latte</h3>
+        <h3 class="category-title-mini" id="coffee-latte">Coffee & Latte</h3>
         <div class="product-grid">
           <!-- SP 11: Cà phê sữa -->
           <div class="product-card">
@@ -569,7 +582,7 @@
         </div>
 
         <!-- Phân loại 4: Topping -->
-        <h3 class="category-title-mini">Topping</h3>
+        <h3 class="category-title-mini" id="topping">Topping</h3>
         <div class="product-grid">
           <!-- SP 16: Trân châu đen -->
           <div class="product-card">
@@ -727,6 +740,7 @@
     <script src="js/main.js"></script>
     <script>
       kiemTraDangNhap();
+      kichHoatDanhMuc();
     </script>
   </body>
 </html>
